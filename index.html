@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Chosen Palette: Midnight Blue & Amber -->
-    <!-- Application Structure Plan: The application is structured as a narrative journey for the client, not just a list of services. 1. **Hero Section:** Immediately establishes the "Digital-First" value proposition ("Your engineering partner, anywhere"). 2. **Value Proposition Section:** Quickly shows *who* benefits (developers, landowners) and *what* they get (precision, efficiency), making it user-centric. 3. **"The Digital Workflow" Section:** This is the core innovation. It visually explains the remote work process in 3 simple steps, building trust and demystifying the "no office" model. 4. **Interactive Expertise Hub:** A tabbed interface separates "Engineering Services" from "Professional Training," preventing clutter and encouraging exploration. Clicking an item reveals details, making the experience dynamic. 5. **Founder's Profile:** Builds personal trust by highlighting Ramzi's specific experience. 6. **Smart Contact Section:** Prioritizes digital communication (Email, WhatsApp) aligned with the business model. This structure was chosen to proactively address the "remote work" nature, turning it into a feature of modernity and efficiency, rather than a limitation. -->
-    <!-- Visualization & Content Choices: 1. **Digital Workflow Diagram:** (Goal: Explain Process) -> (Method: 3-part Flexbox layout with icons) -> (Interaction: Subtle hover effects) -> (Justification: Simplifies and legitimizes the remote service model) -> (Library: HTML/Tailwind). 2. **Expertise Hub:** (Goal: Organize/Detail Services) -> (Method: Tabbed interface with a grid of services) -> (Interaction: JS-powered tab switching and detail expansion on click) -> (Justification: Manages a large amount of information cleanly and encourages user engagement) -> (Library: Vanilla JS). 3. **Icons:** (Goal: Visual Cues) -> (Method: Unicode characters and styled HTML) -> (Interaction: None) -> (Justification: Lightweight, fast, and avoids external image dependencies, reinforcing the clean, modern aesthetic) -> (Library: HTML/Tailwind). -->
+    <!-- Chosen Palette: Warm Neutrals with Amber Accent -->
+    <!-- Application Structure Plan: The SPA is redesigned as an interactive "Digital Headquarters" to showcase expertise, not just list services. The structure prioritizes user exploration and proof of competence. 1. **Hero Section:** Dynamic typing effect introduces key specializations immediately. 2. **Interactive Services Hub:** A major upgrade from a static list. A grid of clickable services reveals detailed descriptions, tools used, and a relevant image in a dedicated panel. This interaction demonstrates technical modernity. 3. **Filterable Project Showcase:** A new core section. Users can filter projects by service type (Roads, GIS, etc.). Clicking a project opens a modal with a detailed case study (Challenge, Solution, Outcome). This provides tangible proof of work. 4. **Expertise Dashboard:** A small, impactful section with animated counters for key metrics (Experience, Projects, Technologies), making expertise quantifiable and impressive. 5. **Data Visualization Demo:** A simple, clean doughnut chart visualizing project distribution. This subtly proves data analysis skills, a core service. 6. **Founder & Contact:** Standard sections to build personal trust and provide clear calls to action. This structure was chosen to transform the site from a passive brochure into an active portfolio that engages users and builds credibility through interaction and evidence. -->
+    <!-- Visualization & Content Choices: 1. **Services Hub:** (Goal: Organize/Detail) -> (Method: JS-driven content panel) -> (Interaction: Click to update text/image) -> (Justification: Reduces clutter, encourages exploration of each service's depth). 2. **Project Showcase:** (Goal: Compare/Inform) -> (Method: Filterable grid with modal popups) -> (Interaction: Filter buttons update grid; click on card opens detailed case study) -> (Justification: Allows users to self-select relevant proof points, making the experience personalized). 3. **Expertise Dashboard:** (Goal: Inform/Impress) -> (Method: Animated number counters) -> (Interaction: Numbers animate on scroll) -> (Justification: Creates a dynamic and memorable display of key qualifications). 4. **Project Distribution Chart:** (Goal: Organize/Inform) -> (Method: Doughnut Chart) -> (Interaction: Hover for tooltips) -> (Justification: Visually summarizes the scope of work and demonstrates data visualization skills) -> (Library: Chart.js). All interactions are designed to reveal information progressively, making a content-rich page feel clean and manageable. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
     <meta name="keywords" content="آر إي جيوماتكس, Rageomatics, مكتب مساحة, مهندس استشاري, خدمات عن بعد, Civil 3D, GIS, رفع مساحي, تصميم طرق, مأرب, اليمن">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,142 +23,126 @@
     
     <style>
         :root {
-            --dark-bg: #111827; /* gray-900 */
-            --primary-accent: #f59e0b; /* amber-500 */
-            --light-bg: #f9fafb; /* gray-50 */
-            --text-dark: #1f2937; /* gray-800 */
-            --text-light: #f3f4f6; /* gray-200 */
+            --bg-main: #fdfaf6;
+            --bg-secondary: #ffffff;
+            --text-dark: #3a3a3a;
+            --text-light: #707070;
+            --primary-accent: #f59e0b;
+            --border-color: #f0e9e1;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: var(--text-dark); }
-        .hero-section { background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)), url('images/hero-background.jpg') no-repeat center center/cover; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-main); color: var(--text-dark); }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--primary-accent); margin: 1rem auto 0; border-radius: 2px; }
-        .tab-btn.active { color: var(--primary-accent); border-color: var(--primary-accent); }
-        .service-item { transition: all 0.3s ease; }
+        .service-card { transition: all 0.3s ease; border: 2px solid transparent; }
+        .service-card.active, .service-card:hover { border-color: var(--primary-accent); transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        .project-filter-btn.active { background-color: var(--primary-accent); color: white; }
+        .modal { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: auto; max-height: 400px; }
     </style>
 </head>
 <body class="antialiased">
 
-    <header id="header" class="bg-gray-900/80 backdrop-blur-sm text-white shadow-lg sticky top-0 z-50">
+    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-3xl font-extrabold tracking-wider text-white"><span class="text-amber-400">RA</span>GEOMATICS</a>
+            <a href="#hero" class="text-3xl font-extrabold tracking-wider"><span class="text-amber-500">RA</span>GEOMATICS</a>
             <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
-                <a href="#value" class="hover:text-amber-400 transition font-semibold">قيمتنا</a>
-                <a href="#workflow" class="hover:text-amber-400 transition font-semibold">آلية العمل</a>
-                <a href="#expertise" class="hover:text-amber-400 transition font-semibold">خبراتنا</a>
-                <a href="#founder" class="hover:text-amber-400 transition font-semibold">المهندس</a>
-                <a href="#contact" class="hover:text-amber-400 transition font-semibold">تواصل معنا</a>
+                <a href="#services" class="hover:text-amber-500 transition font-semibold">خدماتنا التفاعلية</a>
+                <a href="#portfolio" class="hover:text-amber-500 transition font-semibold">معرض المشاريع</a>
+                <a href="#expertise" class="hover:text-amber-500 transition font-semibold">لماذا نحن؟</a>
+                <a href="#contact" class="hover:text-amber-500 transition font-semibold">تواصل معنا</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 pb-4">
-            <a href="#value" class="block py-2 hover:text-amber-400">قيمتنا</a>
-            <a href="#workflow" class="block py-2 hover:text-amber-400">آلية العمل</a>
-            <a href="#expertise" class="block py-2 hover:text-amber-400">خبراتنا</a>
-            <a href="#founder" class="block py-2 hover:text-amber-400">المهندس</a>
-            <a href="#contact" class="block py-2 hover:text-amber-400">تواصل معنا</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#services" class="block py-2 hover:text-amber-500">خدماتنا التفاعلية</a>
+            <a href="#portfolio" class="block py-2 hover:text-amber-500">معرض المشاريع</a>
+            <a href="#expertise" class="block py-2 hover:text-amber-500">لماذا نحن؟</a>
+            <a href="#contact" class="block py-2 hover:text-amber-500">تواصل معنا</a>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero-section text-white min-h-screen flex items-center justify-center text-center p-6">
-            <div class="max-w-4xl">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">شريكك الهندسي الرقمي، حيثما كنت.</h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">نقدم استشارات وحلولاً جيومكانية عن بعد وفي مواقع المشاريع، مدعومة بخبرة هندسية واسعة.</p>
-                <a href="#contact" class="bg-amber-500 text-gray-900 px-10 py-4 rounded-lg text-lg font-bold hover:bg-amber-400 transition transform hover:scale-105 shadow-lg">تواصل معنا</a>
-            </div>
-        </section>
-
-        <section id="value" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-12 section-title">القيمة التي نقدمها</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="p-6">
-                        <div class="text-5xl mb-4 text-amber-500">🎯</div>
-                        <h3 class="text-2xl font-bold mb-2">الدقة المتناهية</h3>
-                        <p class="text-gray-600">نستخدم أحدث الأجهزة والبرامج لضمان أن كل قياس وكل تصميم يتم بأعلى مستويات الدقة المطلوبة لنجاح مشروعك.</p>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-5xl mb-4 text-amber-500">⚡️</div>
-                        <h3 class="text-2xl font-bold mb-2">الكفاءة والمرونة</h3>
-                        <p class="text-gray-600">بصفتنا مكتبًا رقميًا، نصل إليك أينما كنت، ونقدم حلولاً سريعة وفعالة تتناسب مع جدولك الزمني وميزانيتك.</p>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-5xl mb-4 text-amber-500">💡</div>
-                        <h3 class="text-2xl font-bold mb-2">الخبرة العميقة</h3>
-                        <p class="text-gray-600">خبرتنا التي تتجاوز عقداً من الزمن تمنحنا فهماً عميقاً لتحديات المشاريع في المنطقة، مما يترجم إلى حلول عملية وواقعية.</p>
-                    </div>
+        <section id="hero" class="bg-white">
+            <div class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-right mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">خبرة هندسية متكاملة في<br><span id="typing-effect" class="text-amber-500"></span></h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto md:mx-0">نحول بياناتك المعقدة إلى قرارات استراتيجية ناجحة من خلال حلول جيومكانية دقيقة ومبتكرة، نقدمها لك أينما كنت.</p>
+                    <a href="#portfolio" class="bg-amber-500 text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 shadow-lg">شاهد مشاريعنا</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img id="hero-image" src="images/hero-image.jpg" alt="[صورة لجهاز Leica GS18 في موقع العمل]" class="rounded-lg shadow-2xl">
                 </div>
             </div>
         </section>
 
-        <section id="workflow" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-12 section-title">آلية عملنا الرقمية</h2>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-center relative">
-                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 hidden md:block"></div>
-                    <div class="relative p-6">
-                        <div class="bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 z-10 relative">1</div>
-                        <h3 class="text-xl font-bold">الاستشارة الأولية (أونلاين)</h3>
-                        <p class="text-gray-600 mt-2">نناقش أهداف مشروعك ومتطلباته عبر مكالمة أو بريد إلكتروني لفهم احتياجاتك بالكامل.</p>
-                    </div>
-                    <div class="relative p-6">
-                        <div class="bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 z-10 relative">2</div>
-                        <h3 class="text-xl font-bold">جمع البيانات والتحليل</h3>
-                        <p class="text-gray-600 mt-2">نقوم بجمع البيانات اللازمة سواء بزيارة الموقع أو باستخدام البيانات المتاحة، ثم نبدأ التحليل الرقمي.</p>
-                    </div>
-                    <div class="relative p-6">
-                        <div class="bg-amber-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 z-10 relative">3</div>
-                        <h3 class="text-xl font-bold">تسليم النتائج والمتابعة</h3>
-                        <p class="text-gray-600 mt-2">نسلمك المخرجات النهائية (خرائط، تصميمات، تقارير) بشكل رقمي، مع دعم فني كامل لضمان رضاك.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="expertise" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-8 section-title">مجالات خبرتنا</h2>
-                <div class="flex justify-center mb-10 border-b">
-                    <button id="services-tab" class="tab-btn active text-lg font-semibold py-4 px-6 border-b-2 border-transparent hover:text-amber-500">الخدمات الهندسية</button>
-                    <button id="training-tab" class="tab-btn text-lg font-semibold py-4 px-6 border-b-2 border-transparent hover:text-amber-500">التدريب الاحترافي</button>
-                </div>
-                <div id="services-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">الرفع المساحي الطبوغرافي</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">تصميم الطرق والبنية التحتية (Civil 3D)</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">تحليلات نظم المعلومات الجغرافية (GIS)</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">تقسيم الأراضي وحل النزاعات</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">معالجة بيانات الدرون والصور الجوية</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">معايرة الأجهزة المساحية</div>
-                </div>
-                <div id="training-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">دورة Autodesk Civil 3D (أساسيات ومتقدم)</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">دورة ArcGIS Pro للتحليل المكاني</div>
-                    <div class="service-item bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-xl">التدريب الميداني على أجهزة Total Station و GPS</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="founder" class="py-20">
+        <section id="services" class="py-20">
             <div class="container mx-auto px-6">
-                <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-1/3 text-center">
-                        <img src="https://placehold.co/400x400/1f2937/f59e0b?text=م.+رمزي+الحكيمي" alt="المهندس رمزي الحكيمي" class="w-48 h-48 rounded-full mx-auto shadow-lg">
-                        <h3 class="text-2xl font-bold mt-4">المهندس رمزي الحكيمي</h3>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title">استكشف خدماتنا</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">اضغط على أي خدمة لاكتشاف المزيد من التفاصيل حول منهجيتنا والأدوات التي نستخدمها.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-1/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-4" id="service-grid">
                     </div>
-                    <div class="md:w-2/3">
-                        <h4 class="text-2xl font-bold mb-4">خبرة تترجم إلى ثقة.</h4>
-                        <p class="text-gray-600 leading-relaxed">"انطلاقًا من مقرنا الرئيسي في مأرب، اليمن، وبخبرة عملية تمتد لأكثر من عقد من الزمن في قلب المشاريع الهندسية، اكتسبت فهماً لا يضاهى لطبيعة الأرض وتحديات العمل في منطقتنا. هدفي في **آر إي جيوماتكس** هو تسخير هذه الخبرة العميقة، ودمجها مع أحدث التقنيات الرقمية، لتقديم حلول هندسية تتجاوز توقعات عملائي. كل مشروع نتعهد به هو شهادة على التزامنا المطلق بالدقة، الجودة، والاحترافية."</p>
+                    <div class="lg:w-2/3 bg-white p-8 rounded-lg shadow-lg min-h-[300px] flex flex-col justify-center" id="service-details">
                     </div>
                 </div>
             </div>
         </section>
+        
+        <section id="portfolio" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title">معرض المشاريع</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">تصفح مجموعة من دراسات الحالة التي تبرز خبرتنا. قم بالتصفية حسب نوع الخدمة.</p>
+                </div>
+                <div class="flex justify-center flex-wrap gap-2 mb-8" id="project-filters">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                </div>
+            </div>
+        </section>
 
+        <section id="expertise" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title">خبرتنا بالأرقام</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">نحن نؤمن بأن الأرقام تتحدث بصوت أعلى. إليك لمحة سريعة عن خبرتنا.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-5xl font-extrabold text-amber-500" data-counter="12">0</p>
+                        <p class="text-xl font-semibold mt-2">عامًا من الخبرة الميدانية</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-5xl font-extrabold text-amber-500" data-counter="75">0</p>
+                        <p class="text-xl font-semibold mt-2">مشروعًا ناجحًا ومكتملًا</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-5xl font-extrabold text-amber-500" data-counter="5">0</p>
+                        <p class="text-xl font-semibold mt-2">تقنيات أساسية نتقنها</p>
+                    </div>
+                </div>
+                <div class="flex flex-col lg:flex-row items-center gap-12 mt-16 bg-white p-8 rounded-lg shadow-lg">
+                    <div class="lg:w-1/2">
+                        <h3 class="text-2xl font-bold mb-4">توزيع المشاريع حسب التخصص</h3>
+                        <p class="text-gray-600 mb-4">تتنوع خبرتنا لتغطي كافة جوانب الهندسة الجيومكانية، مع تركيز خاص على المشاريع التي تتطلب دقة تحليلية عالية. هذا الرسم البياني يوضح توزيع مشاريعنا الأخيرة.</p>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="chart-container">
+                            <canvas id="projectChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section id="contact" class="py-20 bg-gray-800 text-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-4 section-title text-white">هل أنت جاهز لبدء مشروعك؟</h2>
+                <h2 class="text-3xl font-bold mb-4">هل أنت جاهز لبدء مشروعك؟</h2>
                 <p class="text-gray-300 max-w-2xl mx-auto mb-10">تواصل معنا مباشرة لمناقشة احتياجاتك. سواء كنت تحتاج إلى استشارة سريعة أو عرض سعر لمشروع كامل، نحن هنا للمساعدة.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-gray-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-400 transition transform hover:scale-105 w-full sm:w-auto">
@@ -178,43 +163,280 @@
         </div>
     </footer>
 
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
+        <div class="modal-content bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform scale-95">
+            <div class="p-8">
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold"></h3>
+                    <button id="modal-close" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div><strong>العميل:</strong> <span id="modal-client"></span></div>
+                    <div><strong>الموقع:</strong> <span id="modal-location"></span></div>
+                    <div><strong>الخدمة:</strong> <span id="modal-service"></span></div>
+                </div>
+                <img id="modal-image" src="" alt="" class="rounded-lg shadow-md mb-6 w-full h-auto max-h-80 object-cover">
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">التحدي:</h4>
+                        <p id="modal-challenge"></p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">الحل المقدم:</h4>
+                        <p id="modal-solution"></p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1">النتيجة:</h4>
+                        <p id="modal-outcome"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            
+            const db = {
+                services: [
+                    { id: 'surveying', title: 'الرفع المساحي', icon: '📡', description: 'نقدم خدمات رفع مساحي طبوغرافي دقيقة باستخدام أحدث أجهزة Total Station و GPS. ننتج خرائط تفصيلية تشكل الأساس الصلب لأي مشروع هندسي ناجح، مع ضمان تطابق البيانات مع الواقع بنسبة 100%.', tools: 'Leica Total Station, GPS GS18', image: 'images/service-surveying.jpg' },
+                    { id: 'roads', title: 'تصميم الطرق', icon: '🛣️', description: 'نتخصص في تصميم الطرق والبنية التحتية باستخدام Autodesk Civil 3D. نقوم بتصميم المسارات الأفقية والرأسية، حساب كميات الحفر والردم، وإنشاء نماذج ثلاثية الأبعاد واقعية للمشروع قبل التنفيذ.', tools: 'Autodesk Civil 3D, AutoCAD', image: 'images/service-road-design.jpg' },
+                    { id: 'gis', title: 'تحليلات GIS', icon: '🗺️', description: 'نحول البيانات الجغرافية الخام إلى رؤى استراتيجية. نقوم بتحليلات مكانية متقدمة مثل اختيار أفضل المواقع، تحليل الشبكات، وإنتاج خرائط موضوعية تفاعلية لدعم اتخاذ القرار.', tools: 'ArcGIS Pro, QGIS', image: 'images/service-gis-analysis.jpg' },
+                    { id: 'parcels', title: 'تقسيم الأراضي', icon: '⚗️', description: 'نقدم خدمات فرز وتقسيم الأراضي وفقًا للقوانين والمعايير المعتمدة، مع إعداد كافة المخططات اللازمة. نساعد أيضًا في حل النزاعات العقارية من خلال تقديم بيانات مساحية دقيقة وموثوقة.', tools: 'AutoCAD, GPS', image: 'images/service-parcels.jpg' },
+                    { id: 'drone', title: 'بيانات الدرون', icon: '✈️', description: 'نقوم بمعالجة الصور الجوية الملتقطة بالطائرات بدون طيار (الدرون) لإنتاج خرائط Orhtomosaic عالية الدقة، نماذج ارتفاع رقمية (DEM)، ونماذج ثلاثية الأبعاد للمشاريع الكبرى والمناطق الوعرة.', tools: 'Agisoft Metashape, Pix4D', image: 'images/service-drone-processing.jpg' },
+                    { id: 'training', title: 'التدريب الاحترافي', icon: '🎓', description: 'نقدم دورات تدريبية متخصصة (عن بعد) في البرامج الهندسية الأساسية. نهدف إلى بناء كوادر هندسية محترفة قادرة على مواكبة متطلبات سوق العمل من خلال تطبيقات عملية وواقعية.', tools: 'Civil 3D, ArcGIS Pro', image: 'images/service-training.jpg' }
+                ],
+                projects: [
+                    { id: 1, title: 'تصميم طريق سريع', category: 'roads', client: 'شركة الطرق الحديثة', location: 'محافظة مأرب', image: 'images/project-marib-highway.jpg', challenge: 'تصميم طريق بطول 15 كم في منطقة جبلية وعرة مع تقليل تكاليف الحفر والردم.', solution: 'تم استخدام Civil 3D لتحسين المسار الرأسي والأفقي للطريق، مما أدى إلى موازنة كميات الحفر والردم بنسبة 85%. تم تقديم نماذج ثلاثية الأبعاد للعميل لتصور المشروع.', outcome: 'تقليل التكاليف التقديرية للمشروع بنسبة 20% والحصول على موافقة سريعة من الجهات المعنية بفضل التصور الواضح.' },
+                    { id: 2, title: 'اختيار موقع لمركز تجاري', category: 'gis', client: 'مجموعة الاستثمار التجاري', location: 'مدينة مأرب', image: 'images/project-commercial-site.jpg', challenge: 'تحديد أفضل قطعة أرض لإنشاء مركز تجاري جديد بناءً على الكثافة السكانية، سهولة الوصول، والمنافسة.', solution: 'تم استخدام ArcGIS Pro لتحليل البيانات الديموغرافية وشبكة الطرق. تم إنشاء خريطة حرارية توضح أفضل المناطق الواعدة بناءً على المعايير المحددة.', outcome: 'تحديد موقع مثالي لم يكن ضمن قائمة العميل الأولية، مع توقعات بزيادة الإقبال بنسبة 30% مقارنة بالخيارات الأخرى.' },
+                    { id: 3, title: 'رفع مساحي لمشروع زراعي', category: 'surveying', client: 'مؤسسة التنمية الزراعية', location: 'ريف مأرب', image: 'images/project-farm-survey.jpg', challenge: 'إنشاء خريطة طبوغرافية دقيقة لمساحة 50 هكتار لتصميم شبكة ري حديثة.', solution: 'تم تنفيذ رفع مساحي شبكي باستخدام أجهزة GPS عالية الدقة، وإنتاج خريطة كنتورية بفترة فاصلة 50 سم.', outcome: 'تمكين مهندسي الري من تصميم شبكة فعالة تقلل من هدر المياه بنسبة 40%.' },
+                    { id: 4, title: 'نمذجة 3D لمنطقة أثرية', category: 'drone', client: 'هيئة الآثار', location: 'محافظة مأرب', image: 'images/project-archeological-3d.jpg', challenge: 'توثيق موقع أثري صعب الوصول لغرض الدراسة والترميم.', solution: 'تم استخدام طائرة بدون طيار لالتقاط مئات الصور عالية الدقة، ومن ثم معالجتها في Agisoft Metashape لإنتاج نموذج ثلاثي الأبعاد واقعي ودقيق.', outcome: 'توفير نموذج رقمي تفاعلي للباحثين سمح بدراسة الموقع دون الحاجة للوصول المادي، والمساعدة في تخطيط أعمال الترميم.' },
+                    { id: 5, title: 'تقسيم مخطط سكني', category: 'parcels', client: 'مطور عقاري خاص', location: 'ضواحي مدينة مأرب', image: 'images/project-residential-plot.jpg', challenge: 'تقسيم قطعة أرض بمساحة 20 هكتار إلى 150 قطعة سكنية مع تصميم شبكة الطرق الداخلية والمرافق العامة.', solution: 'تم إعداد مخطط تقسيم احترافي باستخدام AutoCAD مع مراعاة كافة الاشتراطات التنظيمية. تم توقيع جميع أركان القطع على الطبيعة باستخدام GPS.', outcome: 'تسليم مخططات دقيقة جاهزة للاعتماد الرسمي، مما سرّع من عملية بدء البيع والتطوير للمشروع.' }
+                ]
+            };
 
-            const servicesTab = document.getElementById('services-tab');
-            const trainingTab = document.getElementById('training-tab');
-            const servicesContent = document.getElementById('services-content');
-            const trainingContent = document.getElementById('training-content');
+            const typingEffectEl = document.getElementById('typing-effect');
+            const serviceGridEl = document.getElementById('service-grid');
+            const serviceDetailsEl = document.getElementById('service-details');
+            const projectFiltersEl = document.getElementById('project-filters');
+            const projectGridEl = document.getElementById('project-grid');
+            const modalEl = document.getElementById('project-modal');
+            const modalCloseBtn = document.getElementById('modal-close');
 
-            servicesTab.addEventListener('click', () => {
-                trainingContent.classList.add('hidden');
-                servicesContent.classList.remove('hidden');
-                trainingTab.classList.remove('active');
-                servicesTab.classList.add('active');
-            });
+            function typeWriter(element, words, wait = 2000) {
+                let txt = '';
+                let wordIndex = 0;
+                let isDeleting = false;
 
-            trainingTab.addEventListener('click', () => {
-                servicesContent.classList.add('hidden');
-                trainingContent.classList.remove('hidden');
-                servicesTab.classList.remove('active');
-                trainingTab.classList.add('active');
-            });
+                function type() {
+                    const currentWord = words[wordIndex];
+                    if (isDeleting) {
+                        txt = currentWord.substring(0, txt.length - 1);
+                    } else {
+                        txt = currentWord.substring(0, txt.length + 1);
+                    }
 
-            const navLinks = document.querySelectorAll('#header a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    element.innerHTML = `<span class="wrap">${txt}</span>`;
+
+                    let typeSpeed = 150;
+                    if (isDeleting) {
+                        typeSpeed /= 2;
+                    }
+
+                    if (!isDeleting && txt === currentWord) {
+                        isDeleting = true;
+                        typeSpeed = wait;
+                    } else if (isDeleting && txt === '') {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        typeSpeed = 500;
+                    }
+                    setTimeout(type, typeSpeed);
+                }
+                type();
+            }
+
+            function renderServices() {
+                serviceGridEl.innerHTML = db.services.map(service => `
+                    <div class="service-card bg-white p-4 rounded-lg shadow-md cursor-pointer text-center" data-id="${service.id}">
+                        <span class="text-4xl">${service.icon}</span>
+                        <h4 class="font-bold mt-2">${service.title}</h4>
+                    </div>
+                `).join('');
+            }
+            
+            function renderServiceDetails(serviceId) {
+                const service = db.services.find(s => s.id === serviceId);
+                if (!service) return;
+
+                serviceDetailsEl.innerHTML = `
+                    <img src="${service.image}" alt="[صورة توضيحية لخدمة ${service.title}]" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-2">${service.title}</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">${service.description}</p>
+                    <p class="text-sm font-semibold text-gray-500"><strong>الأدوات المستخدمة:</strong> ${service.tools}</p>
+                `;
+                
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.classList.toggle('active', card.dataset.id === serviceId);
+                });
+            }
+
+            function renderProjectFilters() {
+                const categories = ['الكل', ...new Set(db.projects.map(p => p.category))];
+                projectFiltersEl.innerHTML = categories.map(category => {
+                    const title = category === 'الكل' ? 'الكل' : db.services.find(s => s.id === category).title;
+                    return `<button class="project-filter-btn px-4 py-2 rounded-full font-semibold transition ${category === 'الكل' ? 'active' : ''}" data-category="${category}">${title}</button>`;
+                }).join('');
+            }
+
+            function renderProjects(filter = 'الكل') {
+                const filteredProjects = filter === 'الكل' ? db.projects : db.projects.filter(p => p.category === filter);
+                projectGridEl.innerHTML = filteredProjects.map(project => `
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition" data-id="${project.id}">
+                        <img src="${project.image}" alt="[صورة لمشروع ${project.title}]" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold">${project.title}</h4>
+                            <p class="text-amber-600 font-semibold">${db.services.find(s => s.id === project.category).title}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function openModal(projectId) {
+                const project = db.projects.find(p => p.id == projectId);
+                if (!project) return;
+
+                document.getElementById('modal-title').textContent = project.title;
+                document.getElementById('modal-client').textContent = project.client;
+                document.getElementById('modal-location').textContent = project.location;
+                document.getElementById('modal-service').textContent = db.services.find(s => s.id === project.category).title;
+                document.getElementById('modal-image').src = project.image;
+                document.getElementById('modal-image').alt = `[صورة لمشروع ${project.title}]`;
+                document.getElementById('modal-challenge').textContent = project.challenge;
+                document.getElementById('modal-solution').textContent = project.solution;
+                document.getElementById('modal-outcome').textContent = project.outcome;
+
+                modalEl.classList.remove('opacity-0', 'pointer-events-none');
+                modalEl.querySelector('.modal-content').classList.remove('scale-95');
+            }
+
+            function closeModal() {
+                modalEl.classList.add('opacity-0', 'pointer-events-none');
+                modalEl.querySelector('.modal-content').classList.add('scale-95');
+            }
+
+            function animateCounters() {
+                const counters = document.querySelectorAll('[data-counter]');
+                const speed = 200; 
+
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-counter');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+
+            function renderChart() {
+                const ctx = document.getElementById('projectChart').getContext('2d');
+                const projectCounts = db.projects.reduce((acc, project) => {
+                    acc[project.category] = (acc[project.category] || 0) + 1;
+                    return acc;
+                }, {});
+
+                const labels = Object.keys(projectCounts).map(cat => db.services.find(s => s.id === cat).title);
+                const data = Object.values(projectCounts);
+
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'عدد المشاريع',
+                            data: data,
+                            backgroundColor: ['#f59e0b', '#f97316', '#d97706', '#b45309', '#92400e', '#78350f'].slice(0, data.length),
+                            borderColor: '#ffffff',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    font: { family: "'Cairo', sans-serif" }
+                                }
+                            }
+                        }
                     }
                 });
+            }
+            
+            typeWriter(typingEffectEl, ['الرفع المساحي', 'تصميم الطرق', 'تحليلات GIS', 'التدريب الاحترافي']);
+            
+            renderServices();
+            renderServiceDetails('surveying'); 
+            
+            serviceGridEl.addEventListener('click', e => {
+                const card = e.target.closest('.service-card');
+                if (card) {
+                    renderServiceDetails(card.dataset.id);
+                }
             });
+
+            renderProjectFilters();
+            renderProjects();
+            
+            projectFiltersEl.addEventListener('click', e => {
+                if (e.target.tagName === 'BUTTON') {
+                    document.querySelectorAll('.project-filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderProjects(e.target.dataset.category);
+                }
+            });
+            
+            projectGridEl.addEventListener('click', e => {
+                const card = e.target.closest('[data-id]');
+                if (card) {
+                    openModal(card.dataset.id);
+                }
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalEl.addEventListener('click', e => {
+                if (e.target === modalEl) {
+                    closeModal();
+                }
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const expertiseSection = document.getElementById('expertise');
+            if (expertiseSection) {
+                observer.observe(expertiseSection);
+            }
+
+            renderChart();
+
         });
     </script>
-
 </body>
 </html>
