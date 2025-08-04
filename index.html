@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGEOMATICS | ريادة الأداء للتحليلات الجغرافية والتدريب</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://placehold.co/1920x1080/111827/FFFFFF?text=خلفية+بانورامية+لمشروع') no-repeat center center/cover;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #f59e0b; /* amber-500 */
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+        .pattern-bg {
+            background-color: #f9fafb; /* gray-50 */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d1d5db' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header id="header" class="bg-gray-900 text-white shadow-lg sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold tracking-wider text-white"><span class="text-amber-400">RA</span>GEOMATICS</a>
+            <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
+                <a href="#hero" class="hover:text-amber-400 transition font-semibold">الرئيسية</a>
+                <a href="#about" class="hover:text-amber-400 transition font-semibold">عن الشركة</a>
+                <a href="#services" class="hover:text-amber-400 transition font-semibold">خدماتنا</a>
+                <a href="#training" class="hover:text-amber-400 transition font-semibold">التدريب</a>
+                <a href="#contact" class="hover:text-amber-400 transition font-semibold">اتصل بنا</a>
+            </nav>
+            <a href="#contact" class="hidden md:block bg-amber-500 text-gray-900 px-5 py-2 rounded-lg hover:bg-amber-400 transition font-bold">اطلب عرض سعر</a>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 pb-4">
+            <a href="#hero" class="block py-2 hover:text-amber-400">الرئيسية</a>
+            <a href="#about" class="block py-2 hover:text-amber-400">عن الشركة</a>
+            <a href="#services" class="block py-2 hover:text-amber-400">خدماتنا</a>
+            <a href="#training" class="block py-2 hover:text-amber-400">التدريب</a>
+            <a href="#contact" class="block py-2 hover:text-amber-400">اتصل بنا</a>
+            <a href="#contact" class="block mt-2 bg-amber-500 text-gray-900 text-center px-5 py-2 rounded-lg hover:bg-amber-400">اطلب عرض سعر</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section text-white h-screen flex items-center justify-center text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight animate-fade-in-down">نرسم خرائط المستقبل بدقة متناهية</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto animate-fade-in-up">حلول جيومكانية متكاملة و برامج تدريبية متخصصة لتمكين المهندسين والمؤسسات.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="bg-amber-500 text-gray-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-400 transition transform hover:scale-105">استكشف خدماتنا</a>
+                    <a href="#training" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-900 transition transform hover:scale-105">انضم لدوراتنا التدريبية</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 section-title">من نحن</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/1f2937/f59e0b?text=Leica+GS18" alt="جهاز Leica GS18 GPS" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">RAGEOMATICS: شركاؤك في الدقة والابتكار</h3>
+                        <p class="mb-4 text-gray-600 leading-relaxed">في "ريادة الأداء للتحليلات الجغرافية"، نجمع بين الخبرة الهندسية العريقة وأحدث التقنيات الجيومكانية لتقديم حلول تتجاوز التوقعات. نحن متخصصون في كافة الأعمال المساحية، تصميم البنى التحتية، وتحليلات نظم المعلومات الجغرافية.</p>
+                        <p class="mb-4 text-gray-600 leading-relaxed">نستخدم أدوات رائدة في الصناعة مثل **Autodesk Civil 3D** و **ArcGIS Pro**، ونعتمد على دقة أجهزة **Leica GS18** و **Total Station** التي نتقن معايرتها لضمان أعلى مستويات الموثوقية في بياناتنا.</p>
+                        <p class="text-gray-700 font-semibold">رسالتنا هي تحويل البيانات المعقدة إلى رؤى واضحة، وتمكين عملائنا بالأدوات والمعرفة اللازمة للنجاح.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 pattern-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 section-title">خدماتنا الهندسية المتكاملة</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-amber-500">
+                        <div class="text-amber-500 w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.75 4l.25-1.5a.5.5 0 01.5-.5h7a.5.5 0 01.5.5L16.25 4M4.25 11h15.5M12 15.25v5.25m0 0l-3-3m3 3l3-3" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">الرفع المساحي ومعايرة الأجهزة</h3>
+                        <p class="text-gray-600">أعمال رفع وتوقيع دقيقة باستخدام أجهزة Total Station و GPS مع خدمات معايرة احترافية لضمان موثوقية قياساتكم.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-amber-500">
+                        <div class="text-amber-500 w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /><path d="M13 10V3L4 14h7v7l9-11h-7z" transform="scale(0.6) translate(10 10)" stroke-width="2" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">تصميم الطرق وحساب الكميات</h3>
+                        <p class="text-gray-600">تصميمات متكاملة للطرق والبنى التحتية باستخدام Civil 3D، مع حساب دقيق للكميات وإظهار ثلاثي الأبعاد للمشاريع.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-amber-500">
+                        <div class="text-amber-500 w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">نظم المعلومات الجغرافية (GIS)</h3>
+                        <p class="text-gray-600">تحليل البيانات المكانية، بناء قواعد البيانات الجغرافية، وإنتاج خرائط احترافية لدعم التخطيط واتخاذ القرار.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300 border-b-4 border-amber-500">
+                        <div class="text-amber-500 w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">تقسيم الأراضي وحل النزاعات</h3>
+                        <p class="text-gray-600">خدمات فرز وتقسيم الأراضي، وإعداد المخططات اللازمة، مع تقديم الدعم الفني لحل النزاعات العقارية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-4 section-title">التدريب والتطوير المهني</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">نؤمن بأن المعرفة هي أساس التطور. لذا نقدم دورات تدريبية متخصصة (أونلاين) لبناء كوادر هندسية محترفة.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Course Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-6 flex items-start gap-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-amber-100 text-amber-600 p-4 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">دورة Autodesk Civil 3D</h3>
+                            <p class="text-gray-600">من الأساسيات إلى الاحتراف في تصميم الطرق والبنى التحتية وحساب الكميات.</p>
+                        </div>
+                    </div>
+                    <!-- Course Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-6 flex items-start gap-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-amber-100 text-amber-600 p-4 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">دورة ArcGIS Pro</h3>
+                            <p class="text-gray-600">إتقان التحليل المكاني، إدارة البيانات الجغرافية، وإنتاج الخرائط الاحترافية.</p>
+                        </div>
+                    </div>
+                    <!-- Course Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-6 flex items-start gap-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-amber-100 text-amber-600 p-4 rounded-lg">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">معالجة بيانات الدرون (الصور الجوية)</h3>
+                            <p class="text-gray-600">تعلم خطوات معالجة الصور الجوية من الطائرات بدون طيار لإنتاج نماذج ثلاثية الأبعاد وخرائط Orhtomosaic.</p>
+                        </div>
+                    </div>
+                    <!-- Course Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg p-6 flex items-start gap-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-amber-100 text-amber-600 p-4 rounded-lg">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.75 4l.25-1.5a.5.5 0 01.5-.5h7a.5.5 0 01.5.5L16.25 4M4.25 11h15.5M12 15.25v5.25m0 0l-3-3m3 3l3-3" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">الأعمال المساحية المتقدمة</h3>
+                            <p class="text-gray-600">دورة متقدمة في استخدام أجهزة Leica GS18 و Total Station وتطبيقاتها في المشاريع الكبرى.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 pattern-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 section-title">تواصل معنا</h2>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-2xl">
+                    <div class="text-center mb-8">
+                        <p class="text-lg text-gray-600 mb-4">جاهزون لمناقشة مشروعك القادم أو تسجيلك في إحدى دوراتنا. تواصل معنا اليوم.</p>
+                        <p class="text-xl font-semibold text-gray-800">
+                            <a href="mailto:ramzi@rageomatics.me" class="hover:text-amber-500 transition">ramzi@rageomatics.me</a>
+                        </p>
+                    </div>
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">الاسم الكامل</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">البريد الإلكتروني</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="interest" class="block text-gray-700 font-semibold mb-2">موضوع الاهتمام</label>
+                            <select id="interest" name="interest" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white">
+                                <option>طلب خدمة هندسية</option>
+                                <option>استفسار عن دورة تدريبية</option>
+                                <option>شراكة أو تعاون</option>
+                                <option>استفسار عام</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="اكتب تفاصيل طلبك هنا..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-amber-500 text-gray-900 px-10 py-3 rounded-lg font-bold hover:bg-amber-400 transition w-full md:w-auto text-lg transform hover:scale-105">إرسال</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-extrabold text-2xl mb-2"><span class="text-amber-400">RA</span>GEOMATICS</p>
+            <p class="text-gray-400">&copy; 2025 ريادة الأداء للتحليلات الجغرافية ونظم المعلومات. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
