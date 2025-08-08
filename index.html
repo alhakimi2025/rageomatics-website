@@ -13,48 +13,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
-        .hero-section { 
-            background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('images/hero-background.jpg') no-repeat center center/cover; 
+        :root {
+            --color-primary: #facc15; /* yellow-400 */
+            --color-secondary: #1e3a8a; /* blue-900 */
+            --color-dark: #111827; /* gray-900 */
+            --color-light: #f9fafb; /* gray-50 */
+            --color-text: #374151; /* gray-700 */
         }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: #f59e0b; margin: 1rem auto 0; border-radius: 2px; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--color-light); color: var(--color-text); }
+        .hero-section { 
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--color-primary); margin: 1rem auto 0; border-radius: 2px; }
         .service-card { transition: all 0.3s ease; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .modal { transition: opacity 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; }
-        .thumbnail { cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s ease; }
-        .thumbnail.active { border-color: #f59e0b; }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased">
 
     <header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-14">
-                <div class="hidden sm:block">
-                    <span class="text-2xl font-extrabold tracking-wider text-gray-800">RAGEOMATICS</span>
-                    <p class="text-xs text-gray-500 font-semibold tracking-widest">ENGINEERING CONSULTING</p>
-                </div>
+                <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-16 w-auto">
             </a>
             <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
-                <a href="#about" class="text-gray-600 hover:text-amber-500 transition font-semibold">من نحن</a>
-                <a href="#services" class="text-gray-600 hover:text-amber-500 transition font-semibold">خدماتنا</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-amber-500 transition font-semibold">مشاريعنا</a>
-                <a href="#contact" class="text-gray-600 hover:text-amber-500 transition font-semibold">اتصل بنا</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-900 transition font-semibold">من نحن</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-900 transition font-semibold">خدماتنا</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-blue-900 transition font-semibold">مشاريعنا</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-900 transition font-semibold">اتصل بنا</a>
             </nav>
-            <a href="#contact" class="hidden lg:block bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 transition font-bold">طلب عرض سعر</a>
+            <a href="#contact" class="hidden lg:block bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition font-bold">طلب عرض سعر</a>
             <button id="mobile-menu-button" class="lg:hidden focus:outline-none text-gray-800">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-white px-6 pb-4">
-             <a href="#about" class="block py-2 text-gray-800 hover:text-amber-500">من نحن</a>
-            <a href="#services" class="block py-2 text-gray-800 hover:text-amber-500">خدماتنا</a>
-            <a href="#portfolio" class="block py-2 text-gray-800 hover:text-amber-500">مشاريعنا</a>
-            <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-500">اتصل بنا</a>
-            <a href="#contact" class="block mt-2 text-center bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 font-bold">طلب عرض سعر</a>
+             <a href="#about" class="block py-2 text-gray-800 hover:text-blue-900">من نحن</a>
+            <a href="#services" class="block py-2 text-gray-800 hover:text-blue-900">خدماتنا</a>
+            <a href="#portfolio" class="block py-2 text-gray-800 hover:text-blue-900">مشاريعنا</a>
+            <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-900">اتصل بنا</a>
+            <a href="#contact" class="block mt-2 text-center bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 font-bold">طلب عرض سعر</a>
         </div>
     </header>
 
@@ -62,12 +61,12 @@
         <section id="hero" class="hero-section text-white min-h-[85vh] flex items-center p-6">
             <div class="container mx-auto">
                 <div class="max-w-3xl text-right">
-                    <p class="text-lg font-semibold text-amber-300 mb-2">مرحبا بكم في آر إي جيوماتكس</p>
+                    <p class="text-lg font-semibold text-yellow-300 mb-2">مرحبا بكم في آر إي جيوماتكس</p>
                     <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">تشكيل المستقبل باستخدام هندسة الجيوماتكس الدقيقة</h1>
                     <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">نقدم حلولاً مبتكرة ومستدامة مدعومة بالخبرة العميقة وأحدث التقنيات الرقمية.</p>
                     <div class="flex flex-col sm:flex-row justify-start gap-4">
-                        <a href="#about" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">تعرف على المزيد</a>
-                        <a href="#contact" class="bg-gray-700/50 backdrop-blur-sm border-2 border-gray-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-800 transition transform hover:scale-105">تواصل معنا</a>
+                        <a href="#about" class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-yellow-300 transition transform hover:scale-105">تعرف على المزيد</a>
+                        <a href="#contact" class="bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-blue-900 transition transform hover:scale-105">تواصل معنا</a>
                     </div>
                 </div>
             </div>
@@ -81,23 +80,23 @@
                 </div>
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2">
-                        <img src="images/Leica-GS18.jpeg" alt="المهندس رمزي الحكيمي" class="rounded-lg shadow-2xl">
+                        <img src="images/Leica-GS18.jpeg" alt="المهندس رمزي الحكيمي في موقع العمل" class="rounded-lg shadow-2xl">
                     </div>
                     <div class="lg:w-1/2">
                         <p class="text-gray-700 mb-6 leading-relaxed">"نحن ملتزمون بالتميز الهندسي الذي يقود التقدم. تمكننا خبرتنا عبر قطاعات متنوعة من تقديم حلول مبتكرة ومؤثرة. مع فريق من المهنيين ذوي المهارات العالية، نتجاوز التوقعات باستمرار من خلال إعطاء الأولوية للجودة والدقة ورضا العملاء."</p>
                         <h3 class="text-2xl font-bold text-gray-800">م. رمزي الحكيمي</h3>
-                        <p class="text-md font-semibold text-amber-600 mb-8">المؤسس والرئيس التنفيذي</p>
+                        <p class="text-md font-semibold text-blue-800 mb-8">المؤسس والرئيس التنفيذي</p>
                         <div class="grid grid-cols-3 gap-4 text-center">
                             <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="12">0</p>
+                                <p class="text-4xl font-extrabold text-blue-900" data-counter="12">0</p>
                                 <p class="font-semibold mt-1 text-gray-600">سنوات من الخبرة</p>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="75">0</p>
+                                <p class="text-4xl font-extrabold text-blue-900" data-counter="75">0</p>
                                 <p class="font-semibold mt-1 text-gray-600">مشروع منفذ</p>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="40">0</p>
+                                <p class="text-4xl font-extrabold text-blue-900" data-counter="40">0</p>
                                 <p class="font-semibold mt-1 text-gray-600">مشروع استشاري</p>
                             </div>
                         </div>
@@ -148,7 +147,7 @@
                 <h2 class="text-3xl font-bold mb-4">هل أنت جاهز لبدء مشروعك؟</h2>
                 <p class="text-gray-300 max-w-2xl mx-auto mb-10">تواصل معنا مباشرة لمناقشة احتياجاتك. سواء كنت تحتاج إلى استشارة سريعة أو عرض سعر لمشروع كامل، نحن هنا للمساعدة.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 w-full sm:w-auto">
+                    <a href="mailto:ramzi@rageomatics.me" class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg text-lg font-bold hover:bg-yellow-300 transition transform hover:scale-105 w-full sm:w-auto">
                         📧 تواصل عبر البريد الإلكتروني
                     </a>
                     <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-green-600 transition transform hover:scale-105 w-full sm:w-auto">
@@ -162,10 +161,7 @@
     <footer class="bg-black text-white py-8">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center items-center gap-3 mb-4">
-                 <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-14">
-                <div>
-                    <span class="text-2xl font-extrabold tracking-wider">RAGEOMATICS</span>
-                </div>
+                 <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-16 w-auto">
             </div>
             <p class="text-gray-400">&copy; 2025 آر إي جيوماتكس | شريكك الهندسي الرقمي. جميع الحقوق محفوظة.</p>
         </div>
@@ -177,7 +173,7 @@
                 <div class="flex justify-between items-start border-b border-gray-200 pb-4 mb-6">
                     <div>
                         <h3 id="modal-title" class="text-3xl font-bold"></h3>
-                        <p id="modal-service" class="text-amber-600 font-semibold"></p>
+                        <p id="modal-service" class="text-blue-800 font-semibold"></p>
                     </div>
                     <button id="modal-close" class="text-gray-400 hover:text-gray-800 text-4xl">&times;</button>
                 </div>
@@ -199,15 +195,15 @@
                                 <div><strong>الموقع:</strong> <span id="modal-location"></span></div>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-amber-600">التحدي:</h4>
+                                <h4 class="font-bold text-lg mb-1 text-blue-800">التحدي:</h4>
                                 <p id="modal-challenge"></p>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-amber-600">الحل المقدم:</h4>
+                                <h4 class="font-bold text-lg mb-1 text-blue-800">الحل المقدم:</h4>
                                 <p id="modal-solution"></p>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg mb-1 text-amber-600">النتيجة:</h4>
+                                <h4 class="font-bold text-lg mb-1 text-blue-800">النتيجة:</h4>
                                 <p id="modal-outcome"></p>
                             </div>
                         </div>
@@ -224,10 +220,7 @@
                 services: [
                     { id: 'surveying', title: 'الرفع المساحي' },
                     { id: 'roads', title: 'تصميم الطرق' },
-                    { id: 'gis', title: 'تحليلات GIS' },
-                    { id: 'equipment', title: 'بيع وشراء الأجهزة' },
-                    { id: 'maintenance', title: 'صيانة الأجهزة' },
-                    { id: 'training', title: 'التدريب الاحترافي' }
+                    { id: 'gis', title: 'تحليلات GIS' }
                 ],
                 projects: [
                     { 
@@ -282,7 +275,7 @@
                         <img src="${project.images[0]}" alt="[صورة لمشروع ${project.title}]" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h4 class="text-xl font-bold">${project.title}</h4>
-                            <p class="text-amber-600 font-semibold">${db.services.find(s => s.id === project.category).title}</p>
+                            <p class="text-blue-800 font-semibold">${db.services.find(s => s.id === project.category).title}</p>
                         </div>
                     </div>
                 `).join('');
