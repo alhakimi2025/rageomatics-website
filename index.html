@@ -201,18 +201,18 @@
                     <h2 class="text-3xl font-bold section-title">انضم إلى فريقنا</h2>
                     <p class="text-gray-600 mt-4 max-w-2xl mx-auto">نبحث دائماً عن المواهب للانضمام إلى فريق عملنا. إذا كنت ترى في نفسك الكفاءة، نرجو تعبئة النموذج أدناه.</p>
                 </div>
-                <form class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="الاسم الكامل" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="text" placeholder="العنوان" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="email" placeholder="البريد الإلكتروني" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="tel" placeholder="رقم الهاتف" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="text" placeholder="التخصص" class="md:col-span-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <div class="md:col-span-2">
-                            <label for="cv-upload" class="block text-gray-700 font-semibold mb-2">السيرة الذاتية (PDF, DOCX):</label>
-                            <input type="file" id="cv-upload" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200">
-                        </div>
-                    </div>
+                <form action="https://formsubmit.co/rageomaticsme@gmail.com" method="POST" enctype="multipart/form-data" class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                  <div class="grid md:grid-cols-2 gap-6">
+    <input type="text" name="الاسم" placeholder="الاسم الكامل" required class="w-full p-3 border border-gray-300 rounded-lg ...">
+    <input type="text" name="العنوان" placeholder="العنوان" required class="w-full p-3 border border-gray-300 rounded-lg ...">
+    <input type="email" name="البريد الإلكتروني" placeholder="البريد الإلكتروني" required class="w-full p-3 border border-gray-300 rounded-lg ...">
+    <input type="tel" name="رقم الهاتف" placeholder="رقم الهاتف" required class="w-full p-3 border border-gray-300 rounded-lg ...">
+    <input type="text" name="التخصص" placeholder="التخصص" required class="md:col-span-2 w-full p-3 border border-gray-300 rounded-lg ...">
+    <div class="md:col-span-2">
+        <label for="cv-upload" class="block text-gray-700 font-semibold mb-2">السيرة الذاتية (PDF, DOCX):</label>
+        <input type="file" id="cv-upload" name="attachment" accept=".pdf,.doc,.docx" required class="w-full text-sm ...">
+    </div>
+</div>
                     <div class="text-center mt-8">
                         <button type="submit" class="bg-amber-500 text-white px-10 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">إرسال الطلب</button>
                     </div>
@@ -479,4 +479,5 @@
     </script>
 </body>
 </html>
+
 
