@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- SwiperJS for Slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
@@ -19,20 +22,34 @@
             background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; 
         }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: #f59e0b; margin: 1rem auto 0; border-radius: 2px; }
-        .service-card { transition: all 0.3s ease; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         .modal { transition: opacity 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; }
         .thumbnail { cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s ease; }
         .thumbnail.active { border-color: #f59e0b; }
         .filter-btn { transition: all 0.2s ease-in-out; }
         .filter-btn.active { background-color: #f59e0b; color: white; }
-        .partner-logo {
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
+        
+        /* Swiper Slider Styles */
+        .swiper-container {
+            width: 100%;
+            height: 450px;
         }
-        .partner-logo:hover {
-            filter: grayscale(0%);
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .swiper-pagination-bullet-active {
+            background: #f59e0b;
         }
     </style>
 </head>
@@ -42,7 +59,7 @@
     <header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
+                <img src="logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
             </a>
             <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
                 <a href="#hero" class="text-gray-600 hover:text-amber-500 transition font-semibold">الرئيسية</a>
@@ -50,6 +67,7 @@
                 <a href="#services" class="text-gray-600 hover:text-amber-500 transition font-semibold">خدماتنا</a>
                 <a href="#portfolio" class="text-gray-600 hover:text-amber-500 transition font-semibold nav-portfolio-link">أعمالنا</a>
                 <a href="#team" class="text-gray-600 hover:text-amber-500 transition font-semibold">فريقنا</a>
+                <a href="#join-us" class="text-gray-600 hover:text-amber-500 transition font-semibold">انضم إلينا</a>
                 <a href="#partners" class="text-gray-600 hover:text-amber-500 transition font-semibold">شركاؤنا</a>
                 <a href="#contact" class="text-gray-600 hover:text-amber-500 transition font-semibold">اتصل بنا</a>
             </nav>
@@ -63,6 +81,7 @@
              <a href="#services" class="block py-2 text-gray-800 hover:text-amber-500">خدماتنا</a>
              <a href="#portfolio" class="block py-2 text-gray-800 hover:text-amber-500 nav-portfolio-link">أعمالنا</a>
              <a href="#team" class="block py-2 text-gray-800 hover:text-amber-500">فريقنا</a>
+             <a href="#join-us" class="block py-2 text-gray-800 hover:text-amber-500">انضم إلينا</a>
              <a href="#partners" class="block py-2 text-gray-800 hover:text-amber-500">شركاؤنا</a>
              <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-500">اتصل بنا</a>
         </div>
@@ -90,7 +109,10 @@
                 </div>
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1581092446337-2347372259df?q=80&w=1974&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';" alt="فريق العمل" class="rounded-lg shadow-2xl">
+                        <div class="swiper-container rounded-lg shadow-2xl overflow-hidden">
+                            <div class="swiper-wrapper"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
                     </div>
                     <div class="lg:w-1/2">
                         <p class="text-gray-700 mb-6 leading-relaxed">يمتاز كادرنا بخبرات كثيرة امتدت لسنوات طويلة في العمل بالقطاع الحكومي والهيئات واللجان ونزع الملكية. نحن متخصصون في جميع الأعمال المساحية، صكوك العقارات ودراستها، إنشاء قواعد البيانات، وكل ما يتعلق بالأعمال المساحية المتقدمة من طائرات الدرونز والرفع المساحي ثلاثي الأبعاد (3D) باستخدام أحدث الأجهزة والبرامج، لنقدم لعملائنا أفضل الخدمات بأعلى جودة وإنتاجية.</p>
@@ -172,6 +194,32 @@
             </div>
         </section>
 
+        <!-- Join Us Section -->
+        <section id="join-us" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title">انضم إلى فريقنا</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">نبحث دائماً عن المواهب للانضمام إلى فريق عملنا. إذا كنت ترى في نفسك الكفاءة، نرجو تعبئة النموذج أدناه.</p>
+                </div>
+                <form class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="الاسم الكامل" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <input type="text" placeholder="العنوان" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <input type="email" placeholder="البريد الإلكتروني" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <input type="tel" placeholder="رقم الهاتف" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <input type="text" placeholder="التخصص" class="md:col-span-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="md:col-span-2">
+                            <label for="cv-upload" class="block text-gray-700 font-semibold mb-2">السيرة الذاتية (PDF, DOCX):</label>
+                            <input type="file" id="cv-upload" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200">
+                        </div>
+                    </div>
+                    <div class="text-center mt-8">
+                        <button type="submit" class="bg-amber-500 text-white px-10 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">إرسال الطلب</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <!-- Partners Section -->
         <section id="partners" class="py-20">
             <div class="container mx-auto px-6">
@@ -180,18 +228,10 @@
                     <p class="text-gray-600 mt-4 max-w-2xl mx-auto">شركاؤنا في النجاح الذين نعتز بالعمل معهم.</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                    <div class="text-center">
-                        <p class="font-bold text-xl">القطاع الحكومي</p>
-                    </div>
-                     <div class="text-center">
-                        <p class="font-bold text-xl">القطاع الخاص</p>
-                    </div>
-                     <div class="text-center">
-                        <p class="font-bold text-xl">شركات التطوير العقاري</p>
-                    </div>
-                     <div class="text-center">
-                        <p class="font-bold text-xl">قطاع الإنشاءات والأفراد</p>
-                    </div>
+                    <div class="text-center"><p class="font-bold text-xl">القطاع الحكومي</p></div>
+                    <div class="text-center"><p class="font-bold text-xl">القطاع الخاص</p></div>
+                    <div class="text-center"><p class="font-bold text-xl">شركات التطوير العقاري</p></div>
+                    <div class="text-center"><p class="font-bold text-xl">قطاع الإنشاءات والأفراد</p></div>
                 </div>
             </div>
         </section>
@@ -202,12 +242,8 @@
                 <h2 class="text-3xl font-bold mb-4">تواصل معنا</h2>
                 <p class="text-gray-300 max-w-2xl mx-auto mb-10">نحن هنا للإجابة على استفساراتكم وتلبية طلباتكم.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 w-full sm:w-auto">
-                        📧 تواصل عبر البريد الإلكتروني
-                    </a>
-                    <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-green-600 transition transform hover:scale-105 w-full sm:w-auto">
-                        💬 تواصل عبر واتساب
-                    </a>
+                    <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 w-full sm:w-auto">📧 تواصل عبر البريد الإلكتروني</a>
+                    <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-green-600 transition transform hover:scale-105 w-full sm:w-auto">💬 تواصل عبر واتساب</a>
                 </div>
             </div>
         </section>
@@ -228,6 +264,7 @@
                         <li><a href="#services" class="text-gray-400 hover:text-white">خدماتنا</a></li>
                         <li><a href="#portfolio" class="text-gray-400 hover:text-white nav-portfolio-link">أعمالنا</a></li>
                         <li><a href="#team" class="text-gray-400 hover:text-white">فريقنا</a></li>
+                         <li><a href="#join-us" class="text-gray-400 hover:text-white">انضم إلينا</a></li>
                     </ul>
                 </div>
                 <div>
@@ -256,7 +293,6 @@
                     </div>
                     <button id="modal-close" class="text-gray-400 hover:text-gray-800 text-4xl">&times;</button>
                 </div>
-                
                 <div class="flex flex-col lg:flex-row gap-8">
                     <div class="lg:w-1/2">
                         <div class="relative mb-4">
@@ -286,16 +322,16 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
             const db = {
                 services: [
-                    { id: 'roads', title: 'تصميم الطرق', icon: '🛣️', description: 'نقدم خدمات تصميم الطرق الحضرية والسريعة، مع مراعاة معايير السلامة والجودة.' },
-                    { id: 'surveying', title: 'الرفع المساحي', icon: '📡', description: 'خدمات رفع مساحي دقيقة باستخدام أحدث الأجهزة لإنشاء خرائط طبوغرافية ونماذج ثلاثية الأبعاد.' },
-                    { id: 'gis', title: 'نظم المعلومات الجغرافية', icon: '🗺️', description: 'تحليل البيانات المكانية وإنشاء خرائط تفاعلية لدعم اتخاذ القرار في مختلف المشاريع.' },
-                    { id: 'visualization', title: 'الإظهار المعماري', icon: '🏢', description: 'تحويل المخططات الهندسية إلى صور ونماذج ثلاثية الأبعاد واقعية وجذابة.' }
+                    { id: 'roads', title: 'تصميم الطرق' },
+                    { id: 'surveying', title: 'الرفع المساحي' },
+                    { id: 'gis', title: 'نظم المعلومات الجغرافية' },
+                    { id: 'visualization', title: 'الإظهار المعماري' }
                 ],
                 projects: [
                     { id: 1, title: 'رفع مساحي وتصميم طريق الدائري الغربي', category: 'roads', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للطريق بطول 3 كيلو وعرض 35 متر.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/3B82F6/ffffff?text=مشروع+1', 'https://placehold.co/600x400/10B981/ffffff?text=صورة+2'] },
@@ -330,28 +366,18 @@
             let currentImageIndex = 0;
             let portfolioInitialized = false;
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            projectGridEl.addEventListener('click', e => {
-                const card = e.target.closest('[data-id]');
-                if (card) openModal(card.dataset.id);
-            });
-            
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            projectGridEl.addEventListener('click', e => { const card = e.target.closest('[data-id]'); if (card) openModal(card.dataset.id); });
             portfolioFiltersEl.addEventListener('click', e => {
                 const filterBtn = e.target.closest('[data-category]');
                 if (filterBtn) {
                     const categoryId = filterBtn.dataset.category;
                     portfolioFiltersEl.querySelector('.active').classList.remove('active');
                     filterBtn.classList.add('active');
-                    const filteredProjects = categoryId === 'all' 
-                        ? db.projects 
-                        : db.projects.filter(p => p.category === categoryId);
+                    const filteredProjects = categoryId === 'all' ? db.projects : db.projects.filter(p => p.category === categoryId);
                     renderProjects(filteredProjects);
                 }
             });
-
             document.querySelectorAll('.nav-portfolio-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -363,99 +389,60 @@
                     }
                     portfolioSection.classList.remove('hidden');
                     portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                    if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
                 });
             });
-
             modalCloseBtn.addEventListener('click', closeModal);
-            modalEl.addEventListener('click', e => {
-                if (e.target === modalEl) closeModal();
-            });
-
-            document.getElementById('next-btn').addEventListener('click', () => {
-                const newIndex = (currentImageIndex + 1) % currentProjectImages.length;
-                updateModalImage(newIndex);
-            });
-
-            document.getElementById('prev-btn').addEventListener('click', () => {
-                const newIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
-                updateModalImage(newIndex);
-            });
-
-            document.getElementById('thumbnail-container').addEventListener('click', e => {
-                if (e.target.classList.contains('thumbnail')) {
-                    updateModalImage(parseInt(e.target.dataset.index));
-                }
-            });
+            modalEl.addEventListener('click', e => { if (e.target === modalEl) closeModal(); });
+            document.getElementById('next-btn').addEventListener('click', () => { updateModalImage((currentImageIndex + 1) % currentProjectImages.length); });
+            document.getElementById('prev-btn').addEventListener('click', () => { updateModalImage((currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length); });
+            document.getElementById('thumbnail-container').addEventListener('click', e => { if (e.target.classList.contains('thumbnail')) { updateModalImage(parseInt(e.target.dataset.index)); } });
 
             function renderProjects(projects) {
-                if (projects.length > 0) {
-                    projectGridEl.innerHTML = projects.map(project => `
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition" data-id="${project.id}">
-                            <img src="${project.images[0]}" alt="صورة لمشروع ${project.title}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';">
-                            <div class="p-6">
-                                <h4 class="text-xl font-bold">${project.title}</h4>
-                                <p class="text-amber-600 font-semibold">${db.services.find(s => s.id === project.category)?.title || 'خدمة غير محددة'}</p>
-                            </div>
+                projectGridEl.innerHTML = projects.length > 0 ? projects.map(project => `
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition" data-id="${project.id}">
+                        <img src="${project.images[0]}" alt="صورة لمشروع ${project.title}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold">${project.title}</h4>
+                            <p class="text-amber-600 font-semibold">${db.services.find(s => s.id === project.category)?.title || 'خدمة غير محددة'}</p>
                         </div>
-                    `).join('');
-                } else {
-                     projectGridEl.innerHTML = `<p class="text-center col-span-full text-gray-500 text-lg">لا توجد مشاريع لعرضها في هذه الفئة حاليًا.</p>`;
-                }
+                    </div>`).join('') : `<p class="text-center col-span-full text-gray-500 text-lg">لا توجد مشاريع لعرضها في هذه الفئة حاليًا.</p>`;
             }
-            
             function renderPortfolioFilters() {
                 let filtersHtml = `<button class="filter-btn active bg-amber-500 text-white font-semibold py-2 px-4 rounded-full" data-category="all">الكل</button>`;
-                db.services.forEach(service => {
-                    filtersHtml += `<button class="filter-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-amber-400 hover:text-white" data-category="${service.id}">${service.title}</button>`;
-                });
+                db.services.forEach(service => { filtersHtml += `<button class="filter-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-amber-400 hover:text-white" data-category="${service.id}">${service.title}</button>`; });
                 portfolioFiltersEl.innerHTML = filtersHtml;
             }
-
             function openModal(projectId) {
                 const project = db.projects.find(p => p.id == projectId);
                 if (!project) return;
-
                 document.getElementById('modal-title').textContent = project.title;
                 document.getElementById('modal-client').textContent = project.client;
                 document.getElementById('modal-location').textContent = project.location;
                 document.getElementById('modal-service').textContent = db.services.find(s => s.id === project.category)?.title || '';
                 document.getElementById('modal-description').textContent = project.description;
                 document.getElementById('modal-software').textContent = project.software;
-                
                 currentProjectImages = project.images;
                 currentImageIndex = 0;
-                
                 const thumbnailContainer = document.getElementById('thumbnail-container');
-                thumbnailContainer.innerHTML = currentProjectImages.map((imgSrc, index) => `
-                    <img src="${imgSrc}" class="thumbnail w-full h-16 object-cover rounded-md ${index === 0 ? 'active' : ''}" data-index="${index}" onerror="this.onerror=null;this.src='https://placehold.co/100x60/cccccc/ffffff?text=N/A';">
-                `).join('');
-
+                thumbnailContainer.innerHTML = currentProjectImages.map((imgSrc, index) => `<img src="${imgSrc}" class="thumbnail w-full h-16 object-cover rounded-md ${index === 0 ? 'active' : ''}" data-index="${index}" onerror="this.onerror=null;this.src='https://placehold.co/100x60/cccccc/ffffff?text=N/A';">`).join('');
                 updateModalImage(0);
-
                 modalEl.classList.remove('opacity-0', 'pointer-events-none');
                 modalEl.querySelector('.modal-content').classList.remove('scale-95');
             }
-
             function closeModal() {
                 modalEl.classList.add('opacity-0', 'pointer-events-none');
                 modalEl.querySelector('.modal-content').classList.add('scale-95');
             }
-            
             function updateModalImage(index) {
                 const mainImage = document.getElementById('modal-main-image');
                 mainImage.src = currentProjectImages[index];
-                document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-                    thumb.classList.toggle('active', i === index);
-                });
+                document.querySelectorAll('.thumbnail').forEach((thumb, i) => { thumb.classList.toggle('active', i === index); });
                 currentImageIndex = index;
             }
-            
             function animateCounters() {
                 const counters = document.querySelectorAll('[data-counter]');
-                const speed = 200; 
+                const speed = 200;
                 counters.forEach(counter => {
                     const updateCount = () => {
                         const target = +counter.getAttribute('data-counter');
@@ -464,17 +451,30 @@
                         if (count < target) {
                             counter.innerText = Math.ceil(count + inc);
                             setTimeout(updateCount, 15);
-                        } else {
-                            counter.innerText = target;
-                        }
+                        } else { counter.innerText = target; }
                     };
                     updateCount();
                 });
             }
 
+            // --- Slider Initialization ---
+            const aboutSliderImages = [
+                'https://images.unsplash.com/photo-1581092446337-2347372259df?q=80&w=1974&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1581091226809-a1b7e8935166?q=80&w=1974&auto=format&fit=crop'
+            ];
+            const swiperWrapper = document.querySelector('#about .swiper-wrapper');
+            if(swiperWrapper) {
+                swiperWrapper.innerHTML = aboutSliderImages.map(imgSrc => `<div class="swiper-slide"><img src="${imgSrc}" alt="صورة من خدماتنا" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Image+Not+Found';"></div>`).join('');
+                new Swiper('#about .swiper-container', {
+                    effect: 'fade',
+                    loop: true,
+                    autoplay: { delay: 3000, disableOnInteraction: false, },
+                    pagination: { el: '.swiper-pagination', clickable: true, },
+                });
+            }
             animateCounters();
         });
     </script>
 </body>
 </html>
-
