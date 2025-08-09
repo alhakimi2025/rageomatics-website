@@ -16,7 +16,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
         .hero-section { 
-            background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; 
+            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; 
         }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: #f59e0b; margin: 1rem auto 0; border-radius: 2px; }
         .service-card { transition: all 0.3s ease; }
@@ -27,9 +27,12 @@
         .thumbnail.active { border-color: #f59e0b; }
         .filter-btn { transition: all 0.2s ease-in-out; }
         .filter-btn.active { background-color: #f59e0b; color: white; }
-        /* Fallback for hero background */
-        .hero-section[style*="url('')"] {
-             background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), #111827;
+        .partner-logo {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%);
         }
     </style>
 </head>
@@ -39,44 +42,41 @@
     <header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
-                <div class="hidden sm:block">
-                    <span class="text-2xl font-extrabold tracking-wider text-gray-800">RAGEOMATICS</span>
-                    <p class="text-xs text-gray-500 font-semibold tracking-widest">ENGINEERING CONSULTING</p>
-                </div>
+                <img src="logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
             </a>
             <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                <a href="#hero" class="text-gray-600 hover:text-amber-500 transition font-semibold">الرئيسية</a>
                 <a href="#about" class="text-gray-600 hover:text-amber-500 transition font-semibold">من نحن</a>
                 <a href="#services" class="text-gray-600 hover:text-amber-500 transition font-semibold">خدماتنا</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-amber-500 transition font-semibold nav-portfolio-link">مشاريعنا</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-amber-500 transition font-semibold nav-portfolio-link">أعمالنا</a>
+                <a href="#team" class="text-gray-600 hover:text-amber-500 transition font-semibold">فريقنا</a>
+                <a href="#partners" class="text-gray-600 hover:text-amber-500 transition font-semibold">شركاؤنا</a>
                 <a href="#contact" class="text-gray-600 hover:text-amber-500 transition font-semibold">اتصل بنا</a>
             </nav>
-            <a href="#contact" class="hidden lg:block bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 transition font-bold">طلب عرض سعر</a>
             <button id="mobile-menu-button" class="lg:hidden focus:outline-none text-gray-800">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden lg:hidden bg-white px-6 pb-4">
+             <a href="#hero" class="block py-2 text-gray-800 hover:text-amber-500">الرئيسية</a>
              <a href="#about" class="block py-2 text-gray-800 hover:text-amber-500">من نحن</a>
-            <a href="#services" class="block py-2 text-gray-800 hover:text-amber-500">خدماتنا</a>
-            <a href="#portfolio" class="block py-2 text-gray-800 hover:text-amber-500 nav-portfolio-link">مشاريعنا</a>
-            <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-500">اتصل بنا</a>
-            <a href="#contact" class="block mt-2 text-center bg-amber-500 text-white px-5 py-2 rounded-lg hover:bg-amber-600 font-bold">طلب عرض سعر</a>
+             <a href="#services" class="block py-2 text-gray-800 hover:text-amber-500">خدماتنا</a>
+             <a href="#portfolio" class="block py-2 text-gray-800 hover:text-amber-500 nav-portfolio-link">أعمالنا</a>
+             <a href="#team" class="block py-2 text-gray-800 hover:text-amber-500">فريقنا</a>
+             <a href="#partners" class="block py-2 text-gray-800 hover:text-amber-500">شركاؤنا</a>
+             <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-500">اتصل بنا</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero-section text-white min-h-[85vh] flex items-center p-6">
+        <section id="hero" class="hero-section text-white min-h-screen flex items-center justify-center p-6 text-center">
             <div class="container mx-auto">
-                <div class="max-w-3xl text-right">
-                    <p class="text-lg font-semibold text-amber-300 mb-2">مرحبا بكم في آر إي جيوماتكس</p>
-                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">تشكيل المستقبل باستخدام هندسة الجيوماتكس الدقيقة</h1>
-                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">نقدم حلولاً مبتكرة ومستدامة مدعومة بالخبرة العميقة وأحدث التقنيات الرقمية.</p>
-                    <div class="flex flex-col sm:flex-row justify-start gap-4">
-                        <a href="#about" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">تعرف على المزيد</a>
-                        <a href="#contact" class="bg-gray-700/50 backdrop-blur-sm border-2 border-gray-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-800 transition transform hover:scale-105">تواصل معنا</a>
-                    </div>
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-wider">RAGEOMATICS</h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">نقدم حلولاً هندسية مساحية مبتكرة ومستدامة مدعومة بالخبرة العميقة وأحدث التقنيات الرقمية.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#about" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">اكتشف المزيد</a>
+                    <a href="#contact" class="bg-gray-700/50 backdrop-blur-sm border-2 border-gray-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-800 transition transform hover:scale-105">تواصل معنا</a>
                 </div>
             </div>
         </section>
@@ -85,21 +85,19 @@
         <section id="about" class="py-20">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold section-title">مستشار هندسة جيوماتكس دقيق</h2>
-                    <p class="text-gray-600 mt-4 max-w-3xl mx-auto">نحن في آر إي جيوماتكس نسعى للمساهمة في النمو الهندسي من خلال الجمع بين الكفاءة والابتكار، والاستفادة من أحدث التقنيات في كل مشروع. نقدّر عالياً فهم أهداف عملائنا وتطلعاتهم، وتقديم حلول هندسية متنوعة ومبتكرة، وتنفيذها وفقًا لأفضل المعايير العالمية.</p>
+                    <h2 class="text-3xl font-bold section-title">من نحن</h2>
+                     <p class="text-gray-600 mt-4 max-w-3xl mx-auto">شركة هندسية تقدم خدمات بأعلى معايير فنية</p>
                 </div>
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <div class="lg:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1581092446337-2347372259df?q=80&w=1974&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';" alt="المهندس رمزي الحكيمي" class="rounded-lg shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1581092446337-2347372259df?q=80&w=1974&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';" alt="فريق العمل" class="rounded-lg shadow-2xl">
                     </div>
                     <div class="lg:w-1/2">
-                        <p class="text-gray-700 mb-6 leading-relaxed">"نحن ملتزمون بالتميز الهندسي الذي يقود التقدم. تمكننا خبرتنا عبر قطاعات متنوعة من تقديم حلول مبتكرة ومؤثرة. مع فريق من المهنيين ذوي المهارات العالية، نتجاوز التوقعات باستمرار من خلال إعطاء الأولوية للجودة والدقة ورضا العملاء."</p>
-                        <h3 class="text-2xl font-bold text-gray-800">م. رمزي الحكيمي</h3>
-                        <p class="text-md font-semibold text-amber-600 mb-8">المؤسس والرئيس التنفيذي</p>
-                        <div class="grid grid-cols-3 gap-4 text-center">
+                        <p class="text-gray-700 mb-6 leading-relaxed">يمتاز كادرنا بخبرات كثيرة امتدت لسنوات طويلة في العمل بالقطاع الحكومي والهيئات واللجان ونزع الملكية. نحن متخصصون في جميع الأعمال المساحية، صكوك العقارات ودراستها، إنشاء قواعد البيانات، وكل ما يتعلق بالأعمال المساحية المتقدمة من طائرات الدرونز والرفع المساحي ثلاثي الأبعاد (3D) باستخدام أحدث الأجهزة والبرامج، لنقدم لعملائنا أفضل الخدمات بأعلى جودة وإنتاجية.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center mt-8">
                             <div class="bg-white p-4 rounded-lg shadow-md">
                                 <p class="text-4xl font-extrabold text-amber-500" data-counter="12">0</p>
-                                <p class="font-semibold mt-1 text-gray-600">سنوات من الخبرة</p>
+                                <p class="font-semibold mt-1 text-gray-600">سنوات خبرة</p>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md">
                                 <p class="text-4xl font-extrabold text-amber-500" data-counter="20">0</p>
@@ -120,27 +118,80 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold section-title">خدماتنا</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">نقدم مجموعة متكاملة من الخدمات الهندسية لتلبية احتياجات مشاريعكم المتنوعة.</p>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">الخدمات التي نقدمها لعملائنا بأعلى جودة واحترافية.</p>
                 </div>
-                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Services will be dynamically inserted here -->
+                <div class="grid md:grid-cols-2 gap-10 items-start">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-600">خدمات المساحة الأرضية</h3>
+                        <ul class="space-y-3 list-disc list-inside text-gray-700">
+                            <li>إنتاج الخرائط التفصيلية والطبوغرافية والرقمية.</li>
+                            <li>الأعمال المساحية للطرق والمنشآت بكافة أنواعها.</li>
+                            <li>أعمال مساحة لشبكات المياه والصرف الصحي وتصريف السيول.</li>
+                            <li>عمل نقاط تحكم أرضية (Benchmarks) بمواصفات تقنية عالية.</li>
+                            <li>تخطيط أراضي الملكيات الخاصة وتجهيز البيانات المكانية.</li>
+                            <li>تحديث الصكوك وتجزئتها ودمجها وفرز القطع.</li>
+                            <li>حساب الكميات وأعمال الحفر والردم، والرفع والتوقيع الإنشائي.</li>
+                        </ul>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-600">خدمات المساحة المتقدمة</h3>
+                        <ul class="space-y-3 list-disc list-inside text-gray-700">
+                            <li>الرفع المساحي باستخدام طائرات الدرون (UAV).</li>
+                            <li>إنشاء قواعد البيانات الجغرافية (GIS) والدعم الفني.</li>
+                            <li>الرفع المساحي ثلاثي الأبعاد باستخدام المسح الضوئي (3D Laser Scanner).</li>
+                            <li>كشف واستشعار المرافق تحت الأرض باستخدام أجهزة (GPR).</li>
+                            <li>الإظهار والإخراج المعماري والفني للمشاريع.</li>
+                            <li>حصر ونزع الملكيات وتجهيز فرق فنية مختصة.</li>
+                            <li>فرز الوحدات العقارية وتوثيقها.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- Portfolio Section - Initially hidden -->
+        <!-- Portfolio Section (Our Work) - Initially hidden -->
         <section id="portfolio" class="py-20 hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold section-title">مشاريعنا</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">شاهد كيف نترجم خدماتنا إلى نجاح على أرض الواقع. قم بتصفية المشاريع حسب الفئة.</p>
+                    <h2 class="text-3xl font-bold section-title">أعمالنا</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">استكشف المشاريع التي نفخر بتنفيذها.</p>
                 </div>
-                <!-- Portfolio Filter Buttons -->
-                <div id="portfolio-filters" class="flex justify-center gap-2 mb-8 flex-wrap">
-                    <!-- Filter buttons will be inserted here by JS -->
+                <div id="portfolio-filters" class="flex justify-center gap-2 mb-8 flex-wrap"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold section-title">فريقنا</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-gray-300">كادر هندسي وفني مؤهل وذو كفاءة عالية.</p>
+                <div class="max-w-4xl mx-auto mt-8 text-lg leading-relaxed">
+                    <p>بناءً على تعهد الشركة بتقديم أرقى الخدمات الهندسية، نعتز اليوم بوجود كادر هندسي وفني مؤهل وذو كفاءة عالية من أصحاب الخبرة والشباب الطموح المواكب لتطورات علم المساحة، مزودين بأفضل التقنيات والأجهزة الحديثة.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-                    <!-- Projects will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold section-title">شركاؤنا</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">شركاؤنا في النجاح الذين نعتز بالعمل معهم.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                    <div class="text-center">
+                        <p class="font-bold text-xl">القطاع الحكومي</p>
+                    </div>
+                     <div class="text-center">
+                        <p class="font-bold text-xl">القطاع الخاص</p>
+                    </div>
+                     <div class="text-center">
+                        <p class="font-bold text-xl">شركات التطوير العقاري</p>
+                    </div>
+                     <div class="text-center">
+                        <p class="font-bold text-xl">قطاع الإنشاءات والأفراد</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -148,8 +199,8 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-800 text-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-4">هل أنت جاهز لبدء مشروعك؟</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-10">تواصل معنا مباشرة لمناقشة احتياجاتك. سواء كنت تحتاج إلى استشارة سريعة أو عرض سعر لمشروع كامل، نحن هنا للمساعدة.</p>
+                <h2 class="text-3xl font-bold mb-4">تواصل معنا</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-10">نحن هنا للإجابة على استفساراتكم وتلبية طلباتكم.</p>
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 w-full sm:w-auto">
                         📧 تواصل عبر البريد الإلكتروني
@@ -163,15 +214,34 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-black text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center items-center gap-3 mb-4">
-                 <img src="images/logo2.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-right">
                 <div>
-                    <span class="text-2xl font-extrabold tracking-wider">RAGEOMATICS</span>
+                    <h3 class="font-bold text-lg mb-4 text-amber-500">RAGEOMATICS</h3>
+                    <p class="text-gray-400">شركة هندسية متخصصة في هندسة المساحة تقدم لعملائها جميع الخدمات المساحية والدعم الفني وفق معايير دقيقة ونتائج موثوقة.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-amber-500">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">من نحن</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">خدماتنا</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white nav-portfolio-link">أعمالنا</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white">فريقنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-amber-500">تواصل معنا</h3>
+                     <ul class="space-y-2 text-gray-400">
+                        <li><a href="mailto:ramzi@rageomatics.me" class="hover:text-white">البريد الإلكتروني: ramzi@rageomatics.me</a></li>
+                        <li><a href="https://wa.me/967771305123" class="hover:text-white">واتساب: +967 771 305 123</a></li>
+                        <li>العنوان: مأرب، الجمهورية اليمنية</li>
+                    </ul>
                 </div>
             </div>
-            <p class="text-gray-400">&copy; 2025 آر إي جيوماتكس | شريكك الهندسي الرقمي. جميع الحقوق محفوظة.</p>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
+                 <p>&copy; 2025 آر إي جيوماتكس. جميع الحقوق محفوظة.</p>
+            </div>
         </div>
     </footer>
 
@@ -194,9 +264,7 @@
                             <button id="prev-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">❮</button>
                             <button id="next-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">❯</button>
                         </div>
-                        <div id="thumbnail-container" class="grid grid-cols-5 gap-2">
-                            <!-- Thumbnails will be dynamically inserted here -->
-                        </div>
+                        <div id="thumbnail-container" class="grid grid-cols-5 gap-2"></div>
                     </div>
                     <div class="lg:w-1/2">
                         <div class="space-y-4 text-gray-700">
@@ -222,7 +290,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // --- Database ---
             const db = {
                 services: [
                     { id: 'roads', title: 'تصميم الطرق', icon: '🛣️', description: 'نقدم خدمات تصميم الطرق الحضرية والسريعة، مع مراعاة معايير السلامة والجودة.' },
@@ -253,10 +320,8 @@
                 ]
             };
 
-            // --- Element Selectors ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const servicesGridEl = document.getElementById('services-grid');
             const projectGridEl = document.getElementById('project-grid');
             const portfolioFiltersEl = document.getElementById('portfolio-filters');
             const modalEl = document.getElementById('project-modal');
@@ -265,7 +330,6 @@
             let currentImageIndex = 0;
             let portfolioInitialized = false;
 
-            // --- Event Listeners ---
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
@@ -279,34 +343,26 @@
                 const filterBtn = e.target.closest('[data-category]');
                 if (filterBtn) {
                     const categoryId = filterBtn.dataset.category;
-                    
                     portfolioFiltersEl.querySelector('.active').classList.remove('active');
                     filterBtn.classList.add('active');
-                    
                     const filteredProjects = categoryId === 'all' 
                         ? db.projects 
                         : db.projects.filter(p => p.category === categoryId);
-                    
                     renderProjects(filteredProjects);
                 }
             });
 
-            // Listener for portfolio navigation links
             document.querySelectorAll('.nav-portfolio-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const portfolioSection = document.getElementById('portfolio');
-                    
                     if (!portfolioInitialized) {
                         renderPortfolioFilters();
-                        renderProjects(db.projects); // Show all projects when first revealed
+                        renderProjects(db.projects);
                         portfolioInitialized = true;
                     }
-                    
                     portfolioSection.classList.remove('hidden');
                     portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                    // Close mobile menu if open
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
@@ -334,18 +390,6 @@
                 }
             });
 
-            // --- Rendering Functions ---
-
-            function renderServices() {
-                servicesGridEl.innerHTML = db.services.map(service => `
-                    <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm service-card">
-                        <span class="text-5xl">${service.icon}</span>
-                        <h3 class="text-xl font-bold mt-4 mb-2">${service.title}</h3>
-                        <p class="text-gray-600">${service.description}</p>
-                    </div>
-                `).join('');
-            }
-
             function renderProjects(projects) {
                 if (projects.length > 0) {
                     projectGridEl.innerHTML = projects.map(project => `
@@ -364,15 +408,11 @@
             
             function renderPortfolioFilters() {
                 let filtersHtml = `<button class="filter-btn active bg-amber-500 text-white font-semibold py-2 px-4 rounded-full" data-category="all">الكل</button>`;
-                
                 db.services.forEach(service => {
                     filtersHtml += `<button class="filter-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-amber-400 hover:text-white" data-category="${service.id}">${service.title}</button>`;
                 });
-                
                 portfolioFiltersEl.innerHTML = filtersHtml;
             }
-
-            // --- Modal Functions ---
 
             function openModal(projectId) {
                 const project = db.projects.find(p => p.id == projectId);
@@ -412,19 +452,15 @@
                 });
                 currentImageIndex = index;
             }
-
-            // --- Animation Function ---
             
             function animateCounters() {
                 const counters = document.querySelectorAll('[data-counter]');
                 const speed = 200; 
-
                 counters.forEach(counter => {
                     const updateCount = () => {
                         const target = +counter.getAttribute('data-counter');
                         const count = +counter.innerText;
                         const inc = target / speed;
-
                         if (count < target) {
                             counter.innerText = Math.ceil(count + inc);
                             setTimeout(updateCount, 15);
@@ -436,12 +472,8 @@
                 });
             }
 
-            // --- Initial Load ---
-            renderServices();
             animateCounters();
         });
     </script>
 </body>
 </html>
-
-
