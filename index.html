@@ -155,6 +155,36 @@
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold transition hover:bg-amber-600" data-service-id="gis">اطلب الآن</button>
                     </div>
                 </div>
+                <!-- Service Card 4 (NEW) -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">تحليل هيدرولوجي ومخاطر السيول</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">دراسة مسارات السيول وتحليل أحواض التصريف باستخدام تقنيات ArcGIS Pro المتقدمة لضمان سلامة المشاريع.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold transition hover:border-brand-primary" data-service-id="hydrology">تفاصيل</button>
+                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold transition hover:bg-amber-600" data-service-id="hydrology">اطلب الآن</button>
+                    </div>
+                </div>
+                <!-- Service Card 5 (NEW) -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-sync-alt"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">تحويل CAD ⇄ GIS وتنظيف البيانات</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تحويل المخططات الهندسية بدقة بين الأنظمة المختلفة مع معالجة البيانات المكانية وضمان توافقها الفني.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold transition hover:border-brand-primary" data-service-id="cad-gis">تفاصيل</button>
+                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold transition hover:bg-amber-600" data-service-id="cad-gis">اطلب الآن</button>
+                    </div>
+                </div>
+                <!-- Service Card 6 (NEW) -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-file-invoice"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">إظهار فني وخرائط إخراج عالية الدقة</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إنتاج خرائط طبوغرافية وموضوعية جاهزة للطباعة والعرض الاحترافي بأعلى جودة وتنسيقات فنية معتمدة.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold transition hover:border-brand-primary" data-service-id="high-res-maps">تفاصيل</button>
+                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold transition hover:bg-amber-600" data-service-id="high-res-maps">اطلب الآن</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -267,18 +297,33 @@
         const servicesData = {
             'road-design': {
                 title: 'تصميم الطرق (Civil 3D)',
-                desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية.',
+                desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية (AASHTO). نستخدم Civil 3D لإنتاج مخططات تنفيذية جاهزة للمقاولين.',
                 wa: 'السلام عليكم، أريد طلب خدمة "تصميم الطرق" عبر Civil 3D.'
             },
             'quantity': {
                 title: 'حساب الكميات وحصر الأعمال',
-                desc: 'استخراج جداول الكميات وتقارير الحفر والردم بدقة عالية تضمن توفير الميزانية ومنع الهدر في المواقع الإنشائية.',
+                desc: 'استخراج جداول الكميات وتقارير الحفر والردم بدقة عالية تضمن توفير الميزانية ومنع الهدر في المواقع الإنشائية، مع تقارير شاملة للمقاطع العرضية.',
                 wa: 'السلام عليكم، أود طلب خدمة "حساب الكميات وحصر الأعمال" لمشروعي.'
             },
             'gis': {
                 title: 'نظم المعلومات (ArcGIS Pro)',
-                desc: 'بناء قواعد بيانات جغرافية ذكية، تحليل البيانات المكانية، وإنتاج خرائط رقمية تفاعلية تدعم اتخاذ القرار.',
+                desc: 'بناء قواعد بيانات جغرافية ذكية، تحليل البيانات المكانية، وإنتاج خرائط رقمية تفاعلية تدعم اتخاذ القرار وتخطيط المدن والمناطق الحضرية.',
                 wa: 'السلام عليكم، أود استشارة وطلب خدمة "نظم المعلومات الجغرافية ArcGIS Pro".'
+            },
+            'hydrology': {
+                title: 'تحليل هيدرولوجي ومخاطر السيول',
+                desc: 'دراسة وتحليل مسارات الأمطار والسيول، وتحديد أحواض التصريف ومناطق الخطر باستخدام نماذج الارتفاعات الرقمية (DEM) وتقنيات ArcGIS Pro لضمان استدامة المشاريع الإنشائية.',
+                wa: 'السلام عليكم، أود طلب خدمة "التحليل الهيدرولوجي ودراسة مخاطر السيول" لموقع مشروعي.'
+            },
+            'cad-gis': {
+                title: 'تحويل CAD ⇄ GIS وتنظيف البيانات',
+                desc: 'خدمة احترافية لتحويل المخططات من بيئة AutoCAD إلى بيئة GIS وبالعكس، مع تصحيح الأخطاء الهندسية (Topology) وتنظيف البيانات لضمان دقتها في قواعد البيانات الجغرافية.',
+                wa: 'السلام عليكم، أود طلب خدمة "تحويل البيانات بين CAD و GIS وتصحيحها".'
+            },
+            'high-res-maps': {
+                title: 'إظهار فني وخرائط إخراج عالية الدقة',
+                desc: 'إخراج خرائط هندسية وجغرافية بتنسيقات احترافية وعالية الجودة (Layouts) تتضمن كافة الرموز والمواصفات الفنية المطلوبة للطباعة أو العرض في التقارير الرسمية.',
+                wa: 'السلام عليكم، أود طلب خدمة "إنتاج وإخراج خرائط فنية عالية الدقة" لمشروعي.'
             }
         };
 
