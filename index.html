@@ -1,481 +1,364 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Schema Markup for Organization Logo -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://www.rageomatics.me",
-      "logo": "https://www.rageomatics.me/images/logo2.png"
-    }
-    </script>
+    <!-- SEO & Metadata -->
+    <title>آر إي جيوماتكس | شركة خدمات مساحية وتصميم طرق Civil 3D و ArcGIS Pro</title>
+    <meta name="description" content="شركة آر إي جيوماتكس في مأرب تقدم خدمات الرفع المساحي الميداني، تصميم الطرق بـ Civil 3D 2026، مشاريع GIS بـ ArcGIS Pro، وصيانة الأجهزة المساحية.">
+    <meta name="keywords" content="تصميم طرق، سيفيل ثري دي، ArcGIS Pro، رفع مساحي مأرب، حساب كميات، صيانة أجهزة مساحية">
     
-    <!-- SEO Meta Tags -->
-    <title>آر إي جيوماتكس | شركة خدمات مساحية وتصميم طرق في مأرب</title>
-    <meta name="description" content="شركة آر إي جيوماتكس تقدم خدمات الرفع المساحي المتقدم، تصميم الطرق، نظم المعلومات الجغرافية (GIS) والإظهار المعماري في مأرب واليمن.">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- SwiperJS for Slider -->
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#f59e0b', 
+                            secondary: '#1f2937', 
+                            accent: '#10b981', 
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
-        .hero-section { 
-            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; 
-        }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: #f59e0b; margin: 1rem auto 0; border-radius: 2px; }
-        .modal { transition: opacity 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; }
-        .thumbnail { cursor: pointer; border: 2px solid transparent; transition: border-color 0.3s ease; position: relative; }
-        .thumbnail.active { border-color: #f59e0b; }
-        .filter-btn { transition: all 0.2s ease-in-out; }
-        .filter-btn.active { background-color: #f59e0b; color: white; }
-        
-        /* Swiper Slider Styles - FIX APPLIED HERE */
-        .swiper-container {
-            width: 100%;
-            /* This reserves space before JS loads, preventing layout shift */
-            aspect-ratio: 4 / 3; 
-            background-color: #e5e7eb; /* Light gray placeholder */
-        }
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .swiper-pagination-bullet-active {
-            background: #f59e0b;
-        }
+        body { font-family: 'Cairo', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=2070'); background-size: cover; background-position: center; }
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid transparent; }
+        .service-card:hover { border-color: #f59e0b; transform: translateY(-10px); background: #ffffff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .text-glow { text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: #f59e0b; margin: 15px auto; border-radius: 10px; }
+        .list-icon { @apply text-brand-primary ml-2; }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="bg-gray-50 text-gray-900 selection:bg-brand-primary selection:text-white overflow-x-hidden">
 
-    <!-- Header Section -->
-    <header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <!-- Preloader -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-brand-secondary flex items-center justify-center transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-primary"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="شعار آر إي جيوماتكس" class="h-14 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA';">
+                <img src="images/logo.png" alt="Logo" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA'">
+                <span class="text-xl font-black text-brand-secondary uppercase tracking-tighter">RAGEOMATICS</span>
             </a>
+            
             <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
-                <a href="#hero" class="text-gray-600 hover:text-amber-500 transition font-semibold">الرئيسية</a>
-                <a href="#about" class="text-gray-600 hover:text-amber-500 transition font-semibold">من نحن</a>
-                <a href="#services" class="text-gray-600 hover:text-amber-500 transition font-semibold">خدماتنا</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-amber-500 transition font-semibold nav-portfolio-link">أعمالنا</a>
-                <a href="#team" class="text-gray-600 hover:text-amber-500 transition font-semibold">فريقنا</a>
-                <a href="#join-us" class="text-gray-600 hover:text-amber-500 transition font-semibold">انضم إلينا</a>
-                <a href="#partners" class="text-gray-600 hover:text-amber-500 transition font-semibold">شركاؤنا</a>
-                <a href="#contact" class="text-gray-600 hover:text-amber-500 transition font-semibold">اتصل بنا</a>
+                <a href="#hero" class="font-bold text-gray-700 hover:text-brand-primary transition">الرئيسية</a>
+                <a href="#about" class="font-bold text-gray-700 hover:text-brand-primary transition">من نحن</a>
+                <a href="#services" class="font-bold text-gray-700 hover:text-brand-primary transition">خدماتنا</a>
+                <a href="#portfolio" class="font-bold text-gray-700 hover:text-brand-primary transition">أعمالنا</a>
+                <a href="#join-us" class="font-bold text-gray-700 hover:text-brand-primary transition">انضم إلينا</a>
+                <a href="#quote" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">اطلب تسعيرة</a>
             </nav>
-            <button id="mobile-menu-button" class="lg:hidden focus:outline-none text-gray-800">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+
+            <button id="mobile-btn" class="lg:hidden p-2 text-brand-secondary"><i class="fas fa-bars text-2xl"></i></button>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-white px-6 pb-4">
-             <a href="#hero" class="block py-2 text-gray-800 hover:text-amber-500">الرئيسية</a>
-             <a href="#about" class="block py-2 text-gray-800 hover:text-amber-500">من نحن</a>
-             <a href="#services" class="block py-2 text-gray-800 hover:text-amber-500">خدماتنا</a>
-             <a href="#portfolio" class="block py-2 text-gray-800 hover:text-amber-500 nav-portfolio-link">أعمالنا</a>
-             <a href="#team" class="block py-2 text-gray-800 hover:text-amber-500">فريقنا</a>
-             <a href="#join-us" class="block py-2 text-gray-800 hover:text-amber-500">انضم إلينا</a>
-             <a href="#partners" class="block py-2 text-gray-800 hover:text-amber-500">شركاؤنا</a>
-             <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-500">اتصل بنا</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 p-6 shadow-xl space-y-4">
+            <a href="#hero" class="block font-bold">الرئيسية</a>
+            <a href="#about" class="block font-bold">من نحن</a>
+            <a href="#services" class="block font-bold">خدماتنا</a>
+            <a href="#portfolio" class="block font-bold">أعمالنا</a>
+            <a href="#join-us" class="block font-bold">انضم إلينا</a>
+            <a href="#quote" class="block font-bold text-brand-primary">اطلب تسعيرة</a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section text-white min-h-screen flex items-center justify-center p-6 text-center">
-            <div class="container mx-auto">
-                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-wider">RAGEOMATICS</h1>
-                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">نقدم حلولاً هندسية مساحية مبتكرة ومستدامة مدعومة بالخبرة العميقة وأحدث التقنيات الرقمية.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#about" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">اكتشف المزيد</a>
-                    <a href="#contact" class="bg-gray-700/50 backdrop-blur-sm border-2 border-gray-400 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-white hover:text-gray-800 transition transform hover:scale-105">تواصل معنا</a>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient min-h-[80vh] flex items-center text-white relative">
+        <div class="container mx-auto px-6 relative z-10 text-center md:text-right" data-aos="fade-up">
+            <div class="max-w-4xl">
+                <span class="bg-brand-primary text-white px-4 py-1 rounded-md text-xs font-bold mb-6 inline-block uppercase italic">Innovation in Civil 3D & GIS</span>
+                <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">حلول هندسية <br><span class="text-brand-primary text-glow">بأدق المعايير الفنية.</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                    نحن في "آر إي جيوماتكس" نجمع بين العمل الميداني الدقيق والتصميم الهندسي الرقمي المتقدم. متخصصون في Civil 3D 2026 ونظم ArcGIS Pro لخدمة كافة القطاعات.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#quote" class="bg-brand-primary px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition shadow-xl">ابدأ مشروعك الآن</a>
+                    <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 px-10 py-4 rounded-xl font-black text-lg hover:bg-green-600 transition flex items-center gap-3">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6">
-                 <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold section-title">من نحن | شركة هندسية مساحية رائدة في مأرب</h2>
-                     <p class="text-gray-600 mt-4 max-w-3xl mx-auto">شركة هندسية تقدم خدمات بأعلى معايير فنية</p>
-                </div>
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2">
-                        <div class="swiper-container rounded-lg shadow-2xl overflow-hidden">
-                            <div class="swiper-wrapper"></div>
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl bg-gray-200 aspect-[4/3]">
+                        <div class="swiper-container about-swiper h-full">
+                            <div class="swiper-wrapper" id="about-slides">
+                                <!-- Slides added via JS -->
+                            </div>
                             <div class="swiper-pagination"></div>
                         </div>
                     </div>
-                    <div class="lg:w-1/2">
-                        <p class="text-gray-700 mb-6 leading-relaxed">يمتاز كادرنا في شركة آر إي جيوماتكس بخبرات كثيرة امتدت لسنوات طويلة في مجال المساحة الأرضية. نحن متخصصون في جميع الأعمال المساحية في اليمن، بما في ذلك تصميم الطرق والرفع المساحي ثلاثي الأبعاد (3D)، صكوك العقارات ودراستها، وإنشاء قواعد البيانات باستخدام أحدث الأجهزة والبرامج، لنقدم لعملائنا أفضل الخدمات بأعلى جودة وإنتاجية.</p>
-                        <div class="grid grid-cols-3 gap-4 text-center mt-8">
-                            <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="12">0</p>
-                                <p class="font-semibold mt-1 text-gray-600">سنوات خبرة</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="20">0</p>
-                                <p class="font-semibold mt-1 text-gray-600">مشروع منفذ</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow-md">
-                                <p class="text-4xl font-extrabold text-amber-500" data-counter="5">0</p>
-                                <p class="font-semibold mt-1 text-gray-600">مشروع استشاري</p>
-                            </div>
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-brand-primary font-black uppercase tracking-widest mb-4">قصة خبرتنا</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-brand-secondary mb-8 italic">سنوات من الإتقان <br>في المساحة الأرضية.</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg italic">
+                        يمتاز كادرنا بخبرات كثيرة امتدت لسنوات طويلة في جميع الأعمال المساحية في اليمن، بما في ذلك تصميم الطرق والرفع المساحي ثلاثي الأبعاد، صكوك العقارات ودراستها، وإنشاء قواعد البيانات الجغرافية باستخدام أحدث الأجهزة والبرامج.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border-r-4 border-brand-primary">
+                            <div class="text-brand-primary text-3xl font-black">12</div>
+                            <div class="text-[12px] font-bold text-gray-500 uppercase mt-2 italic">سنة من الخبرة الميدانية</div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border-r-4 border-brand-accent">
+                            <div class="text-brand-accent text-3xl font-black">20+</div>
+                            <div class="text-[12px] font-bold text-gray-500 uppercase mt-2 italic">مشروع هندسي منفذ</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold section-title">خدماتنا في المساحة الأرضية وتخطيط المشاريع</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">الخدمات التي نقدمها لعملائنا بأعلى جودة واحترافية.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-10 items-start">
-                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 text-amber-600">الخدمات المساحية المتقدمة</h3>
-                        <ul class="space-y-3 list-disc list-inside text-gray-700">
-                            <li>إنتاج الخرائط التفصيلية والطبوغرافية والرقمية.</li>
-                            <li>الأعمال المساحية للطرق والمنشآت بكافة أنواعها.</li>
-                            <li>أعمال مساحة لشبكات المياه والصرف الصحي وتصريف السيول.</li>
-                            <li>عمل نقاط تحكم أرضية (Benchmarks) بمواصفات تقنية عالية.</li>
-                            <li>تخطيط أراضي الملكيات الخاصة وتجهيز البيانات المكانية.</li>
-                            <li>تحديث الصكوك وتجزئتها ودمجها وفرز القطع.</li>
-                            <li>حساب الكميات وأعمال الحفر والردم، والرفع والتوقيع الإنشائي.</li>
-                        </ul>
-                    </div>
-                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-4 text-amber-600">الخدمات الجغرافية وصيانة الأجهزة</h3>
-                        <ul class="space-y-3 list-disc list-inside text-gray-700">
-                            <li>تقنيات التصوير الجوي وتصحيح الصور الجوية.</li>
-                            <li>إنشاء قواعد البيانات الجغرافية (GIS) والدعم الفني.</li>
-                            <li>صيانة ومعايرة الأجهزة المساحية.</li>
-                            <li>بيع وشراء الأجهزة المساحية الجديدة والمستخدمة.</li>
-                            <li>الإظهار والإخراج المعماري والفني للمشاريع.</li>
-                            <li>حصر ونزع الملكيات وتجهيز فرق فنية مختصة.</li>
-                            <li>فرز الوحدات العقارية وتوثيقها.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Portfolio Section (Our Work) - Initially hidden -->
-        <section id="portfolio" class="py-20 hidden">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold section-title">أعمالنا</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">استكشف المشاريع التي نفخر بتنفيذها.</p>
-                </div>
-                <div id="portfolio-filters" class="flex justify-center gap-2 mb-8 flex-wrap"></div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="py-20 bg-gray-800 text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold section-title">فريقنا</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-gray-300">كادر هندسي وفني مؤهل وذو كفاءة عالية.</p>
-                <div class="max-w-4xl mx-auto mt-8 text-lg leading-relaxed">
-                    <p>بناءً على تعهد الشركة بتقديم أرقى الخدمات الهندسية، نعتز اليوم بوجود كادر هندسي وفني مؤهل وذو كفاءة عالية من أصحاب الخبرة والشباب الطموح المواكب لتطورات علم المساحة، مزودين بأفضل التقنيات والأجهزة الحديثة.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Join Us Section -->
-        <section id="join-us" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold section-title">انضم إلى فريقنا</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">نبحث دائماً عن المواهب للانضمام إلى فريق عملنا. إذا كنت ترى في نفسك الكفاءة، نرجو تعبئة النموذج أدناه.</p>
-                </div>
-                <form action="https://formsubmit.co/rageomaticsme@gmail.com" method="POST" enctype="multipart/form-data" class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" name="الاسم" placeholder="الاسم الكامل" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="text" name="العنوان" placeholder="العنوان" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="email" name="البريد الإلكتروني" placeholder="البريد الإلكتروني" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="tel" name="رقم الهاتف" placeholder="رقم الهاتف" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <input type="text" name="التخصص" placeholder="التخصص" required class="md:col-span-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <div class="md:col-span-2">
-                            <label for="cv-upload" class="block text-gray-700 font-semibold mb-2">السيرة الذاتية (PDF, DOCX):</label>
-                            <input type="file" id="cv-upload" name="attachment" accept=".pdf,.doc,.docx" required class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200">
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <button type="submit" class="bg-amber-500 text-white px-10 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105">إرسال الطلب</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <!-- Partners Section -->
-        <section id="partners" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold section-title">شركاؤنا</h2>
-                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">شركاؤنا في النجاح الذين نعتز بالعمل معهم.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                    <div class="text-center"><p class="font-bold text-xl">القطاع الحكومي</p></div>
-                    <div class="text-center"><p class="font-bold text-xl">القطاع الخاص</p></div>
-                    <div class="text-center"><p class="font-bold text-xl">شركات التطوير العقاري</p></div>
-                    <div class="text-center"><p class="font-bold text-xl">قطاع الإنشاءات والأفراد</p></div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-800 text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-4">تواصل معنا</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-10">نحن هنا للإجابة على استفساراتكم وتلبية طلباتكم.</p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="mailto:ramzi@rageomatics.me" class="bg-amber-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-amber-600 transition transform hover:scale-105 w-full sm:w-auto">📧 تواصل عبر البريد الإلكتروني</a>
-                    <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-lg text-lg font-bold hover:bg-green-600 transition transform hover:scale-105 w-full sm:w-auto">💬 تواصل عبر واتساب</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="bg-black text-white py-12">
+    <!-- Original Services List Section (Detailed Text) -->
+    <section id="services-list" class="py-24 bg-brand-secondary text-white overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 text-center md:text-right">
-                <div>
-                    <h3 class="font-bold text-lg mb-4 text-amber-500">RAGEOMATICS</h3>
-                    <p class="text-gray-400">شركة هندسية متخصصة في هندسة المساحة تقدم لعملائها جميع الخدمات المساحية والدعم الفني وفق معايير دقيقة ونتائج موثوقة.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-4 text-amber-500">روابط سريعة</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white">من نحن</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">خدماتنا</a></li>
-                        <li><a href="#portfolio" class="text-gray-400 hover:text-white nav-portfolio-link">أعمالنا</a></li>
-                        <li><a href="#team" class="text-gray-400 hover:text-white">فريقنا</a></li>
-                         <li><a href="#join-us" class="text-gray-400 hover:text-white">انضم إلينا</a></li>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic">نطاق خدماتنا</h2>
+                <h3 class="text-3xl md:text-4xl font-black">الخدمات المساحية والجغرافية الشاملة</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Column 1 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-right">
+                    <h4 class="text-2xl font-black mb-6 text-brand-primary italic border-b border-brand-primary/20 pb-4">الخدمات المساحية المتقدمة</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> إنتاج الخرائط التفصيلية والطبوغرافية والرقمية.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> الأعمال المساحية للطرق والمنشآت بكافة أنواعها.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> أعمال مساحة لشبكات المياه والصرف الصحي وتصريف السيول.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> عمل نقاط تحكم أرضية (Benchmarks) بمواصفات تقنية عالية.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> تخطيط أراضي الملكيات الخاصة وتجهيز البيانات المكانية.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> تحديث الصكوك وتجزئتها ودمجها وفرز القطع.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> حساب الكميات وأعمال الحفر والردم، والرفع والتوقيع الإنشائي.</li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-4 text-amber-500">تواصل معنا</h3>
-                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="mailto:ramzi@rageomatics.me" class="hover:text-white">البريد الإلكتروني: ramzi@rageomatics.me</a></li>
-                        <li><a href="https://wa.me/967771305123" class="hover:text-white">واتساب: +967 771 305 123</a></li>
-                        <li>العنوان: مأرب، الجمهورية اليمنية</li>
+
+                <!-- Column 2 -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-left">
+                    <h4 class="text-2xl font-black mb-6 text-brand-primary italic border-b border-brand-primary/20 pb-4">الخدمات الجغرافية والدعم الفني</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> تقنيات التصوير الجوي وتصحيح الصور الجوية.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> إنشاء قواعد البيانات الجغرافية (GIS) والدعم الفني.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> صيانة ومعايرة الأجهزة المساحية.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> بيع وشراء الأجهزة المساحية الجديدة والمستخدمة.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> الإظهار والإخراج المعماري والفني للمشاريع.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> حصر ونزع الملكيات وتجهيز فرق فنية مختصة.</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-brand-primary mt-1"></i> فرز الوحدات العقارية وتوثيقها.</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
-                 <p>&copy; 2025 آر إي جيوماتكس. جميع الحقوق محفوظة.</p>
+        </div>
+    </section>
+
+    <!-- New Monetization Service Cards (Civil 3D & GIS) -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest">خدماتنا التخصصية الرقمية</h2>
+                <h3 class="text-3xl md:text-4xl font-black section-title italic">تصميم Civil 3D 2026 و ArcGIS Pro</h3>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto italic">نحول البيانات الميدانية إلى تصاميم احترافية تضمن توفير المال والوقت.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
+                
+                <!-- Service Card 1 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-amber-100 text-brand-primary rounded-2xl flex items-center justify-center mb-6 text-3xl group-hover:bg-brand-primary group-hover:text-white transition">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تصميم الطرق (Civil 3D)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات والبروفيلات والمقاطع العرضية بدقة متناهية مطابقة لأحدث الأكواد الهندسية.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">حساب الكميات (Cut & Fill)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج جداول الكميات وحسابات الحفر والردم بدقة تضمن عدم التلاعب أو الهدر في الميزانية.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">شبكات البنية التحتية</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم شبكات المياه والصرف الصحي وتصريف السيول بأسلوب Pipe Networks الحديث.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">نظم المعلومات (ArcGIS Pro)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">بناء قواعد بيانات جغرافية ذكية وتحليل البيانات المكانية لدعم اتخاذ القرار وتخطيط المدن.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">استخراج البصمة (AI)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخدام الذكاء الاصطناعي لاستخراج بصمة المباني من الصور الجوية وتجهيز المخططات العمرانية.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">إظهار فني 3D</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تحويل المخططات الهندسية إلى نماذج ثلاثية الأبعاد جذابة تساعد في تسويق المشاريع للمستثمرين.</p>
+                    <a href="#quote" class="text-brand-primary font-bold hover:underline flex items-center gap-2">طلب الخدمة الآن <i class="fas fa-arrow-left text-xs"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio (أعمالنا) -->
+    <section id="portfolio" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-brand-primary font-black mb-16 tracking-widest italic section-title">سجل حافل بالإنجازات</h2>
+            <div class="grid md:grid-cols-3 gap-8" id="project-container">
+                <!-- Projects injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join-us" class="py-24 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl text-right">
+            <div class="bg-brand-secondary text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-black mb-6 italic tracking-tighter uppercase">Join Our Remote Team</h3>
+                    <h4 class="text-xl mb-6">نبحث عن مصممين محترفين في Civil 3D و GIS</h4>
+                    <form action="https://formsubmit.co/rageomaticsme@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="الاسم الكامل" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white">
+                            <input type="text" name="specialty" placeholder="التخصص (مثلاً: تصميم طرق)" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white">
+                        </div>
+                        <input type="file" name="attachment" required class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-brand-primary file:text-white cursor-pointer">
+                        <button type="submit" class="w-full bg-brand-primary text-brand-secondary py-4 rounded-xl font-black text-xl hover:bg-white transition italic">إرسال طلب الانضمام</button>
+                    </form>
+                </div>
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-primary/10 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section (طلب تسعيرة) -->
+    <section id="quote" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-black mb-8 italic italic">اطلب تسعيرة لمشروعك الآن</h2>
+            <p class="text-gray-500 mb-12">فريقنا الهندسي متاح رقمياً للاستشارات، وميدانياً للأعمال المساحية في مأرب وكافة أرجاء اليمن.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition flex items-center gap-3 shadow-xl">
+                    <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                </a>
+                <a href="mailto:ramzi@rageomatics.me" class="bg-brand-secondary text-white px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition flex items-center gap-3 shadow-xl">
+                    <i class="fas fa-envelope"></i> البريد الإلكتروني
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-secondary text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-16 text-right">
+                <div>
+                    <h4 class="text-3xl font-black mb-6 italic tracking-tighter">RAGEOMATICS</h4>
+                    <p class="text-gray-400 leading-relaxed italic">نحن المحرك الهندسي لمشاريعك الميدانية والرقيمة. الدقة هي لغتنا الوحيدة التي لا تقبل المساومة.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-6 text-brand-primary italic italic">تواصل سريع</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li><i class="fas fa-phone-alt ml-2"></i> +967 771 305 123</li>
+                        <li><i class="fas fa-envelope ml-2"></i> ramzi@rageomatics.me</li>
+                        <li><i class="fas fa-globe-asia ml-2"></i> مأرب - اليمن (ميداني وعن بُعد)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl mb-6 text-brand-primary italic italic">تابعنا</h4>
+                    <div class="flex gap-6 justify-start">
+                        <a href="https://www.facebook.com/RAGeomatics" target="_blank" class="text-3xl hover:text-brand-primary transition"><i class="fab fa-facebook"></i></a>
+                        <a href="http://www.youtube.com/@RAGEOMATICS" target="_blank" class="text-3xl hover:text-brand-primary transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-white/5 text-center text-gray-600 text-xs italic tracking-widest">
+                © 2026 آر إي جيوماتكس. جميع الحقوق محفوظة لشركة RAGeomatics.
             </div>
         </div>
     </footer>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
-        <div class="modal-content bg-white text-gray-800 rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform scale-95">
-            <div class="p-6 md:p-8">
-                <div class="flex justify-between items-start border-b border-gray-200 pb-4 mb-6">
-                    <div>
-                        <h3 id="modal-title" class="text-3xl font-bold"></h3>
-                        <p id="modal-service" class="text-amber-600 font-semibold"></p>
-                    </div>
-                    <button id="modal-close" class="text-gray-400 hover:text-gray-800 text-4xl">&times;</button>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <div class="lg:w-1/2">
-                        <div class="relative mb-4">
-                            <img id="modal-main-image" src="" alt="صورة المشروع الرئيسية" class="rounded-lg shadow-md w-full h-auto max-h-96 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';">
-                        </div>
-                        <div id="thumbnail-container" class="grid grid-cols-5 gap-2"></div>
-                    </div>
-                    <div class="lg:w-1/2">
-                        <div class="space-y-4 text-gray-700">
-                             <div class="grid grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-lg">
-                                <div><strong>العميل:</strong> <span id="modal-client"></span></div>
-                                <div><strong>الموقع:</strong> <span id="modal-location"></span></div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1 text-amber-600">وصف المشروع:</h4>
-                                <p id="modal-description"></p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1 text-amber-600">البرامج المستخدمة:</h4>
-                                <p id="modal-software"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+    <!-- Scripts -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const db = {
-                services: [
-                    { id: 'roads', title: 'تصميم الطرق' },
-                    { id: 'surveying', title: 'الرفع المساحي' },
-                    { id: 'gis', title: 'نظم المعلومات الجغرافية' },
-                    { id: 'visualization', title: 'الإظهار المعماري' }
-                ],
-                projects: [
-                    { id: 1, title: 'رفع مساحي وتصميم طريق الدائري الغربي', category: 'roads', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للطريق بطول 3 كيلو وعرض 35 متر.', software: 'Autodesk Civil 3d + Total Station', images: ['images/st35-2017.jpg', 'images/st35-2017b.jpg'] },
-                    { id: 2, title: 'رفع مساحي خط الشركة والصحن', category: 'surveying', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للطريق بطول 4 كيلو وعرض 30 متر.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/F59E0B/ffffff?text=مشروع+2', 'https://placehold.co/600x400/6366F1/ffffff?text=صورة+2'] },
-                    { id: 3, title: 'رفع مساحي لسائلة الجفينة', category: 'surveying', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي لمجرى السائله ومناطق تجمع النازحين بالجفينة.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/8B5CF6/ffffff?text=مشروع+3'] },
-                    { id: 4, title: 'رفع مساحي لسائلة الروضة والميل', category: 'surveying', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي لمجرى السائلة من الميل مرورا بالروضة والشبواني.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/EC4899/ffffff?text=مشروع+4'] },
-                    { id: 5, title: 'إعادة تاهيل شوارع حاره السلام', category: 'roads', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للاسفلت المتاكل والشوارع الناقصة بالمنطقة.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/EF4444/ffffff?text=مشروع+5'] },
-                    { id: 6, title: 'إعادة تاهيل طريق جبل البلق القبلي', category: 'roads', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للطريق بطول 2.5 كيلو.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/06B6D4/ffffff?text=مشروع+6'] },
-                    { id: 7, title: 'رفع مساحي وتحديد مسار السيول في حوض سد مأرب', category: 'gis', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'تم تحديد مسار السيول وتحديد الأماكن الخطرة.', software: 'Arcgis pro +Gps Lieca gs18', images: ['https://placehold.co/600x400/D97706/ffffff?text=مشروع+7'] },
-                    { id: 8, title: 'رفع مساحي لمشروع مياة المدينة', category: 'surveying', client: 'مؤسسة المياه والصرف الصحي', location: 'مأرب', description: 'رفع مساحي للخطوط الناقله وتحديد مسارها.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/4F46E5/ffffff?text=مشروع+8'] },
-                    { id: 9, title: 'رفع مساحي وتصميم وحصر لكميات مشروع إعادة تأهيل طريق صافر', category: 'roads', client: 'مكتب الاشغال العامه', location: 'مأرب', description: 'رفع مساحي وتصميم للطريق بطول 10 كيلو وحصر لكميات المشروع.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/7C3AED/ffffff?text=مشروع+9'] },
-                    { id: 10, title: 'رفع وحصر للأراضي في منطقة عين -حريب', category: 'gis', client: 'مواطنين المنطقة', location: 'شبوه/عين', description: 'الرفع الشامل والحصر وتحديد المصالح العامة لمنطقة 8 كيلو مربع.', software: 'Arcgis pro +Gps Lieca gs10', images: ['https://placehold.co/600x400/DB2777/ffffff?text=مشروع+10'] },
-                    { id: 11, title: 'رفع وإعادة تخطيط بعد حصر أملاك المواطنين', category: 'gis', client: 'مكتب المساحة والأراضي', location: 'مأرب/حريب', description: 'الرفع الشامل والحصر وتحديد المصالح العامة لمنطقة 5 كيلو مربع.', software: 'Arcgis pro +Gps Lieca gs18', images: ['https://placehold.co/600x400/E11D48/ffffff?text=مشروع+11'] },
-                    { id: 12, title: 'رفع مساحي لجامعه إقليم سبأ', category: 'surveying', client: 'جامعة إقليم سبا', location: 'مأرب', description: 'اسقاط حدود الجامعة بحسب الحدود المشتراه.', software: 'Autodesk Civil 3d + Total Station', images: ['https://placehold.co/600x400/059669/ffffff?text=مشروع+12'] },
-                    { id: 13, title: 'استخراج بصمه المباني عن الصور الجوية', category: 'gis', client: 'مكتب هندسي', location: 'مأرب', description: 'تم استخدام احدث صوره جويه لمحافظه مأرب واستخراج بصمه المباني باستخدام الذكاء الصناعي.', software: 'Arcgis pro', images: ['images/Building_footprints_marib.png'] },
-                    { id: 14, title: 'اخراج خرائط ثلاثيه الابعاد للمدينة', category: 'gis', client: 'شخصي', location: 'مأرب', description: 'باستخدام برامج نظم المعلومات.', software: 'Arcgis pro', images: ['https://placehold.co/600x400/F97316/ffffff?text=مشروع+14'] },
-                    { id: 15, title: 'اظهار ثردي لمدينة الخير السكنيه', category: 'visualization', client: 'مكتب ديره العرب', location: 'العبر', description: 'تم تصميم بلان ثردي للمديته كامل.', software: '3ds max+vray', images: ['images/city-alher1.jpg'] },
-                    { id: 16, title: 'اظهار ثردي لمدينة ديرة العرب السكنية', category: 'visualization', client: 'مكتب ديره العرب', location: 'غويربان', description: 'تم تصميم بلان ثردي للمديته كامل.', software: 'Autodesk InfraWorks', images: ['https://placehold.co/600x400/16A34A/ffffff?text=مشروع+16'] },
-                    { id: 17, title: 'اظهار ثردي لمركز الطفوله', category: 'visualization', client: 'مكتب هندسي', location: 'كرى', description: 'اظهار معماري للمساقط المعماريه.', software: 'Autodesk 3d max', images: ['https://placehold.co/600x400/6D28D9/ffffff?text=مشروع+17'] },
-                    { id: 18, title: 'اظهار فني لتصميم طريق الدائري الغربي', category: 'visualization', client: 'مكتب هندسي', location: 'مأرب', description: 'تصميم لمسار الطريق والعوائق الموجودة.', software: 'Autodesk 3d max', images: ['https://placehold.co/600x400/C026D3/ffffff?text=مشروع+18'] },
-                    { id: 19, title: 'اظهار ثردي لشقق سكنية', category: 'visualization', client: 'مكتب هندسي', location: 'مأرب', description: 'اظهار معماري للمساقط المعماريه.', software: 'Autodesk 3d max', images: ['https://placehold.co/600x400/E11D48/ffffff?text=مشروع+19'] }
-                ]
-            };
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loader handling
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => loader.classList.add('opacity-0', 'pointer-events-none'), 800);
+            }
 
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            // AOS init
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 1000, once: true });
+            }
+
+            // Mobile menu handling
+            const mobileBtn = document.getElementById('mobile-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            const projectGridEl = document.getElementById('project-grid');
-            const portfolioFiltersEl = document.getElementById('portfolio-filters');
-            const modalEl = document.getElementById('project-modal');
-            const modalCloseBtn = document.getElementById('modal-close');
-            let currentProjectImages = [];
-            let currentImageIndex = 0;
-            let portfolioInitialized = false;
-
-            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-            projectGridEl.addEventListener('click', e => { const card = e.target.closest('[data-id]'); if (card) openModal(card.dataset.id); });
-            portfolioFiltersEl.addEventListener('click', e => {
-                const filterBtn = e.target.closest('[data-category]');
-                if (filterBtn) {
-                    const categoryId = filterBtn.dataset.category;
-                    portfolioFiltersEl.querySelector('.active').classList.remove('active');
-                    filterBtn.classList.add('active');
-                    const filteredProjects = categoryId === 'all' ? db.projects : db.projects.filter(p => p.category === categoryId);
-                    renderProjects(filteredProjects);
-                }
-            });
-            document.querySelectorAll('.nav-portfolio-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const portfolioSection = document.getElementById('portfolio');
-                    if (!portfolioInitialized) {
-                        renderPortfolioFilters();
-                        renderProjects(db.projects);
-                        portfolioInitialized = true;
-                    }
-                    portfolioSection.classList.remove('hidden');
-                    portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
-                });
-            });
-            modalCloseBtn.addEventListener('click', closeModal);
-            modalEl.addEventListener('click', e => { if (e.target === modalEl) closeModal(); });
-            
-            document.getElementById('thumbnail-container').addEventListener('click', e => { 
-                const thumb = e.target.closest('[data-index]');
-                if (thumb) { updateModalImage(parseInt(thumb.dataset.index)); }
-            });
-
-            function renderProjects(projects) {
-                projectGridEl.innerHTML = projects.length > 0 ? projects.map(project => `
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition" data-id="${project.id}">
-                        <img src="${project.images[0]}" alt="صورة لمشروع ${project.title}" class="w-full h-56 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=صورة+غير+متوفرة';">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold">${project.title}</h4>
-                            <p class="text-amber-600 font-semibold">${db.services.find(s => s.id === project.category)?.title || 'خدمة غير محددة'}</p>
-                        </div>
-                    </div>`).join('') : `<p class="text-center col-span-full text-gray-500 text-lg">لا توجد مشاريع لعرضها في هذه الفئة حاليًا.</p>`;
-            }
-            function renderPortfolioFilters() {
-                let filtersHtml = `<button class="filter-btn active bg-amber-500 text-white font-semibold py-2 px-4 rounded-full" data-category="all">الكل</button>`;
-                db.services.forEach(service => { filtersHtml += `<button class="filter-btn bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-amber-400 hover:text-white" data-category="${service.id}">${service.title}</button>`; });
-                portfolioFiltersEl.innerHTML = filtersHtml;
-            }
-            function openModal(projectId) {
-                const project = db.projects.find(p => p.id == projectId);
-                if (!project) return;
-                document.getElementById('modal-title').textContent = project.title;
-                document.getElementById('modal-client').textContent = project.client;
-                document.getElementById('modal-location').textContent = project.location;
-                document.getElementById('modal-service').textContent = db.services.find(s => s.id === project.category)?.title || '';
-                document.getElementById('modal-description').textContent = project.description;
-                document.getElementById('modal-software').textContent = project.software;
-                currentProjectImages = project.images;
-                
-                const thumbnailContainer = document.getElementById('thumbnail-container');
-                thumbnailContainer.innerHTML = currentProjectImages.map((imgSrc, index) => `<img src="${imgSrc}" class="thumbnail w-full h-16 object-cover rounded-md" data-index="${index}" onerror="this.onerror=null;this.src='https://placehold.co/100x60/cccccc/ffffff?text=N/A';">`).join('');
-                
-                updateModalImage(0);
-                modalEl.classList.remove('opacity-0', 'pointer-events-none');
-                modalEl.querySelector('.modal-content').classList.remove('scale-95');
-            }
-            function closeModal() {
-                modalEl.classList.add('opacity-0', 'pointer-events-none');
-                modalEl.querySelector('.modal-content').classList.add('scale-95');
-            }
-            function updateModalImage(index) {
-                currentImageIndex = index;
-                const mainImage = document.getElementById('modal-main-image');
-                mainImage.src = currentProjectImages[index];
-                document.querySelectorAll('.thumbnail').forEach((thumb, i) => { 
-                    thumb.classList.toggle('active', i === index);
-                });
-            }
-            function animateCounters() {
-                const counters = document.querySelectorAll('[data-counter]');
-                const speed = 200;
-                counters.forEach(counter => {
-                    const updateCount = () => {
-                        const target = +counter.getAttribute('data-counter');
-                        const count = +counter.innerText;
-                        const inc = target / speed;
-                        if (count < target) {
-                            counter.innerText = Math.ceil(count + inc);
-                            setTimeout(updateCount, 15);
-                        } else { counter.innerText = target; }
-                    };
-                    updateCount();
-                });
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             }
 
-            // --- Slider Initialization ---
-            const aboutSliderImages = [
+            // About Swiper - Image Paths
+            const aboutImages = [
                 'images/foif-2.jpg',
                 'images/Maintenance-surveying equipment.jpg',
                 'images/Leveling and sloping works.jpg',
@@ -483,20 +366,45 @@
                 'images/Works-Leica GS10.jpg',
                 'images/Works-Leica GS18.jpg'
             ];
-            const swiperWrapper = document.querySelector('#about .swiper-wrapper');
-            if(swiperWrapper) {
-                swiperWrapper.innerHTML = aboutSliderImages.map(imgSrc => `<div class="swiper-slide"><img src="${imgSrc}" alt="صورة من خدماتنا" onerror="this.onerror=null;this.src='https://placehold.co/600x450/cccccc/ffffff?text=Image+Not+Found';"></div>`).join('');
-                new Swiper('#about .swiper-container', {
-                    effect: 'fade',
-                    loop: true,
-                    autoplay: { delay: 3000, disableOnInteraction: false, },
-                    pagination: { el: '.swiper-pagination', clickable: true, },
+            
+            const aboutWrapper = document.getElementById('about-slides');
+            if (aboutWrapper) {
+                aboutImages.forEach(img => {
+                    aboutWrapper.innerHTML += `<div class="swiper-slide h-full w-full"><img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/1f2937/ffffff?text=RA+Service'"></div>`;
+                });
+
+                if (typeof Swiper !== 'undefined') {
+                    new Swiper('.about-swiper', { 
+                        loop: true, 
+                        autoplay: { delay: 3000 }, 
+                        pagination: { el: '.swiper-pagination', clickable: true } 
+                    });
+                }
+            }
+
+            // Portfolio Injections
+            const projects = [
+                { id: 1, title: 'تصميم طريق الدائري (Civil 3D)', cat: 'تصميم هندسي', img: 'images/st35-2017.jpg' },
+                { id: 13, title: 'بصمة المباني الذكية (ArcGIS Pro)', cat: 'GIS رقمي', img: 'images/Building_footprints_marib.png' },
+                { id: 15, title: 'مدينة الخير السكنية (3D Render)', cat: 'إظهار معماري', img: 'images/city-alher1.jpg' },
+                { id: 2, title: 'إعادة تأهيل طريق صافر', cat: 'تصميم طرق', img: 'https://images.unsplash.com/photo-1510133769068-6c08e0f38743?w=600&q=80' }
+            ];
+            
+            const container = document.getElementById('project-container');
+            if (container) {
+                projects.forEach(p => {
+                    container.innerHTML += `
+                        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-500" data-aos="fade-up">
+                            <img src="${p.img}" class="w-full h-72 object-cover" onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Project+Work'">
+                            <div class="absolute inset-0 bg-brand-secondary/90 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition duration-500 text-right">
+                                <span class="text-brand-primary font-bold text-xs uppercase mb-2">${p.cat}</span>
+                                <h4 class="text-white text-xl font-black italic">${p.title}</h4>
+                            </div>
+                        </div>
+                    `;
                 });
             }
-            animateCounters();
         });
     </script>
 </body>
 </html>
-
-
