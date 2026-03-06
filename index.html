@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Metadata -->
+    <!-- SEO & الأساسيات -->
     <title>آر إي جيوماتكس | RAGEOMATICS - حلول مساحية وهندسية متكاملة</title>
-    <meta name="description" content="RAGEOMATICS: الشركة الرائدة في مأرب لتصميم الطرق Civil 3D، نظم المعلومات ArcGIS Pro، والرفع المساحي الميداني الدقيق.">
+    <meta name="description" content="RAGEOMATICS: الشركة الرائدة في مأرب لتصميم الطرق Civil 3D، نظم المعلومات ArcGIS Pro، والرفع المساحي الميداني الدقيق. دقة هندسية بواقع رقمي.">
+    <meta name="keywords" content="هندسة مساحة، مأرب، تصميم طرق، Civil 3D 2026، ArcGIS Pro، حساب كميات، اليمن، RAGEOMATICS">
     <link rel="canonical" href="https://www.rageomatics.me/">
 
-    <!-- Tailwind Config MUST be before CDN -->
+    <!-- بطاقات التواصل الاجتماعي (لظهار الرابط بشكل احترافي عند المشاركة) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rageomatics.me/">
+    <meta property="og:title" content="آر إي جيوماتكس | الدقة الهندسية بواقع رقمي">
+    <meta property="og:description" content="خدمات هندسية تخصصية في مأرب: تصميم طرق Civil 3D، نظم ArcGIS Pro، وتحليلات هيدرولوجية متقدمة.">
+    <meta property="og:image" content="https://www.rageomatics.me/images/logo.png"> <!-- تأكد من وجود شعارك في هذا المسار -->
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAGEOMATICS - الحلول المساحية المتكاملة">
+    <meta name="twitter:description" content="الشركة الرائدة في مأرب لتصميم الطرق ونظم المعلومات الجغرافية.">
+    <meta name="twitter:image" content="https://www.rageomatics.me/images/logo.png">
+
+    <!-- Tailwind Config -->
     <script>
         window.tailwindConfig = {
             theme: {
@@ -33,7 +47,7 @@
         tailwind.config = window.tailwindConfig;
     </script>
 
-    <!-- Fonts & Libraries (Using HTTPS for all) -->
+    <!-- Fonts & Libraries -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -108,7 +122,7 @@
     <section id="services" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center">التميز الفني</h2>
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center text-glow">التميز الفني</h2>
                 <h3 class="text-4xl font-black section-title text-center">خدمات هندسية تخصصية</h3>
             </div>
 
@@ -125,9 +139,9 @@
                 </div>
                 <!-- Card 2 -->
                 <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-green-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-layer-group"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">تحليل هيدرولوجي ومخاطر السيول</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 text-right">دراسة مسارات السيول وأحواض التصريف باستخدام ArcGIS Pro لضمان سلامة المنشآت.</p>
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تحليل هيدرولوجي ومخاطر السيول</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">دراسة مسارات السيول وأحواض التصريف باستخدام ArcGIS Pro لضمان سلامة المنشآت.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="hydrology">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="hydrology">اطلب الآن</button>
@@ -146,8 +160,8 @@
                 <!-- Card 4 -->
                 <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-sync-alt"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">تحويل CAD ⇄ GIS وتنظيف البيانات</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 text-right">معالجة البيانات المكانية وتحويل المخططات بدقة بين الأنظمة الهندسية المختلفة.</p>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تحويل CAD ⇄ GIS</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">معالجة البيانات المكانية وتحويل المخططات بدقة بين الأنظمة الهندسية المختلفة.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="cad-gis">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="cad-gis">اطلب الآن</button>
@@ -156,8 +170,8 @@
                 <!-- Card 5 -->
                 <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-file-invoice"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">إظهار فني وخرائط إخراج عالية الدقة</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 text-right">إنتاج خرائط طبوغرافية وموضوعية احترافية جاهزة للعرض والطباعة بأعلى المعايير.</p>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">إخراج خرائط عالية الدقة</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إنتاج خرائط طبوغرافية وموضوعية احترافية جاهزة للعرض والطباعة بأعلى المعايير.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="high-res-maps">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="high-res-maps">اطلب الآن</button>
@@ -166,8 +180,8 @@
                 <!-- Card 6 -->
                 <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="600">
                     <div class="w-16 h-16 bg-green-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-calculator"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic text-right">حساب الكميات وحصر الأعمال</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 text-right">استخراج جداول الكميات (Cut & Fill) بدقة تضمن لك التحكم التام في تكاليف المشروع.</p>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">حساب الكميات وحصر الأعمال</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج جداول الكميات (Cut & Fill) بدقة تضمن لك التحكم التام في تكاليف المشروع.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="quantity">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="quantity">اطلب الآن</button>
@@ -177,12 +191,12 @@
         </div>
     </section>
 
-    <!-- Original Services Detailed List -->
+    <!-- Original Detailed List (Text) -->
     <section id="services-list" class="py-24 bg-brand-secondary text-white">
         <div class="container mx-auto px-6 text-right">
             <div class="text-center mb-16">
                 <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center">نطاق خدماتنا</h2>
-                <h3 class="text-3xl md:text-4xl font-black text-center">الخدمات المساحية والجغرافية الشاملة</h3>
+                <h3 class="text-3xl md:text-4xl font-black text-center italic">الخدمات المساحية والجغرافية الشاملة</h3>
             </div>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-right">
@@ -301,11 +315,11 @@
     
     <script>
         const servicesData = {
-            'road-design': { title: 'تصميم الطرق (Civil 3D)', desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية.', wa: 'أريد خدمة تصميم الطرق Civil 3D' },
+            'road-design': { title: 'تصميم الطرق (Civil 3D)', desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية (AASHTO).', wa: 'أريد خدمة تصميم الطرق Civil 3D' },
             'quantity': { title: 'حساب الكميات وحصر الأعمال', desc: 'استخراج جداول الكميات وتقارير الحفر والردم بدقة تضمن التحكم التام في التكاليف ومنع الهدر في المواقع.', wa: 'أريد خدمة حساب الكميات وحصر الأعمال' },
             'gis': { title: 'نظم المعلومات (ArcGIS Pro)', desc: 'بناء قواعد بيانات جغرافية ذكية، تحليل البيانات المكانية، وإنتاج خرائط رقمية تفاعلية تدعم اتخاذ القرار.', wa: 'أريد خدمة نظم المعلومات ArcGIS Pro' },
             'hydrology': { title: 'تحليل هيدرولوجي ومخاطر السيول', desc: 'دراسة مسارات السيول وأحوض التصريف باستخدام نماذج الارتفاعات الرقمية لضمان سلامة واستدامة المشاريع.', wa: 'أريد دراسة هيدرولوجية ومخاطر السيول' },
-            'cad-gis': { title: 'تحويل CAD ⇄ GIS وتنظيف البيانات', desc: 'معالجة البيانات المكانية وتحويل المخططات بدقة بين AutoCAD و ArcGIS مع تصحيح الأخطاء الهندسية.', wa: 'أريد خدمة تحويل البيانات بين CAD و GIS' },
+            'cad-gis': { title: 'تحويل CAD ⇄ GIS', desc: 'معالجة البيانات المكانية وتحويل المخططات بدقة بين AutoCAD و ArcGIS مع تصحيح الأخطاء الهندسية.', wa: 'أريد خدمة تحويل البيانات بين CAD و GIS' },
             'high-res-maps': { title: 'إخراج خرائط عالية الدقة', desc: 'إنتاج خرائط هندسية وجغرافية بتنسيقات احترافية جاهزة للعرض والطباعة بأعلى معايير الجودة الفنية.', wa: 'أريد خدمة إخراج خرائط عالية الدقة' }
         };
 
@@ -353,7 +367,7 @@
                 const s = servicesData[id];
                 if (!s) return;
                 currentId = id;
-                modalBody.innerHTML = `<h3 class="text-3xl font-black text-brand-secondary mb-4 text-right">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed text-right text-right">${s.desc}</p>`;
+                modalBody.innerHTML = `<h3 class="text-3xl font-black text-brand-secondary mb-4 text-right italic">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed text-right">${s.desc}</p>`;
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modal.querySelector('.bg-white').classList.remove('scale-95');
                 document.body.style.overflow = 'hidden';
@@ -380,7 +394,12 @@
                 if (e.target === modalOrderBtn) sendWA(currentId);
             });
 
-            // Smooth Scroll Fix
+            // Keyboard support
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // Smooth Scroll Fix for all nav links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
@@ -394,10 +413,6 @@
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
                 });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
             });
         });
     </script>
