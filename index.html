@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & الأساسيات -->
+    <!-- SEO & الهوية الرقمية -->
     <title>آر إي جيوماتكس | RAGEOMATICS - حلول مساحية وهندسية متكاملة</title>
     <meta name="description" content="RAGEOMATICS: الشركة الرائدة في مأرب لتصميم الطرق Civil 3D، نظم المعلومات ArcGIS Pro، والرفع المساحي الميداني الدقيق. دقة هندسية بواقع رقمي.">
     <meta name="keywords" content="هندسة مساحة، مأرب، تصميم طرق، Civil 3D 2026، ArcGIS Pro، حساب كميات، اليمن، RAGEOMATICS">
+    
+    <!-- الرابط الرسمي الموحد -->
     <link rel="canonical" href="https://www.rageomatics.me/">
 
-    <!-- بطاقات التواصل الاجتماعي (لظهار الرابط بشكل احترافي عند المشاركة) -->
+    <!-- بطاقات التواصل الاجتماعي لظهور الرابط بشكل احترافي -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rageomatics.me/">
     <meta property="og:title" content="آر إي جيوماتكس | الدقة الهندسية بواقع رقمي">
-    <meta property="og:description" content="خدمات هندسية تخصصية في مأرب: تصميم طرق Civil 3D، نظم ArcGIS Pro، وتحليلات هيدرولوجية متقدمة.">
-    <meta property="og:image" content="https://www.rageomatics.me/images/logo.png"> <!-- تأكد من وجود شعارك في هذا المسار -->
+    <meta property="og:description" content="خدمات هندسية تخصصية في مأرب: تصميم طرق Civil 3D، نظم ArcGIS Pro، وتحليلات هيدرولوجية.">
+    <meta property="og:image" content="https://www.rageomatics.me/images/logo.png">
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RAGEOMATICS - الحلول المساحية المتكاملة">
-    <meta name="twitter:description" content="الشركة الرائدة في مأرب لتصميم الطرق ونظم المعلومات الجغرافية.">
-    <meta name="twitter:image" content="https://www.rageomatics.me/images/logo.png">
+    <!-- كود إجبار استخدام WWW (اختياري برمجياً والأفضل من إعدادات الاستضافة) -->
+    <script>
+        if (window.location.hostname === "rageomatics.me") {
+            window.location.replace("https://www.rageomatics.me" + window.location.pathname + window.location.search);
+        }
+    </script>
 
     <!-- Tailwind Config -->
     <script>
@@ -86,7 +89,7 @@
                 <a href="#services" class="font-bold text-gray-700 hover:text-brand-primary transition">خدماتنا</a>
                 <a href="#portfolio" class="font-bold text-gray-700 hover:text-brand-primary transition">المشاريع</a>
                 <a href="#join-us" class="font-bold text-gray-700 hover:text-brand-primary transition">انضم إلينا</a>
-                <a href="#quote" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">اطلب تسعيرة</a>
+                <a href="#quote" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20 text-center">اطلب تسعيرة</a>
             </nav>
 
             <button id="mobile-btn" class="lg:hidden p-2 text-brand-secondary"><i class="fas fa-bars text-2xl"></i></button>
@@ -119,26 +122,26 @@
     </section>
 
     <!-- Services Cards Section -->
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="services" class="py-24 bg-white px-6">
+        <div class="container mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center text-glow">التميز الفني</h2>
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center">التميز الفني</h2>
                 <h3 class="text-4xl font-black section-title text-center">خدمات هندسية تخصصية</h3>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
                 <!-- Card 1 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-amber-100 text-brand-primary rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-road"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تصميم الطرق (Civil 3D)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات والبروفيلات وحساب الكميات بدقة تتبع المعايير العالمية (AASHTO).</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات والبروفيلات وحساب الكميات بدقة تتبع المعايير العالمية.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="road-design">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="road-design">اطلب الآن</button>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تحليل هيدرولوجي ومخاطر السيول</h4>
                     <p class="text-gray-600 text-sm leading-relaxed mb-6">دراسة مسارات السيول وأحواض التصريف باستخدام ArcGIS Pro لضمان سلامة المنشآت.</p>
@@ -148,7 +151,7 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-map-marked-alt"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">نظم الـ GIS والتحليل الجغرافي</h4>
                     <p class="text-gray-600 text-sm leading-relaxed mb-6">بناء قواعد البيانات الجغرافية الذكية باستخدام ArcGIS Pro لدعم التخطيط الحضري.</p>
@@ -158,30 +161,30 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-sync-alt"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">تحويل CAD ⇄ GIS</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">معالجة البيانات المكانية وتحويل المخططات بدقة بين الأنظمة الهندسية المختلفة.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">معالجة البيانات المكانية وتحويل المخططات بدقة بين الأنظمة المختلفة.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="cad-gis">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="cad-gis">اطلب الآن</button>
                     </div>
                 </div>
                 <!-- Card 5 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-file-invoice"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">إخراج خرائط عالية الدقة</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إنتاج خرائط طبوغرافية وموضوعية احترافية جاهزة للعرض والطباعة بأعلى المعايير.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إنتاج خرائط طبوغرافية وموضوعية احترافية جاهزة للعرض والطباعة.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="high-res-maps">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="high-res-maps">اطلب الآن</button>
                     </div>
                 </div>
                 <!-- Card 6 -->
-                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
                     <div class="w-16 h-16 bg-green-100 text-brand-accent rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-calculator"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">حساب الكميات وحصر الأعمال</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج جداول الكميات (Cut & Fill) بدقة تضمن لك التحكم التام في تكاليف المشروع.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج جداول الكميات (Cut & Fill) بدقة تضمن لك التحكم في تكاليف المشروع.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-service-id="quantity">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-service-id="quantity">اطلب الآن</button>
@@ -191,12 +194,12 @@
         </div>
     </section>
 
-    <!-- Original Detailed List (Text) -->
-    <section id="services-list" class="py-24 bg-brand-secondary text-white">
-        <div class="container mx-auto px-6 text-right">
+    <!-- Detailed List Section -->
+    <section id="services-list" class="py-24 bg-brand-secondary text-white px-6">
+        <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center">نطاق خدماتنا</h2>
-                <h3 class="text-3xl md:text-4xl font-black text-center italic">الخدمات المساحية والجغرافية الشاملة</h3>
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic">نطاق خدماتنا</h2>
+                <h3 class="text-3xl md:text-4xl font-black italic">الخدمات المساحية والجغرافية الشاملة</h3>
             </div>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-right">
@@ -205,7 +208,6 @@
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> إنتاج الخرائط التفصيلية والطبوغرافية والرقمية.</li>
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> الأعمال المساحية للطرق والمنشآت بكافة أنواعها.</li>
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> أعمال مساحة لشبكات المياه والصرف الصحي وتصريف السيول.</li>
-                        <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> عمل نقاط تحكم أرضية بمواصفات تقنية عالية.</li>
                     </ul>
                 </div>
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10" data-aos="fade-left">
@@ -214,7 +216,6 @@
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> إنشاء قواعد البيانات الجغرافية (GIS) والدعم الفني.</li>
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> صيانة ومعايرة الأجهزة المساحية.</li>
                         <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> الإظهار والإخراج المعماري والفني للمشاريع.</li>
-                        <li class="flex items-start gap-3 justify-start"><i class="fas fa-check-circle text-brand-primary mt-1"></i> حصر ونزع الملكيات وتجهيز فرق فنية مختصة.</li>
                     </ul>
                 </div>
             </div>
@@ -222,7 +223,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-gray-50">
+    <section id="portfolio" class="py-24 bg-gray-50 px-6">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-black section-title uppercase tracking-tighter mb-16 italic text-center">سجل حافل بالإنجازات</h2>
             <div class="grid md:grid-cols-3 gap-8 text-right" id="project-container">
@@ -234,7 +235,7 @@
     <!-- Partners Section -->
     <section class="py-16 bg-gray-100">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400 font-bold mb-8 uppercase tracking-widest text-sm text-center">جهات نعتز بثقتها في مأرب واليمن</p>
+            <p class="text-gray-400 font-bold mb-8 uppercase tracking-widest text-sm">جهات نعتز بثقتها في مأرب واليمن</p>
             <div class="flex flex-wrap justify-center items-center gap-10 opacity-60">
                 <span class="text-xl font-black italic">المكاتب الحكومية</span>
                 <span class="text-xl font-black italic">التطوير العقاري</span>
@@ -245,29 +246,28 @@
     </section>
 
     <!-- Join Us Section -->
-    <section id="join-us" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-4xl text-right">
+    <section id="join-us" class="py-24 bg-white px-6">
+        <div class="container mx-auto max-w-4xl text-right">
             <div class="bg-brand-secondary text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
-                    <h3 class="text-3xl font-black mb-6 italic tracking-tighter uppercase text-right">Join RAGEOMATICS Team</h3>
-                    <h4 class="text-xl mb-8 italic text-right">نبحث عن مصممين محترفين في Civil 3D و GIS</h4>
+                    <h3 class="text-3xl font-black mb-6 italic tracking-tighter uppercase">Join RAGEOMATICS Team</h3>
+                    <h4 class="text-xl mb-8 italic">نبحث عن مصممين محترفين في Civil 3D و GIS</h4>
                     <form action="https://formsubmit.co/rageomaticsme@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6 text-right">
                         <div class="grid md:grid-cols-2 gap-6 text-right">
                             <input type="text" name="name" placeholder="الاسم الكامل" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white">
-                            <input type="text" name="specialty" placeholder="التخصص" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white text-right">
+                            <input type="text" name="specialty" placeholder="التخصص" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white">
                         </div>
                         <input type="file" name="attachment" required class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-brand-primary file:text-white cursor-pointer">
-                        <button type="submit" class="w-full bg-brand-primary text-brand-secondary py-4 rounded-xl font-black text-xl hover:bg-white transition italic">إرسال الطلب</button>
+                        <button type="submit" class="w-full bg-brand-primary text-brand-secondary py-4 rounded-xl font-black text-xl hover:bg-white transition italic uppercase">إرسال الطلب</button>
                     </form>
                 </div>
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-primary/10 rounded-full blur-3xl text-right"></div>
             </div>
         </div>
     </section>
 
     <!-- Quote Section -->
-    <section id="quote" class="py-24 bg-gray-50 text-center">
-        <div class="container mx-auto px-6">
+    <section id="quote" class="py-24 bg-gray-50 text-center px-6">
+        <div class="container mx-auto">
             <h2 class="text-4xl font-black mb-12 italic text-center">تواصل معنا للاستشارة والطلب</h2>
             <div class="flex flex-wrap justify-center gap-6">
                 <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition flex items-center gap-3 shadow-xl">
@@ -284,26 +284,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-secondary text-white py-12 border-t border-white/5">
-        <div class="container mx-auto px-6 text-center">
-            <h4 class="text-3xl font-black italic mb-4 uppercase tracking-widest text-center">RAGEOMATICS</h4>
+    <footer class="bg-brand-secondary text-white py-12 border-t border-white/5 px-6">
+        <div class="container mx-auto text-center">
+            <h4 class="text-3xl font-black italic mb-4 uppercase tracking-widest">RAGEOMATICS</h4>
             <div class="flex justify-center gap-6 text-2xl mb-8">
                 <a href="https://www.facebook.com/RAGeomatics" target="_blank" class="hover:text-brand-primary transition"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.youtube.com/@RAGEOMATICS" target="_blank" class="hover:text-brand-primary transition"><i class="fab fa-youtube"></i></a>
                 <a href="https://wa.me/967771305123" target="_blank" class="hover:text-brand-primary transition"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="text-gray-500 text-xs italic text-center">© 2026 آر إي جيوماتكس. جميع الحقوق محفوظة لشركة RAGeomatics.</p>
+            <p class="text-gray-500 text-xs italic">© 2026 آر إي جيوماتكس. جميع الحقوق محفوظة لشركة RAGeomatics.</p>
         </div>
     </footer>
 
-    <!-- Service Details Modal -->
+    <!-- Service Modal -->
     <div id="service-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 text-right">
         <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden transform scale-95 transition-all duration-300">
-            <div class="p-8 relative text-right">
+            <div class="p-8 relative">
                 <button id="modal-close" class="absolute top-6 left-6 text-gray-400 hover:text-brand-secondary text-2xl transition"><i class="fas fa-times"></i></button>
                 <div id="modal-content-area" class="space-y-6 text-right"></div>
                 <div class="mt-8 pt-6 border-t border-gray-100">
-                    <button id="modal-order-btn" class="w-full bg-brand-primary text-white py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition italic text-center">اطلب هذه الخدمة فوراً</button>
+                    <button id="modal-order-btn" class="w-full bg-brand-primary text-white py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition italic">اطلب هذه الخدمة فوراً</button>
                 </div>
             </div>
         </div>
@@ -315,8 +315,8 @@
     
     <script>
         const servicesData = {
-            'road-design': { title: 'تصميم الطرق (Civil 3D)', desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية (AASHTO).', wa: 'أريد خدمة تصميم الطرق Civil 3D' },
-            'quantity': { title: 'حساب الكميات وحصر الأعمال', desc: 'استخراج جداول الكميات وتقارير الحفر والردم بدقة تضمن التحكم التام في التكاليف ومنع الهدر في المواقع.', wa: 'أريد خدمة حساب الكميات وحصر الأعمال' },
+            'road-design': { title: 'تصميم الطرق (Civil 3D)', desc: 'تصميم مسارات الطرق والبروفيلات والمقاطع العرضية وحساب الكميات بدقة 100% وفقاً للمعايير الهندسية العالمية.', wa: 'أريد خدمة تصميم الطرق Civil 3D' },
+            'quantity': { title: 'حساب الكميات وحصر الأعمال', desc: 'استخراج جداول الكميات وتقارير الحفر والردم بدقة تضمن التحكم التام في تكاليف ومنع الهدر في المواقع.', wa: 'أريد خدمة حساب الكميات وحصر الأعمال' },
             'gis': { title: 'نظم المعلومات (ArcGIS Pro)', desc: 'بناء قواعد بيانات جغرافية ذكية، تحليل البيانات المكانية، وإنتاج خرائط رقمية تفاعلية تدعم اتخاذ القرار.', wa: 'أريد خدمة نظم المعلومات ArcGIS Pro' },
             'hydrology': { title: 'تحليل هيدرولوجي ومخاطر السيول', desc: 'دراسة مسارات السيول وأحوض التصريف باستخدام نماذج الارتفاعات الرقمية لضمان سلامة واستدامة المشاريع.', wa: 'أريد دراسة هيدرولوجية ومخاطر السيول' },
             'cad-gis': { title: 'تحويل CAD ⇄ GIS', desc: 'معالجة البيانات المكانية وتحويل المخططات بدقة بين AutoCAD و ArcGIS مع تصحيح الأخطاء الهندسية.', wa: 'أريد خدمة تحويل البيانات بين CAD و GIS' },
@@ -367,7 +367,7 @@
                 const s = servicesData[id];
                 if (!s) return;
                 currentId = id;
-                modalBody.innerHTML = `<h3 class="text-3xl font-black text-brand-secondary mb-4 text-right italic">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed text-right">${s.desc}</p>`;
+                modalBody.innerHTML = `<h3 class="text-3xl font-black text-brand-secondary mb-4 italic text-right">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed text-right">${s.desc}</p>`;
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modal.querySelector('.bg-white').classList.remove('scale-95');
                 document.body.style.overflow = 'hidden';
