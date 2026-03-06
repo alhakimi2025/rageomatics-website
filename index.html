@@ -10,7 +10,7 @@
     <meta name="keywords" content="هندسة مساحة، مأرب، تصميم طرق، Civil 3D 2026، ArcGIS Pro، حساب كميات، اليمن">
     <link rel="canonical" href="https://www.rageomatics.me/">
 
-    <!-- Tailwind Config MUST be before CDN for better initialization -->
+    <!-- Tailwind Config -->
     <script>
         window.tailwindConfig = {
             theme: {
@@ -52,6 +52,11 @@
         .service-card:hover { border-color: #f59e0b; transform: translateY(-10px); background: #ffffff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         .text-glow { text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
         .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: #f59e0b; margin: 15px auto; border-radius: 10px; }
+        
+        /* تفعيل التمرير السلس */
+        html { scroll-behavior: smooth; }
+        /* تعويض ارتفاع الهيدر الثابت عند الانتقال للأقسام */
+        section { scroll-margin-top: 80px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 selection:bg-brand-primary selection:text-white overflow-x-hidden">
@@ -62,7 +67,7 @@
     </div>
 
     <!-- Header -->
-    <header class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+    <header id="main-header" class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#hero" class="flex items-center gap-3">
                 <img src="images/logo.png" alt="Logo" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA'">
@@ -71,11 +76,11 @@
             
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
-                <a href="#hero" class="font-bold text-gray-700 hover:text-brand-primary transition">الرئيسية</a>
-                <a href="#services" class="font-bold text-gray-700 hover:text-brand-primary transition">خدماتنا</a>
-                <a href="#portfolio" class="font-bold text-gray-700 hover:text-brand-primary transition">المشاريع</a>
-                <a href="#join-us" class="font-bold text-gray-700 hover:text-brand-primary transition">انضم إلينا</a>
-                <a href="#quote" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">اطلب تسعيرة</a>
+                <a href="#hero" class="nav-link font-bold text-gray-700 hover:text-brand-primary transition">الرئيسية</a>
+                <a href="#services" class="nav-link font-bold text-gray-700 hover:text-brand-primary transition">خدماتنا</a>
+                <a href="#portfolio" class="nav-link font-bold text-gray-700 hover:text-brand-primary transition">المشاريع</a>
+                <a href="#join-us" class="nav-link font-bold text-gray-700 hover:text-brand-primary transition">انضم إلينا</a>
+                <a href="#quote" class="nav-link bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">اطلب تسعيرة</a>
             </nav>
 
             <!-- Mobile Button -->
@@ -99,13 +104,13 @@
         <div class="container mx-auto px-6 relative z-10 text-center md:text-right" data-aos="fade-up">
             <div class="max-w-4xl">
                 <span class="bg-brand-primary text-white px-4 py-1 rounded-md text-xs font-bold mb-6 inline-block uppercase italic">Pioneering Precision in Marib</span>
-                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">الدقة الهندسة <br><span class="text-brand-primary text-glow">بواقع رقمي.</span></h1>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">الدقة الهندسية <br><span class="text-brand-primary text-glow">بواقع رقمي.</span></h1>
                 <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light">
                     آر إي جيوماتكس: ريادة مأرب في تصميم الطرق ببرمجيات Civil 3D 2026 وتحليلات ArcGIS Pro. نجمع بين الخبرة الميدانية العريقة والحلول الهندسية الرقمية عن بُعد.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#quote" class="bg-brand-primary px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition shadow-xl">ابدأ مشروعك الآن</a>
-                    <a href="#portfolio" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-black text-lg hover:bg-white/20 transition text-center min-w-[180px]">شاهد ملف الأعمال</a>
+                    <a href="#quote" class="nav-link bg-brand-primary px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition shadow-xl">ابدأ مشروعك الآن</a>
+                    <a href="#portfolio" class="nav-link bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-black text-lg hover:bg-white/20 transition text-center min-w-[180px]">شاهد ملف الأعمال</a>
                 </div>
             </div>
         </div>
@@ -154,52 +159,17 @@
         </div>
     </section>
 
-    <!-- How it Works (Professional Process) -->
-    <section id="process" class="py-24 bg-brand-secondary text-white relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-brand-primary font-black mb-4 uppercase italic">مسار العمل</h2>
-                <h3 class="text-4xl font-black">من الميدان إلى النموذج الرقمي</h3>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-black border border-white/20 group-hover:bg-brand-primary transition">01</div>
-                    <h4 class="text-xl font-bold mb-2 italic">الاستشارة</h4>
-                    <p class="text-gray-400 text-sm font-light">فهم متطلبات المشروع وتحديد النطاق الهندسي المطلوب.</p>
-                </div>
-                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-black border border-white/20 group-hover:bg-brand-primary transition">02</div>
-                    <h4 class="text-xl font-bold mb-2 italic">الرفع الميداني</h4>
-                    <p class="text-gray-400 text-sm font-light">جمع البيانات المساحية بدقة عبر فرقنا المتخصصة في مأرب.</p>
-                </div>
-                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-black border border-white/20 group-hover:bg-brand-primary transition">03</div>
-                    <h4 class="text-xl font-bold mb-2 italic">المعالجة الرقمية</h4>
-                    <p class="text-gray-400 text-sm font-light">تحويل البيانات إلى نماذج Civil 3D و GIS بأيدي مهندسينا عن بُعد.</p>
-                </div>
-                <div class="text-center group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-black border border-white/20 group-hover:bg-brand-primary transition">04</div>
-                    <h4 class="text-xl font-bold mb-2 italic">التسليم والمراجعة</h4>
-                    <p class="text-gray-400 text-sm font-light">تسليم المخططات النهائية وجداول الكميات المعتمدة تقنياً.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust / Partners Section -->
-    <section class="py-16 bg-white border-b border-gray-100">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400 font-bold mb-8 uppercase tracking-widest text-sm text-center">جهات نعتز بثقتها في مأرب واليمن</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
-                <span class="text-2xl font-black text-gray-800 italic">المكاتب الحكومية</span>
-                <span class="text-2xl font-black text-gray-800 italic">مكاتب التطوير العقاري</span>
-                <span class="text-2xl font-black text-gray-800 italic">المنظمات الدولية</span>
-                <span class="text-2xl font-black text-gray-800 italic">القطاع الخاص</span>
+            <h2 class="text-brand-primary font-black mb-16 tracking-widest italic section-title uppercase tracking-tighter">سجل حافل بالإنجازات</h2>
+            <div class="grid md:grid-cols-3 gap-8" id="project-container">
+                <!-- Projects injected via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Join Us Section (RESORED) -->
+    <!-- Join Us Section -->
     <section id="join-us" class="py-24 bg-white relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-5xl relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -238,11 +208,11 @@
         </div>
     </section>
 
-    <!-- Quote / Monetization -->
+    <!-- Quote Section -->
     <section id="quote" class="py-24 bg-gray-50 relative">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-4xl font-black mb-8 section-title italic text-center">هل تبحث عن دقة هندسية مطلقة؟</h2>
-            <p class="text-gray-500 mb-12 text-lg">نحن هنا لتحويل أفكارك الميدانية إلى مخططات رقمية قابلة للتنفيذ المباشر. تواصل معنا للحصول على استشارة فنية مجانية.</p>
+            <h2 class="text-4xl font-black mb-8 section-title italic text-center">اطلب تسعيرة لمشروعك الآن</h2>
+            <p class="text-gray-500 mb-12 text-lg">نحن هنا لتحويل أفكارك الميدانية إلى مخططات رقمية قابلة للتنفيذ المباشر.</p>
             <div class="flex flex-wrap justify-center gap-6">
                 <a href="https://wa.me/967771305123" target="_blank" class="bg-green-500 text-white px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition flex items-center gap-3 shadow-xl">
                     <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
@@ -271,7 +241,7 @@
             </div>
             <div class="text-right">
                 <h4 class="font-bold text-xl mb-6 text-brand-primary italic">الرؤية</h4>
-                <p class="text-gray-400 italic font-light">نهدف لتطوير البنية التحتية في اليمن عبر دمج المساحة التقليدية مع الحلول الهندسية الرقمية الأكثر تطوراً.</p>
+                <p class="text-gray-400 italic font-light">نهدف لتطوير البنية التحتية في اليمن عبر دمج المساحة التقليدية مع الحلول الهندسية الرقمية.</p>
             </div>
         </div>
     </footer>
@@ -315,14 +285,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Loader handling
             const loader = document.getElementById('loader');
-            if (loader) {
-                setTimeout(() => loader.classList.add('opacity-0', 'pointer-events-none'), 800);
-            }
+            if (loader) setTimeout(() => loader.classList.add('opacity-0', 'pointer-events-none'), 800);
 
             // AOS init
-            if (typeof AOS !== 'undefined') {
-                AOS.init({ duration: 1000, once: true });
-            }
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 1000, once: true });
 
             // Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-btn');
@@ -333,26 +299,33 @@
                     mobileMenu.classList.toggle('hidden');
                 });
                 
-                // Close menu when clicking links
                 document.querySelectorAll('.menu-link').forEach(link => {
                     link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
                 });
 
-                // Close menu when clicking outside
-                document.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+                document.addEventListener('click', () => mobileMenu.classList.add('hidden'));
             }
 
-            // Slider
-            const aboutWrapper = document.getElementById('about-slides');
-            if (aboutWrapper) {
-                const aboutImages = ['images/foif-2.jpg', 'images/Maintenance-surveying equipment.jpg', 'images/Leveling and sloping works.jpg', 'images/gps15.jpg', 'images/Works-Leica GS18.jpg'];
-                aboutImages.forEach(img => {
-                    aboutWrapper.innerHTML += `<div class="swiper-slide h-full w-full"><img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/1f2937/ffffff?text=RA+Project'"></div>`;
+            // Smooth Scroll Fix for all nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
-                new Swiper('.about-swiper', { loop: true, autoplay: { delay: 3000 }, pagination: { el: '.swiper-pagination', clickable: true } });
-            }
+            });
 
             // Portfolio Injections
             const container = document.getElementById('project-container');
@@ -386,11 +359,8 @@
                 currentActiveServiceId = id;
                 modalBody.innerHTML = `<h3 class="text-3xl font-black italic text-brand-secondary">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed">${s.desc}</p>`;
                 modal.classList.remove('opacity-0', 'pointer-events-none');
-                
-                // Safer selector for the inner content box
                 const contentBox = modal.querySelector('.bg-white');
                 if (contentBox) contentBox.classList.remove('scale-95');
-                
                 document.body.style.overflow = 'hidden';
             };
 
@@ -419,7 +389,6 @@
                 if (orderInsideModal) sendWA(currentActiveServiceId);
             });
 
-            // Keyboard support
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeModal();
             });
