@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آر إي جيوماتكس | RAGeomatics - الدقة الهندسية بواقع رقمي</title>
+    <title>آر إي جيوماتكس | RAGeomatics - الحلول الهندسية والجيومكانية</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,11 +12,12 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: '#1E293B', 
-                        orange: {
-                            500: '#F97316',
-                            600: '#EA580C',
-                        },
+                        deepblue: '#081329', // الأزرق الداكن جداً المطلوب
+                        brandorange: '#F97316', // البرتقالي الهندسي
+                        branddarkorange: '#EA580C',
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
                     }
                 }
             }
@@ -24,240 +25,229 @@
     </script>
 
     <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        body { font-family: 'Cairo', sans-serif; overflow-x: hidden; }
-        .hero-pattern {
-            background-color: #1E293B;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23334155' stroke-width='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; }
+        .hero-section {
+            background: linear-gradient(rgba(8, 19, 41, 0.9), rgba(8, 19, 41, 0.7)), url('images/IMG_20260102_175603.jpg');
+            background-size: cover;
+            background-position: center;
         }
-        .glass-nav {
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .logo-container {
+            background: white;
+            padding: 8px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .nav-glass {
+            background: rgba(8, 19, 41, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #F97316;
+        }
+        .service-card {
+            border-bottom: 4px solid #F97316;
+            transition: all 0.4s ease;
         }
         .service-card:hover {
-            transform: translateY(-8px);
-            border-color: #F97316;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(8, 19, 41, 0.1);
+        }
+        .orange-gradient-btn {
+            background: linear-gradient(to left, #F97316, #EA580C);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #F97316;
+            margin: 15px auto 0;
+            border-radius: 2px;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 selection:bg-orange-500 selection:text-white">
+<body class="text-slate-900 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="glass-nav fixed top-0 w-full z-[100] transition-all duration-300">
-        <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+    <nav class="nav-glass fixed top-0 w-full z-[100] py-3">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
-                <!-- شعار الشركة من مجلد images -->
-                <img src="images/logo.png" alt="RAGeomatics Logo" class="h-12 md:h-16 w-auto object-contain" onerror="this.src='logo.jpg';">
+                <!-- الشعار داخل حاوية بيضاء لضمان الظهور -->
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="RAGeomatics Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.src='logo.jpg';">
+                </div>
             </div>
             
-            <div class="hidden lg:flex items-center gap-8 text-white/90 font-bold text-sm">
-                <a href="#about" class="hover:text-orange-500 transition">عن الشركة</a>
-                <a href="#services" class="hover:text-orange-500 transition">خدماتنا</a>
-                <a href="#projects" class="hover:text-orange-500 transition">المشاريع</a>
-                <a href="#careers" class="hover:text-orange-500 transition">انضم إلينا</a>
-                <a href="#contact" class="bg-orange-500 text-white px-6 py-2 rounded-xl hover:bg-orange-600 transition shadow-lg">اتصل بنا</a>
+            <div class="hidden lg:flex items-center gap-8 text-white font-bold text-sm">
+                <a href="#about" class="hover:text-brandorange transition">عن الشركة</a>
+                <a href="#services" class="hover:text-brandorange transition">خدماتنا</a>
+                <a href="#projects" class="hover:text-brandorange transition">المشاريع</a>
+                <a href="#careers" class="hover:text-brandorange transition">التوظيف</a>
+                <a href="#contact" class="orange-gradient-btn text-white px-8 py-2 rounded-xl hover:shadow-lg transition">تواصل معنا</a>
             </div>
 
-            <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl p-2">
+            <button id="mobile-menu-btn" class="lg:hidden text-white text-3xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-900 z-[110] flex flex-col items-center justify-center gap-8 text-white text-2xl font-black opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-deepblue z-[110] flex flex-col items-center justify-center gap-8 text-white text-2xl font-black opacity-0 pointer-events-none transition-all duration-300">
         <a href="#about" class="mobile-link">عن الشركة</a>
         <a href="#services" class="mobile-link">خدماتنا</a>
         <a href="#projects" class="mobile-link">المشاريع</a>
         <a href="#careers" class="mobile-link">انضم إلينا</a>
-        <button id="mobile-close" class="mt-8 text-orange-500"><i class="fas fa-times text-4xl"></i></button>
+        <button id="mobile-close" class="mt-8 text-brandorange"><i class="fas fa-times text-5xl"></i></button>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-pattern pt-40 pb-20 lg:pt-56 lg:pb-48 relative overflow-hidden text-right">
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="z-10" data-aos="fade-left">
-                <span class="inline-block bg-orange-500/10 text-orange-500 border border-orange-500/20 px-4 py-1 rounded-full text-xs font-black mb-6 uppercase tracking-widest italic">
-                    Precision in Every Point
-                </span>
-                <h1 class="text-5xl lg:text-7xl font-black text-white leading-tight mb-8 italic">
-                    الدقة الهندسية <br>
-                    <span class="text-orange-500">بواقع رقمي.</span>
-                </h1>
-                <p class="text-slate-400 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl italic ml-auto">
-                    ريادة مأرب في تصميم الطرق ببرمجيات Civil 3D وتحليلات ArcGIS Pro. نجمع بين الخبرة الميدانية العريقة والحلول الهندسية الرقمية المتقدمة.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-start">
-                    <a href="#services" class="bg-orange-500 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-orange-600 transition shadow-2xl">استكشف خدماتنا</a>
-                    <a href="#projects" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-2xl font-black text-lg hover:bg-white/10 transition">شاهد أعمالنا</a>
-                </div>
-            </div>
-            
-            <div class="relative hidden lg:block" data-aos="zoom-in">
-                <div class="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-800">
-                    <img src="images/IMG_20260102_175603.jpg" alt="الهندسة الميدانية" class="w-full h-[550px] object-cover opacity-90" onerror="this.src='IMG_20260102_175603.jpg';">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent opacity-60"></div>
-                </div>
+    <section class="hero-section pt-56 pb-40 relative text-center text-white">
+        <div class="container mx-auto px-6 relative z-10" data-aos="fade-up">
+            <span class="inline-block bg-brandorange/20 text-brandorange border border-brandorange/30 px-6 py-2 rounded-full text-xs font-black mb-8 uppercase tracking-[0.3em] italic">
+                Precision in Every Point
+            </span>
+            <h1 class="text-5xl lg:text-8xl font-black mb-8 leading-tight italic">
+                الدقة الهندسية <br><span class="text-brandorange">بواقع رقمي.</span>
+            </h1>
+            <p class="text-xl lg:text-2xl mb-12 max-w-3xl mx-auto opacity-80 font-light italic">
+                رواد حلول الجيوماتكس وتصميم الطرق في مأرب واليمن باستخدام Civil 3D و ArcGIS Pro.
+            </p>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <a href="#services" class="orange-gradient-btn text-white px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition shadow-2xl">ابدأ مشروعك الآن</a>
+                <a href="#projects" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition">سجل الأعمال</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section (Back to Original Services) -->
-    <section id="services" class="py-24 bg-slate-50 relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <span class="text-orange-500 font-black text-sm uppercase tracking-widest block mb-4 italic text-center">OUR EXPERTISE</span>
-                <h2 class="text-4xl md:text-5xl font-black text-navy italic text-center">خدماتنا التخصصية</h2>
-                <div class="w-20 h-2 bg-orange-500 mx-auto mt-6 rounded-full"></div>
-            </div>
+    <!-- Stats Bar -->
+    <div class="bg-deepblue py-10">
+        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+            <div><p class="text-3xl font-black text-brandorange italic">2026</p><p class="text-[10px] font-bold opacity-50 uppercase mt-1">تكنولوجيا محدثة</p></div>
+            <div><p class="text-3xl font-black text-brandorange italic">+100</p><p class="text-[10px] font-bold opacity-50 uppercase mt-1">مشروع منجز</p></div>
+            <div><p class="text-3xl font-black text-brandorange italic">100%</p><p class="text-[10px] font-bold opacity-50 uppercase mt-1">دقة مليمترية</p></div>
+            <div><p class="text-3xl font-black text-brandorange italic">24/7</p><p class="text-[10px] font-bold opacity-50 uppercase mt-1">دعم فني واستشارة</p></div>
+        </div>
+    </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all flex flex-col justify-between h-full text-right" data-aos="fade-up">
-                    <div>
-                        <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner"><i class="fas fa-road"></i></div>
-                        <h3 class="text-xl font-black text-navy mb-4 italic">تصميم الطرق (Civil 3D)</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">تصميم المسارات الأفقي والعمودي وحساب الكميات بدقة مليمترية وفق أحدث المعايير الهندسية.</p>
-                    </div>
-                    <a href="https://wa.me/967771305123" target="_blank" class="text-orange-500 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all mt-auto">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+    <!-- Services Section (Surveying Focus) -->
+    <section id="services" class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-black text-deepblue italic text-center section-title uppercase">خدماتنا الرئيسية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mt-24">
+                <!-- Card 1 -->
+                <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-orange-100 text-brandorange rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-inner"><i class="fas fa-road"></i></div>
+                    <h3 class="text-2xl font-black text-deepblue mb-4">تصميم الطرق</h3>
+                    <p class="text-slate-500 leading-relaxed mb-8 italic">تصميم مسارات احترافي وحساب كميات دقيق باستخدام Civil 3D لضمان كفاءة التنفيذ.</p>
+                    <a href="https://wa.me/967771305123" target="_blank" class="mt-auto text-brandorange font-black text-sm uppercase tracking-widest hover:underline">اطلب الخدمة</a>
                 </div>
-                <!-- Service 2 -->
-                <div class="service-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all flex flex-col justify-between h-full text-right" data-aos="fade-up" data-aos-delay="100">
-                    <div>
-                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner"><i class="fas fa-map-marked-alt"></i></div>
-                        <h3 class="text-xl font-black text-navy mb-4 italic">نظم الـ GIS والخرائط</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">إدارة البيانات الجغرافية وإنتاج الخرائط الرقمية الذكية لدعم اتخاذ القرار في المشاريع التنموية.</p>
-                    </div>
-                    <a href="https://wa.me/967771305123" target="_blank" class="text-orange-500 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all mt-auto">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                <!-- Card 2 -->
+                <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-800 rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-inner"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="text-2xl font-black text-deepblue mb-4">نظم الـ GIS</h3>
+                    <p class="text-slate-500 leading-relaxed mb-8 italic">إدارة البيانات الجغرافية وبناء قواعد بيانات ذكية لدعم التخطيط العمراني باستخدام ArcGIS Pro.</p>
+                    <a href="https://wa.me/967771305123" target="_blank" class="mt-auto text-brandorange font-black text-sm uppercase tracking-widest hover:underline">اطلب الخدمة</a>
                 </div>
-                <!-- Service 3 -->
-                <div class="service-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all flex flex-col justify-between h-full text-right" data-aos="fade-up" data-aos-delay="200">
-                    <div>
-                        <div class="w-14 h-14 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner"><i class="fas fa-water"></i></div>
-                        <h3 class="text-xl font-black text-navy mb-4 italic">الدراسات الهيدرولوجية</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">تحليل أحواض التصريف ومحاكاة مخاطر السيول لتأمين المشاريع العمرانية والبنى التحتية.</p>
-                    </div>
-                    <a href="https://wa.me/967771305123" target="_blank" class="text-orange-500 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all mt-auto">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                <!-- Card 3 -->
+                <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-cyan-100 text-cyan-700 rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-inner"><i class="fas fa-tint"></i></div>
+                    <h3 class="text-2xl font-black text-deepblue mb-4">محاكاة السيول</h3>
+                    <p class="text-slate-500 leading-relaxed mb-8 italic">دراسات هيدرولوجية متقدمة لتحديد مخاطر السيول ومسارات التصريف لحماية منشآتكم.</p>
+                    <a href="https://wa.me/967771305123" target="_blank" class="mt-auto text-brandorange font-black text-sm uppercase tracking-widest hover:underline">اطلب الخدمة</a>
                 </div>
-                <!-- Service 4 -->
-                <div class="service-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all flex flex-col justify-between h-full text-right" data-aos="fade-up" data-aos-delay="300">
-                    <div>
-                        <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner"><i class="fas fa-draw-polygon"></i></div>
-                        <h3 class="text-xl font-black text-navy mb-4 italic">المساحة الأرضية</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">الرفع المساحي الطبوغرافي وتوقيع المحاور بدقة عالية باستخدام أجهزة Total Station و GNSS.</p>
-                    </div>
-                    <a href="https://wa.me/967771305123" target="_blank" class="text-orange-500 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all mt-auto">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                <!-- Card 4 -->
+                <div class="service-card bg-slate-50 p-10 rounded-[2.5rem] flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-inner"><i class="fas fa-crosshairs"></i></div>
+                    <h3 class="text-2xl font-black text-deepblue mb-4">المساحة الأرضية</h3>
+                    <p class="text-slate-500 leading-relaxed mb-8 italic">رفع مساحي طبوغرافي وتوقيع محاور بدقة المليمتر باستخدام أحدث أجهزة الرصد الميداني.</p>
+                    <a href="https://wa.me/967771305123" target="_blank" class="mt-auto text-brandorange font-black text-sm uppercase tracking-widest hover:underline">اطلب الخدمة</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Gallery -->
-    <section id="projects" class="py-24 bg-white">
+    <section id="projects" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-orange-500 font-black text-sm uppercase tracking-widest block mb-4 italic text-center">GALLERY</span>
-                <h2 class="text-4xl font-black text-navy italic text-center">مشاريع من الواقع</h2>
-                <div class="w-20 h-2 bg-orange-500 mx-auto mt-6 rounded-full"></div>
-            </div>
-
+            <h2 class="text-center text-4xl font-black text-deepblue mb-16 section-title italic">سجل المشاريع الميدانية</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-xl bg-slate-200 aspect-video" data-aos="fade-up">
-                    <img src="images/IMG_20260102_175603.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="مسح ميداني" onerror="this.src='IMG_20260102_175603.jpg';">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent opacity-0 group-hover:opacity-90 transition-opacity p-8 flex flex-col justify-end text-right">
-                        <h4 class="text-white font-black text-xl italic mb-2">الرصد المساحي الميداني</h4>
-                        <p class="text-orange-500 text-xs font-bold uppercase italic tracking-widest">Field Data Collection</p>
+                <div class="group relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-deepblue aspect-video" data-aos="zoom-in">
+                    <img src="images/IMG_20260102_175603.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90" alt="الرفع المساحي" onerror="this.src='IMG_20260102_175603.jpg';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue via-transparent opacity-0 group-hover:opacity-100 transition-all p-10 flex flex-col justify-end">
+                        <h4 class="text-white font-black text-2xl italic mb-2">رصد ميداني بدقة الليكر</h4>
+                        <p class="text-brandorange font-bold uppercase tracking-widest text-xs">Marib Projects</p>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-xl bg-slate-200 aspect-video" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/Screenshot_2026-03-06-07-56-33-959_com.google.android.apps.youtube.creator.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="محاكاة السيول" onerror="this.src='Screenshot_2026-03-06-07-56-33-959_com.google.android.apps.youtube.creator.jpg';">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent opacity-0 group-hover:opacity-90 transition-opacity p-8 flex flex-col justify-end text-right">
-                        <h4 class="text-white font-black text-xl italic mb-2">تحليل هيدرولوجي ونمذجة</h4>
-                        <p class="text-orange-500 text-xs font-bold uppercase italic tracking-widest">Flood Risk Analysis</p>
+                <div class="group relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-deepblue aspect-video" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/Screenshot_2026-03-06-07-56-33-959_com.google.android.apps.youtube.creator.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90" alt="محاكاة السيول" onerror="this.src='Screenshot_2026-03-06-07-56-33-959_com.google.android.apps.youtube.creator.jpg';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue via-transparent opacity-0 group-hover:opacity-100 transition-all p-10 flex flex-col justify-end">
+                        <h4 class="text-white font-black text-2xl italic mb-2">محاكاة هيدرولوجية ArcGIS</h4>
+                        <p class="text-brandorange font-bold uppercase tracking-widest text-xs">Flood Risk Modeling</p>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="group relative overflow-hidden rounded-[2rem] shadow-xl bg-slate-200 aspect-video" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="تصميم طرق">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent opacity-0 group-hover:opacity-90 transition-opacity p-8 flex flex-col justify-end text-right">
-                        <h4 class="text-white font-black text-xl italic mb-2">تصميم مسارات الطرق</h4>
-                        <p class="text-orange-500 text-xs font-bold uppercase italic tracking-widest">Digital Highway Design</p>
+                <div class="group relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-deepblue aspect-video" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-90" alt="تصميم طرق">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepblue via-transparent opacity-0 group-hover:opacity-100 transition-all p-10 flex flex-col justify-end">
+                        <h4 class="text-white font-black text-2xl italic mb-2">تصميم مسارات الطرق Civil 3D</h4>
+                        <p class="text-brandorange font-bold uppercase tracking-widest text-xs">Engineering Design</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Careers Section (Adding Arch/Civil/Structural Only Here) -->
-    <section id="careers" class="py-24 bg-slate-900 relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+    <!-- Careers Section (Architectural/Civil/Structural Added Here Only) -->
+    <section id="careers" class="py-32 bg-deepblue relative overflow-hidden">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             <div class="text-right" data-aos="fade-left">
-                <span class="text-orange-500 font-black text-sm uppercase tracking-widest block mb-4 italic text-right">JOIN THE TEAM</span>
-                <h2 class="text-4xl md:text-5xl font-black text-white italic leading-tight mb-8">فرص الانضمام <br> <span class="text-orange-500">للفريق الهندسي</span></h2>
-                <p class="text-slate-400 text-lg leading-loose mb-10 italic">نحن نفتح باب التقديم للمهندسين المبدعين في مجالات الهندسة المعمارية والمدنية والإنشائية للمساهمة في بناء مشاريعنا التقنية الكبرى.</p>
-                <div class="flex flex-col gap-4 items-end">
-                    <div class="flex items-center gap-3 text-white font-bold">
-                        <span>بيئة عمل تدعم الابتكار والرقمنة</span>
-                        <i class="fas fa-check-circle text-orange-500"></i>
-                    </div>
-                    <div class="flex items-center gap-3 text-white font-bold">
-                        <span>مشاريع نوعية في مأرب واليمن</span>
-                        <i class="fas fa-check-circle text-orange-500"></i>
-                    </div>
+                <span class="text-brandorange font-black text-sm uppercase tracking-widest block mb-4 italic">JOBS & CAREERS</span>
+                <h2 class="text-4xl md:text-6xl font-black text-white italic leading-tight mb-8">نبحث عن مبدعين <br> <span class="text-brandorange italic">لبناء المستقبل.</span></h2>
+                <p class="text-slate-400 text-lg leading-loose mb-10 italic">إذا كنت مهندساً متميزاً في التخصصات المعمارية أو المدنية أو الإنشائية، وتملك شغف الابتكار الرقمي، فنحن ننتظر انضمامك لفريقنا.</p>
+                <div class="flex flex-col gap-5 items-end">
+                    <div class="flex items-center gap-4 text-white font-black text-xl italic"><span>مشاريع هندسية وطنية</span> <i class="fas fa-check-circle text-brandorange"></i></div>
+                    <div class="flex items-center gap-4 text-white font-black text-xl italic"><span>بيئة عمل تقنية متطورة</span> <i class="fas fa-check-circle text-brandorange"></i></div>
                 </div>
             </div>
-            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl text-right" data-aos="fade-right">
-                <h3 class="text-2xl font-black text-navy mb-8 italic border-b-2 border-orange-500 pb-4 inline-block italic">نموذج التوظيف</h3>
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم استلام طلبك بنجاح! شكراً لاهتمامك بـ RAGeomatics.'); this.reset();">
-                    <div class="grid md:grid-cols-2 gap-6 text-right">
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold text-slate-400 uppercase">التخصص الهندسي</label>
-                            <select required class="w-full bg-slate-50 border border-slate-100 p-4 rounded-xl focus:border-orange-500 focus:outline-none text-right">
-                                <option value="">اختر التخصص</option>
-                                <option>مهندس معماري</option>
-                                <option>مهندس مدني</option>
-                                <option>مهندس إنشائي</option>
-                                <option>مهندس طرق / Civil 3D</option>
-                                <option>أخصائي مساحة / GIS</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-xs font-bold text-slate-400 uppercase">الاسم الكامل</label>
-                            <input type="text" placeholder="الاسم الكامل" required class="w-full bg-slate-50 border border-slate-100 p-4 rounded-xl focus:border-orange-500 focus:outline-none text-right">
-                        </div>
-                    </div>
-                    <div class="space-y-2 text-right">
-                        <label class="text-xs font-bold text-slate-400 uppercase">رابط السيرة الذاتية / بورتفوليو</label>
-                        <input type="url" placeholder="Google Drive / LinkedIn / Portfolio" required class="w-full bg-slate-50 border border-slate-100 p-4 rounded-xl focus:border-orange-500 focus:outline-none text-right text-left">
-                    </div>
-                    <button type="submit" class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-lg shadow-xl hover:bg-orange-600 transition uppercase tracking-widest italic">إرسال طلب الانضمام</button>
+            <div class="bg-white p-12 rounded-[3rem] shadow-2xl text-deepblue text-right" data-aos="fade-right">
+                <h3 class="text-3xl font-black mb-8 italic">طلب انضمام للفريق</h3>
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم استلام طلبك يا هندسة! سنتواصل معك قريباً.'); this.reset();">
+                    <input type="text" placeholder="الاسم الكامل للمهندس" required class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:border-brandorange outline-none font-bold">
+                    <select required class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:border-brandorange outline-none font-bold">
+                        <option value="">اختر التخصص الهندسي</option>
+                        <option>مهندس معماري</option>
+                        <option>مهندس مدني / إنشائي</option>
+                        <option>مهندس طرق / Civil 3D</option>
+                        <option>أخصائي مساحة / GIS</option>
+                    </select>
+                    <input type="url" placeholder="رابط الملف الشخصي (LinkedIn / Drive / Website)" required class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl focus:border-brandorange outline-none font-bold">
+                    <button type="submit" class="w-full orange-gradient-btn text-white py-5 rounded-2xl font-black text-2xl shadow-xl shadow-brandorange/30 hover:scale-[1.02] transition uppercase tracking-widest italic">إرسال الطلب</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-slate-900 py-16 px-6 border-t border-white/5">
+    <footer id="contact" class="bg-deepblue py-20 px-6 border-t border-white/5">
         <div class="container mx-auto text-center">
+            <!-- الشعار في التذييل ايضاً في صندوق ابيض -->
             <div class="flex justify-center mb-10">
-                <!-- شعار التذييل من مجلد images -->
-                <img src="images/logo.png" alt="RAGeomatics Logo" class="h-16 w-auto brightness-200" onerror="this.src='logo.jpg';">
+                <div class="logo-container scale-125 shadow-2xl shadow-brandorange/10">
+                    <img src="images/logo.png" alt="RAGeomatics Logo" class="h-14 w-auto grayscale-0" onerror="this.src='logo.jpg';">
+                </div>
             </div>
-            <div class="flex justify-center gap-10 text-white/40 text-3xl mb-12">
-                <a href="https://wa.me/967771305123" target="_blank" class="hover:text-orange-500 transition"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:ramzi@rageomatics.me" class="hover:text-orange-500 transition"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="hover:text-orange-500 transition"><i class="fab fa-linkedin-in"></i></a>
+            <div class="flex justify-center gap-12 text-white/30 text-4xl mb-12">
+                <a href="https://wa.me/967771305123" target="_blank" class="hover:text-brandorange transition"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:ramzi@rageomatics.me" class="hover:text-brandorange transition"><i class="fas fa-envelope"></i></a>
             </div>
-            <p class="text-slate-600 text-xs font-bold tracking-widest italic uppercase text-center">© 2026 آر إي جيوماتكس. جميع الحقوق محفوظة لشركة RAGeomatics.</p>
+            <p class="text-slate-600 text-sm font-bold tracking-[0.4em] uppercase italic">© 2026 آر إي جيوماتكس. الدقة الهندسية بواقع رقمي.</p>
         </div>
     </footer>
 
@@ -266,7 +256,6 @@
     <script>
         AOS.init({ duration: 1000, once: true });
         
-        // Mobile Menu Logic
         const menuBtn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const closeBtn = document.getElementById('mobile-close');
