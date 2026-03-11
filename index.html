@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGEOMATICS | شركة خدمات مساحية وتصميم طرق في مأرب</title>
+    <title>RAGEOMATICS | شركة خدمات مساحية وتصميم طرق</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     
@@ -19,8 +19,8 @@
                     fontFamily: { sans: ['Cairo', 'sans-serif'] },
                     colors: {
                         brand: {
-                            dark: '#374151',
-                            primary: '#f59e0b', // لون برتقالي/أصفر
+                            dark: '#2d3748',
+                            primary: '#f59e0b',
                             light: '#f3f4f6'
                         }
                     }
@@ -31,10 +31,7 @@
 
     <style>
         body { font-family: 'Cairo', sans-serif; }
-        .hero-bg {
-            background-color: #2d3748; /* لون رمادي داكن مشابه لموقعك */
-        }
-        /* تصميم نافذة التفاصيل (Modal) */
+        .hero-bg { background-color: #2d3748; }
         #service-modal {
             backdrop-filter: blur(5px);
             transition: opacity 0.3s ease;
@@ -54,9 +51,10 @@
                 <a href="#" class="hover:text-brand-primary transition">الرئيسية</a>
                 <a href="#services" class="hover:text-brand-primary transition">خدماتنا</a>
                 <a href="#projects" class="hover:text-brand-primary transition">المشاريع</a>
+                <a href="en.html" class="hover:text-blue-600 transition font-bold text-sm bg-gray-100 px-3 py-1 rounded">English</a>
             </nav>
             <div>
-                <a href="https://wa.me/967735305077" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition shadow-md">اطلب تسعيرة</a>
+                <a href="https://wa.me/967735305077" target="_blank" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition shadow-md">اطلب تسعيرة</a>
             </div>
         </div>
     </header>
@@ -66,11 +64,11 @@
             <span class="bg-brand-primary text-xs font-bold px-3 py-1 rounded-full mb-6 inline-block text-white uppercase tracking-wider">الريادة الهندسية في مأرب</span>
             <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight">الدقة الهندسية <br><span class="text-brand-primary">بواقع رقمي.</span></h2>
             <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                آر إي جيوماتكس: ريادة مأرب في تصميم الطرق ببرمجيات Civil 3D وتحليلات ArcGIS Pro. نجمع بين الخبرة الميدانية العميقة والحلول الهندسية الرقمية عن بُعد.
+                آر إي جيوماتكس: نجمع بين الخبرة الميدانية العميقة والحلول الهندسية الرقمية عن بُعد. من تصميم الطرق ببرمجيات Civil 3D إلى تحليلات ArcGIS Pro والصور الفضائية فائقة الدقة.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#services" class="bg-brand-primary text-white font-bold text-lg px-8 py-4 rounded-xl hover:scale-105 transition shadow-lg shadow-brand-primary/30">ابدأ مشروعك الآن</a>
-                <a href="#projects" class="bg-gray-700 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-gray-600 transition">شاهد أعمالنا</a>
+                <a href="#services" class="bg-brand-primary text-white font-bold text-lg px-8 py-4 rounded-xl hover:scale-105 transition shadow-lg shadow-brand-primary/30">اكتشف خدماتنا</a>
+                <a href="#projects" class="bg-gray-700 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-gray-600 transition">شاهد المشاريع</a>
             </div>
         </div>
     </section>
@@ -84,68 +82,110 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
                 
-                <div class="p-8 bg-blue-50 border-2 border-blue-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="0">
-                    <span class="absolute top-5 left-5 bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse">دقة 30 سم 🛰️</span>
-                    <div class="w-16 h-16 bg-blue-200 text-blue-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-satellite"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور فضائية فائقة الدقة (حديثة)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">نمتلك وصولاً لبيانات فضائية محدثة خلال أيام وبدقة تصل لـ 30 سم. مثالية لتخطيط المشاريع ورؤية المعالم بوضوح تام دون الحاجة لنزول ميداني مكلف.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">اطلب الآن</button>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-red-50 border-2 border-red-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <span class="absolute top-5 left-5 bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-md">رائجة 🔥</span>
-                    <div class="w-16 h-16 bg-red-200 text-red-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-scale-balanced"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">الفصل الفني في نزاعات الأراضي</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إصدار تقارير هندسية محايدة وخرائط تطابق مبنية على الصور التاريخية والرفع الدقيق، لإنهاء خلافات تداخل الحدود أمام المحاكم والجلسات العرفية.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="disputes">تفاصيل</button>
-                        <button class="service-order flex-1 bg-red-500 text-white py-2 rounded-lg text-xs font-bold hover:bg-red-600 transition" data-id="disputes">اطلب الاستشارة</button>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-clock-rotate-left"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور جوية وتاريخية (أرشيف)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج صور جوية للسنوات الماضية لدراسة التغيرات الزمنية، إثبات حالة الأرض القديمة، ومراقبة زحف العمران وتغير مجاري السيول.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="history">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="history">اطلب الآن</button>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-road"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-dark">تصميم الطرق (Civil 3D)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات الأفقية والرأسية، حساب كميات الحفر والردم بدقة متناهية تمنع هدر المواد، وتجهيز مخططات قابلة للتنفيذ المباشر.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات الأفقية والرأسية، حساب كميات الحفر والردم بدقة متناهية تمنع هدر المواد، وتجهيز مخططات قابلة للتنفيذ.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="civil3d">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="civil3d">اطلب الآن</button>
                     </div>
                 </div>
 
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-dark">التحليل الهيدرولوجي للسيول</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">محاكاة دقيقة لمسارات السيول وأحواض التصريف باستخدام ArcGIS Pro لحماية المخططات السكنية ومشاريع الطرق من الكوارث الطبيعية.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">محاكاة دقيقة لمسارات السيول وأحواض التصريف لحماية المخططات السكنية ومشاريع الطرق من الكوارث الطبيعية.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="hydro">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="hydro">اطلب الآن</button>
                     </div>
                 </div>
 
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="500">
+                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-map-location-dot"></i></div>
                     <h4 class="text-xl font-bold mb-3 text-brand-dark">نظم المعلومات الجغرافية (GIS)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">بناء وتطوير قواعد بيانات مكانية ذكية للمؤسسات الحكومية وشركات الاتصالات لدعم قرارات التخطيط وإدارة الأصول بكفاءة.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">بناء وتطوير قواعد بيانات مكانية ذكية للمؤسسات لدعم قرارات التخطيط وإدارة الأصول بكفاءة عالية.</p>
                     <div class="flex gap-2">
                         <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="gis">تفاصيل</button>
                         <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="gis">اطلب الآن</button>
                     </div>
                 </div>
 
+                <div class="p-8 bg-blue-50 border-2 border-blue-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <span class="absolute top-5 left-5 bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse">دقة 30 سم 🛰️</span>
+                    <div class="w-16 h-16 bg-blue-200 text-blue-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-satellite"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور فضائية فائقة الدقة (حديثة)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">نمتلك وصولاً لبيانات فضائية محدثة خلال أيام وبدقة تصل لـ 30 سم. لتخطيط المشاريع ورؤية المعالم بوضوح تام.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">تفاصيل</button>
+                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">اطلب الآن</button>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-red-50 border-2 border-red-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <span class="absolute top-5 left-5 bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-md">رائجة 🔥</span>
+                    <div class="w-16 h-16 bg-red-200 text-red-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-scale-balanced"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">الفصل الفني في نزاعات الأراضي</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إصدار تقارير هندسية محايدة وخرائط تطابق مبنية على الصور التاريخية لإنهاء خلافات تداخل الحدود أمام المحاكم.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="disputes">تفاصيل</button>
+                        <button class="service-order flex-1 bg-red-500 text-white py-2 rounded-lg text-xs font-bold hover:bg-red-600 transition" data-id="disputes">اطلب الاستشارة</button>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-clock-rotate-left"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور جوية وتاريخية (أرشيف)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج صور جوية للسنوات الماضية لدراسة التغيرات الزمنية، وإثبات حالة الأرض القديمة قبل التعديات.</p>
+                    <div class="flex gap-2">
+                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="history">تفاصيل</button>
+                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="history">اطلب الآن</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-brand-primary font-bold mb-2">أعمالنا السابقة</h3>
+                <h2 class="text-4xl font-black text-brand-dark">معرض المشاريع</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition" data-aos="fade-up">
+                    <div class="h-48 bg-gray-300 w-full flex items-center justify-center text-gray-500">
+                        <i class="fas fa-image text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">تصميم طريق ربط حيوي</h4>
+                        <p class="text-gray-600 text-sm mb-4">تصميم طريق بطول 15 كم باستخدام Civil 3D مع حساب الكميات وحل التقاطعات.</p>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Civil 3D</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gray-300 w-full flex items-center justify-center text-gray-500">
+                        <i class="fas fa-water text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">دراسة حماية من السيول</h4>
+                        <p class="text-gray-600 text-sm mb-4">تحليل مسارات السيول لمخطط سكني باستخدام ArcGIS لضمان عدم تعرضه للغرق.</p>
+                        <span class="bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">ArcGIS Pro</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gray-300 w-full flex items-center justify-center text-gray-500">
+                        <i class="fas fa-satellite text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">تحديث خريطة عمرانية</h4>
+                        <p class="text-gray-600 text-sm mb-4">استخدام صور فضائية بدقة 30 سم لتحديث خريطة التوسع العمراني في منطقة حضرية.</p>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Remote Sensing</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -178,47 +218,47 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // تشغيل الأنيميشن
+        // تشغيل حركات الدخول AOS
         AOS.init({ once: true, duration: 800 });
 
-        // بيانات الخدمات
+        // بيانات جميع الخدمات الست
         const servicesData = {
-            'sat-30cm': {
-                title: 'صور فضائية فائقة الدقة (30 سم)',
-                desc: 'بفضل شراكاتنا واشتراكاتنا المتقدمة، نوفر لك أحدث المرئيات الفضائية بدقة تصل إلى 30 سم (محدثة خلال أيام). هذه الخدمة تغنيك تماماً عن تكاليف النزول الميداني الباهظة، وتتيح للمطورين العقاريين والمكاتب الهندسية التخطيط ورؤية المعالم الأرضية بدقة مذهلة.',
-                wa: 'مرحباً، أرغب بالاستفسار عن خدمة الحصول على صور فضائية حديثة بدقة 30 سم لموقعي.'
-            },
-            'disputes': {
-                title: 'الفصل الفني في نزاعات الأراضي',
-                desc: 'الخدمة الأهم لحماية حقوقك! نقوم بالدمج بين "الرفع المساحي الميداني الدقيق" و "الصور الجوية التاريخية" لإصدار تقارير هندسية محايدة وخرائط تطابق قاطعة. تُعتمد تقاريرنا كدليل فني موثوق لدى المحاكم والجهات الرسمية والجلسات العرفية لإنهاء الخلافات على تداخل الحدود.',
-                wa: 'مرحباً، لدي نزاع/مشكلة حول حدود أرض وأحتاج لتقرير هندسي وصور تاريخية للفصل فيها.'
-            },
-            'history': {
-                title: 'صور جوية وتاريخية (أرشيف)',
-                desc: 'نمتلك القدرة على استرجاع صور فضائية أرشيفية للموقع المطلوب للسنوات السابقة. هذه الخدمة حيوية لمعرفة مجاري السيول القديمة، أو إثبات حالة الأرض والمباني قبل التعديات لحفظ الحقوق.',
-                wa: 'مرحباً، أريد طلب صور فضائية تاريخية (أرشيفية) لموقع معين.'
-            },
             'civil3d': {
                 title: 'تصميم الطرق بـ Civil 3D',
-                desc: 'نقوم بتحويل البيانات المساحية إلى تصاميم طرق متكاملة ومطابقة للمواصفات. نصمم المسارات الأفقية والرأسية، والمقاطع العرضية، ونقدم جداول كميات دقيقة جداً للحفر والردم توفر على المقاول آلاف الدولارات.',
+                desc: 'نقوم بتحويل البيانات المساحية إلى تصاميم طرق متكاملة. نصمم المسارات الأفقية والرأسية، ونقدم جداول كميات دقيقة جداً للحفر والردم توفر على المقاول آلاف الدولارات.',
                 wa: 'مرحباً، أريد الاستفسار عن خدمات تصميم الطرق وحساب الكميات.'
             },
             'hydro': {
                 title: 'التحليل الهيدرولوجي للسيول',
-                desc: 'باستخدام برمجيات ArcGIS Pro المتقدمة، نقوم بدراسة طبوغرافية المنطقة وتحديد أحواض التصريف ومسارات السيول. هذه الخدمة أساسية قبل تخطيط أي مدينة سكنية أو طريق لتجنب كوارث الغرق لاحقاً.',
+                desc: 'باستخدام ArcGIS Pro، نقوم بدراسة طبوغرافية المنطقة وتحديد أحواض التصريف ومسارات السيول لحماية المشاريع من الغرق.',
                 wa: 'مرحباً، أريد طلب دراسة تحليل هيدرولوجي لمسارات السيول لمشروعي.'
             },
             'gis': {
                 title: 'نظم المعلومات الجغرافية (GIS)',
-                desc: 'بناء وتطوير قواعد بيانات جغرافية متكاملة تساعد المؤسسات على إدارة أصولها ومواردها. نقوم أيضاً بعمليات تحويل البيانات المعقدة بين بيئات CAD و GIS.',
+                desc: 'بناء وتطوير قواعد بيانات جغرافية متكاملة تساعد المؤسسات على إدارة أصولها ومواردها بكفاءة عالية.',
                 wa: 'مرحباً، أريد الاستفسار عن خدمات نظم المعلومات الجغرافية (GIS).'
+            },
+            'sat-30cm': {
+                title: 'صور فضائية فائقة الدقة (30 سم)',
+                desc: 'نوفر أحدث المرئيات الفضائية بدقة تصل إلى 30 سم (محدثة خلال أيام). خدمة تغنيك عن تكاليف النزول الميداني الباهظة، وتتيح التخطيط ورؤية المعالم بوضوح تام.',
+                wa: 'مرحباً، أرغب بالاستفسار عن خدمة الحصول على صور فضائية حديثة بدقة 30 سم لموقعي.'
+            },
+            'disputes': {
+                title: 'الفصل الفني في نزاعات الأراضي',
+                desc: 'نقوم بالدمج بين "الرفع المساحي" و "الصور الجوية التاريخية" لإصدار تقارير هندسية محايدة تُعتمد كدليل فني قاطع لإنهاء الخلافات على تداخل الحدود.',
+                wa: 'مرحباً، لدي نزاع حول حدود أرض وأحتاج لتقرير هندسي وصور تاريخية للفصل فيها.'
+            },
+            'history': {
+                title: 'صور جوية وتاريخية (أرشيف)',
+                desc: 'نمتلك القدرة على استرجاع صور فضائية أرشيفية للموقع المطلوب للسنوات السابقة. حيوية لمعرفة مجاري السيول القديمة، أو إثبات حالة الأرض قبل التعديات.',
+                wa: 'مرحباً، أريد طلب صور فضائية تاريخية (أرشيفية) لموقع معين.'
             }
         };
 
-        // برمجة النافذة المنبثقة ورسائل الواتساب
+        // برمجة النافذة المنبثقة
         const modal = document.getElementById('service-modal');
         const modalContent = document.getElementById('modal-content');
-        const phone = "967735305077"; // رقمك
+        const phone = "967735305077"; // رقم الواتساب الخاص بك
 
         // فتح التفاصيل
         document.querySelectorAll('.service-open').forEach(btn => {
@@ -254,7 +294,7 @@
             modalContent.classList.remove('scale-100');
         });
         
-        // إغلاق النافذة عند الضغط خارجها
+        // إغلاق عند الضغط خارج النافذة
         modal.addEventListener('click', (e) => {
             if(e.target === modal) {
                 document.getElementById('close-modal').click();
