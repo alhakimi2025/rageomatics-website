@@ -1,264 +1,155 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGEOMATICS | شركة خدمات مساحية وتصميم طرق في مأرب</title>
+    <title>RAGEOMATICS | Precision Surveying & Engineering Solutions</title>
+    <meta name="description" content="RAGEOMATICS: Marib's pioneer in Civil 3D road design, ArcGIS Pro, and precision field surveying.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
+        window.tailwindConfig = {
             theme: {
-                extend: {
-                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
-                    colors: {
-                        brand: {
-                            dark: '#374151',
-                            primary: '#f59e0b', // لون برتقالي/أصفر
-                            light: '#f3f4f6'
-                        }
-                    }
-                }
+                extend: { colors: { brand: { primary: '#f59e0b', secondary: '#1f2937', accent: '#10b981' } },
+                          fontFamily: { sans: ['Inter', 'sans-serif'] } }
             }
-        }
+        };
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = window.tailwindConfig;</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { font-family: 'Cairo', sans-serif; }
-        .hero-bg {
-            background-color: #2d3748; /* لون رمادي داكن مشابه لموقعك */
-        }
-        /* تصميم نافذة التفاصيل (Modal) */
-        #service-modal {
-            backdrop-filter: blur(5px);
-            transition: opacity 0.3s ease;
-        }
-        .modal-hidden { opacity: 0; pointer-events: none; }
-        .modal-active { opacity: 1; pointer-events: auto; }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=2070'); background-size: cover; background-position: center; }
+        .service-card { transition: all 0.4s; border: 1px solid transparent; }
+        .service-card:hover { border-color: #f59e0b; transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        section { scroll-margin-top: 80px; }
+        .swiper-button-next, .swiper-button-prev { color: #f59e0b !important; }
+        .swiper-pagination-bullet-active { background-color: #f59e0b !important; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } } /* LTR goes left */
+        .animate-marquee { animation: marquee 30s linear infinite; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden relative">
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-primary z-[60] w-0 transition-all duration-75"></div>
+
+    <header class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <h1 class="text-2xl font-black text-brand-dark tracking-tighter">RAGEO<span class="text-brand-primary">MATICS</span></h1>
-            </div>
-            <nav class="hidden md:flex gap-8 font-semibold text-gray-600">
-                <a href="#" class="hover:text-brand-primary transition">الرئيسية</a>
-                <a href="#services" class="hover:text-brand-primary transition">خدماتنا</a>
-                <a href="#projects" class="hover:text-brand-primary transition">المشاريع</a>
+            <a href="#hero" class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA'">
+                <span class="text-xl font-black text-brand-secondary uppercase tracking-tighter">RAGEOMATICS</span>
+            </a>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#services" class="font-bold text-gray-700 hover:text-brand-primary transition">Services</a>
+                <a href="#portfolio" class="font-bold text-gray-700 hover:text-brand-primary transition">Projects</a>
+                <a href="#join-us" class="font-bold text-gray-700 hover:text-brand-primary transition">Join Us</a>
+                <a href="index.html" class="font-black text-brand-secondary border-l-2 border-gray-200 pl-4 hover:text-brand-primary transition">عربي</a>
             </nav>
-            <div>
-                <a href="https://wa.me/967735305077" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition shadow-md">اطلب تسعيرة</a>
-            </div>
+            <button id="mobile-btn" class="lg:hidden p-2"><i class="fas fa-bars text-2xl"></i></button>
         </div>
     </header>
 
-    <section class="hero-bg text-white py-32 px-6">
-        <div class="container mx-auto max-w-5xl text-center" data-aos="fade-up">
-            <span class="bg-brand-primary text-xs font-bold px-3 py-1 rounded-full mb-6 inline-block text-white uppercase tracking-wider">الريادة الهندسية في مأرب</span>
-            <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight">الدقة الهندسية <br><span class="text-brand-primary">بواقع رقمي.</span></h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                آر إي جيوماتكس: ريادة مأرب في تصميم الطرق ببرمجيات Civil 3D وتحليلات ArcGIS Pro. نجمع بين الخبرة الميدانية العميقة والحلول الهندسية الرقمية عن بُعد.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#services" class="bg-brand-primary text-white font-bold text-lg px-8 py-4 rounded-xl hover:scale-105 transition shadow-lg shadow-brand-primary/30">ابدأ مشروعك الآن</a>
-                <a href="#projects" class="bg-gray-700 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-gray-600 transition">شاهد أعمالنا</a>
+    <section id="hero" class="hero-gradient min-h-[85vh] flex items-center text-white relative">
+        <div class="container mx-auto px-6 relative z-10 text-center md:text-left">
+            <div class="max-w-4xl" data-aos="fade-up">
+                <span class="bg-brand-primary text-white px-4 py-1 rounded-md text-xs font-bold mb-6 inline-block uppercase italic">Pioneering Precision in Marib</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">Engineering Precision <br><span class="text-brand-primary text-shadow">Digital Reality.</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light italic">
+                    RAGEOMATICS: Leading Marib in Civil 3D road design and ArcGIS Pro analysis. Combining deep field expertise with remote digital engineering solutions.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#join-us" class="bg-brand-primary px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition shadow-xl text-brand-secondary">Start Project</a>
+                    <a href="#portfolio" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-black text-lg hover:bg-white/20 transition">View Work</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-7xl">
+    <section id="services" class="py-24 bg-white px-6">
+        <div class="container mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h3 class="text-brand-primary font-bold mb-2">التميز الفني</h3>
-                <h2 class="text-4xl font-black text-brand-dark">خدمات هندسية تخصصية</h2>
+                <h2 class="text-brand-primary font-black mb-4 uppercase tracking-widest italic text-center">Technical Excellence</h2>
+                <h3 class="text-4xl font-black text-center">Specialized Engineering Services</h3>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
-                
-                <div class="p-8 bg-blue-50 border-2 border-blue-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="0">
-                    <span class="absolute top-5 left-5 bg-blue-600 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse">دقة 30 سم 🛰️</span>
-                    <div class="w-16 h-16 bg-blue-200 text-blue-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-satellite"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور فضائية فائقة الدقة (حديثة)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">نمتلك وصولاً لبيانات فضائية محدثة خلال أيام وبدقة تصل لـ 30 سم. مثالية لتخطيط المشاريع ورؤية المعالم بوضوح تام دون الحاجة لنزول ميداني مكلف.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="sat-30cm">اطلب الآن</button>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-amber-100 text-brand-primary rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-road"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">Road Design (Civil 3D)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Accurate alignment, profiling, and quantity takeoff adhering to global standards.</p>
                 </div>
-
-                <div class="p-8 bg-red-50 border-2 border-red-100 rounded-3xl relative overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                    <span class="absolute top-5 left-5 bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full animate-pulse shadow-md">رائجة 🔥</span>
-                    <div class="w-16 h-16 bg-red-200 text-red-700 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-scale-balanced"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">الفصل الفني في نزاعات الأراضي</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">إصدار تقارير هندسية محايدة وخرائط تطابق مبنية على الصور التاريخية والرفع الدقيق، لإنهاء خلافات تداخل الحدود أمام المحاكم والجلسات العرفية.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="disputes">تفاصيل</button>
-                        <button class="service-order flex-1 bg-red-500 text-white py-2 rounded-lg text-xs font-bold hover:bg-red-600 transition" data-id="disputes">اطلب الاستشارة</button>
-                    </div>
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">Hydrological Analysis</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Flood risk assessment and watershed analysis using ArcGIS Pro.</p>
                 </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-clock-rotate-left"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">صور جوية وتاريخية (أرشيف)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">استخراج صور جوية للسنوات الماضية لدراسة التغيرات الزمنية، إثبات حالة الأرض القديمة، ومراقبة زحف العمران وتغير مجاري السيول.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="history">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="history">اطلب الآن</button>
-                    </div>
+                <div class="service-card p-8 bg-gray-50 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4 class="text-xl font-bold mb-3 text-brand-secondary italic">GIS & Spatial Analysis</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Building smart geographic databases to support urban planning decisions.</p>
                 </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-road"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">تصميم الطرق (Civil 3D)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">تصميم المسارات الأفقية والرأسية، حساب كميات الحفر والردم بدقة متناهية تمنع هدر المواد، وتجهيز مخططات قابلة للتنفيذ المباشر.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="civil3d">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="civil3d">اطلب الآن</button>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-water"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">التحليل الهيدرولوجي للسيول</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">محاكاة دقيقة لمسارات السيول وأحواض التصريف باستخدام ArcGIS Pro لحماية المخططات السكنية ومشاريع الطرق من الكوارث الطبيعية.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="hydro">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="hydro">اطلب الآن</button>
-                    </div>
-                </div>
-
-                <div class="p-8 bg-gray-50 border border-gray-100 rounded-3xl relative" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-3xl"><i class="fas fa-map-location-dot"></i></div>
-                    <h4 class="text-xl font-bold mb-3 text-brand-dark">نظم المعلومات الجغرافية (GIS)</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">بناء وتطوير قواعد بيانات مكانية ذكية للمؤسسات الحكومية وشركات الاتصالات لدعم قرارات التخطيط وإدارة الأصول بكفاءة.</p>
-                    <div class="flex gap-2">
-                        <button class="service-open flex-1 bg-white border border-gray-200 py-2 rounded-lg text-xs font-bold" data-id="gis">تفاصيل</button>
-                        <button class="service-order flex-1 bg-brand-primary text-white py-2 rounded-lg text-xs font-bold" data-id="gis">اطلب الآن</button>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-black tracking-tighter mb-4">RAGEO<span class="text-brand-primary">MATICS</span></h2>
-            <p class="text-gray-400 mb-6">الوجهة الأولى للخدمات المساحية والهندسية الرقمية في مأرب واليمن.</p>
-            <div class="flex justify-center gap-6 mb-8 text-xl">
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+    <section id="portfolio" class="py-24 bg-gray-50 px-6">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-black uppercase tracking-tighter mb-12 italic">Track Record of Success</h2>
+            <div class="swiper portfolioSwiper pb-12">
+                <div class="swiper-wrapper text-left" id="project-container"></div>
+                <div class="swiper-pagination"></div>
             </div>
-            <p class="text-sm text-gray-500">© 2024 جميع الحقوق محفوظة لشركة آر إي جيوماتكس.</p>
         </div>
+    </section>
+
+    <footer class="bg-brand-secondary text-white py-12 px-6 text-center">
+        <h4 class="text-3xl font-black italic mb-4 tracking-widest">RAGEOMATICS</h4>
+        <p class="text-gray-500 text-sm">© 2026 RAGEOMATICS. All Rights Reserved.</p>
     </footer>
 
-    <div id="service-modal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-        <div class="bg-white rounded-3xl p-8 max-w-lg w-full relative transform scale-95 transition-transform duration-300" id="modal-content">
-            <button id="close-modal" class="absolute top-4 left-4 w-8 h-8 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 flex items-center justify-center">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 id="modal-title" class="text-2xl font-bold text-brand-dark mb-4 pl-8">عنوان الخدمة</h3>
-            <p id="modal-desc" class="text-gray-600 leading-relaxed mb-8">تفاصيل الخدمة تظهر هنا...</p>
-            <button id="modal-wa-btn" class="w-full bg-brand-primary text-white font-bold py-3 rounded-xl hover:bg-yellow-600 transition flex items-center justify-center gap-2">
-                <i class="fab fa-whatsapp text-xl"></i> اطلب الخدمة عبر واتساب
-            </button>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // تشغيل الأنيميشن
-        AOS.init({ once: true, duration: 800 });
+        const projects = [
+            { title: 'Western Ring Road', cat: 'Civil 3D', img: 'images/st35-2017.jpg' },
+            { title: 'Building Footprints (AI)', cat: 'GIS Digital', img: 'images/Building_footprints_marib.png' },
+            { title: 'Al-Khair Residential City', cat: '3D Viz', img: 'images/city-alher1.jpg' }
+        ];
 
-        // بيانات الخدمات
-        const servicesData = {
-            'sat-30cm': {
-                title: 'صور فضائية فائقة الدقة (30 سم)',
-                desc: 'بفضل شراكاتنا واشتراكاتنا المتقدمة، نوفر لك أحدث المرئيات الفضائية بدقة تصل إلى 30 سم (محدثة خلال أيام). هذه الخدمة تغنيك تماماً عن تكاليف النزول الميداني الباهظة، وتتيح للمطورين العقاريين والمكاتب الهندسية التخطيط ورؤية المعالم الأرضية بدقة مذهلة.',
-                wa: 'مرحباً، أرغب بالاستفسار عن خدمة الحصول على صور فضائية حديثة بدقة 30 سم لموقعي.'
-            },
-            'disputes': {
-                title: 'الفصل الفني في نزاعات الأراضي',
-                desc: 'الخدمة الأهم لحماية حقوقك! نقوم بالدمج بين "الرفع المساحي الميداني الدقيق" و "الصور الجوية التاريخية" لإصدار تقارير هندسية محايدة وخرائط تطابق قاطعة. تُعتمد تقاريرنا كدليل فني موثوق لدى المحاكم والجهات الرسمية والجلسات العرفية لإنهاء الخلافات على تداخل الحدود.',
-                wa: 'مرحباً، لدي نزاع/مشكلة حول حدود أرض وأحتاج لتقرير هندسي وصور تاريخية للفصل فيها.'
-            },
-            'history': {
-                title: 'صور جوية وتاريخية (أرشيف)',
-                desc: 'نمتلك القدرة على استرجاع صور فضائية أرشيفية للموقع المطلوب للسنوات السابقة. هذه الخدمة حيوية لمعرفة مجاري السيول القديمة، أو إثبات حالة الأرض والمباني قبل التعديات لحفظ الحقوق.',
-                wa: 'مرحباً، أريد طلب صور فضائية تاريخية (أرشيفية) لموقع معين.'
-            },
-            'civil3d': {
-                title: 'تصميم الطرق بـ Civil 3D',
-                desc: 'نقوم بتحويل البيانات المساحية إلى تصاميم طرق متكاملة ومطابقة للمواصفات. نصمم المسارات الأفقية والرأسية، والمقاطع العرضية، ونقدم جداول كميات دقيقة جداً للحفر والردم توفر على المقاول آلاف الدولارات.',
-                wa: 'مرحباً، أريد الاستفسار عن خدمات تصميم الطرق وحساب الكميات.'
-            },
-            'hydro': {
-                title: 'التحليل الهيدرولوجي للسيول',
-                desc: 'باستخدام برمجيات ArcGIS Pro المتقدمة، نقوم بدراسة طبوغرافية المنطقة وتحديد أحواض التصريف ومسارات السيول. هذه الخدمة أساسية قبل تخطيط أي مدينة سكنية أو طريق لتجنب كوارث الغرق لاحقاً.',
-                wa: 'مرحباً، أريد طلب دراسة تحليل هيدرولوجي لمسارات السيول لمشروعي.'
-            },
-            'gis': {
-                title: 'نظم المعلومات الجغرافية (GIS)',
-                desc: 'بناء وتطوير قواعد بيانات جغرافية متكاملة تساعد المؤسسات على إدارة أصولها ومواردها. نقوم أيضاً بعمليات تحويل البيانات المعقدة بين بيئات CAD و GIS.',
-                wa: 'مرحباً، أريد الاستفسار عن خدمات نظم المعلومات الجغرافية (GIS).'
-            }
-        };
-
-        // برمجة النافذة المنبثقة ورسائل الواتساب
-        const modal = document.getElementById('service-modal');
-        const modalContent = document.getElementById('modal-content');
-        const phone = "967735305077"; // رقمك
-
-        // فتح التفاصيل
-        document.querySelectorAll('.service-open').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                document.getElementById('modal-title').innerText = servicesData[id].title;
-                document.getElementById('modal-desc').innerText = servicesData[id].desc;
-                
-                const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(servicesData[id].wa)}`;
-                document.getElementById('modal-wa-btn').setAttribute('onclick', `window.open('${waLink}', '_blank')`);
-                
-                modal.classList.remove('modal-hidden');
-                modal.classList.add('modal-active');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, once: true });
+            
+            const container = document.getElementById('project-container');
+            projects.forEach(p => {
+                container.innerHTML += `
+                    <div class="swiper-slide p-4">
+                        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-500">
+                            <img src="${p.img}" class="w-full h-72 object-cover" onerror="this.src='https://placehold.co/600x400/ddd/888?text=Project'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-secondary via-brand-secondary/80 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition duration-500">
+                                <span class="text-brand-primary font-bold text-xs uppercase mb-2 block">${p.cat}</span>
+                                <h4 class="text-white text-xl font-black italic">${p.title}</h4>
+                            </div>
+                        </div>
+                    </div>`;
             });
-        });
 
-        // زر اطلب الآن (المباشر)
-        document.querySelectorAll('.service-order').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = e.target.getAttribute('data-id');
-                const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(servicesData[id].wa)}`;
-                window.open(waLink, '_blank');
+            new Swiper(".portfolioSwiper", {
+                slidesPerView: 1, spaceBetween: 10,
+                pagination: { el: ".swiper-pagination", clickable: true },
+                breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
             });
-        });
 
-        // إغلاق النافذة
-        document.getElementById('close-modal').addEventListener('click', () => {
-            modal.classList.add('modal-hidden');
-            modal.classList.remove('modal-active');
-            modalContent.classList.add('scale-95');
-            modalContent.classList.remove('scale-100');
-        });
-        
-        // إغلاق النافذة عند الضغط خارجها
-        modal.addEventListener('click', (e) => {
-            if(e.target === modal) {
-                document.getElementById('close-modal').click();
-            }
+            // Scroll Progress
+            window.addEventListener('scroll', () => {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                document.getElementById('scroll-progress').style.width = (winScroll / height) * 100 + "%";
+            });
         });
     </script>
 </body>
