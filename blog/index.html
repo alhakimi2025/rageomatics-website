@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المدونة | RAGEOMATICS</title>
+  <meta name="description" content="مقالات هندسية وجيوماتكس من RAGEOMATICS حول Civil 3D وArcGIS Pro والرفع المساحي والهيدرولوجيا." />
+
+  <link rel="canonical" href="https://www.rageomatics.me/blog/" />
+  <link rel="alternate" hreflang="ar" href="https://www.rageomatics.me/blog/" />
+  <link rel="alternate" hreflang="en" href="https://www.rageomatics.me/en/blog/" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">تخطي إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../index.html">
+        <img src="../images/logo.png" alt="RAGEOMATICS Logo" onerror="this.src='https://placehold.co/88x44/f59e0b/ffffff?text=RA'">
+        <span>RAGEOMATICS</span>
+      </a>
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../about.html">من نحن</a>
+        <a href="../projects/index.html">المشاريع</a>
+        <a href="../contact.html">تواصل</a>
+        <a class="btn" href="https://wa.me/967771305123" target="_blank" rel="noopener">واتساب</a>
+        <a href="../en/blog/index.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container">
+        <h1>المدونة</h1>
+        <p>محتوى هندسي مبسط يساعد العملاء والمهندسين على فهم الخدمات والمخرجات.</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding:24px 0;">
+      <div id="posts" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align:center;">
+      <div style="font-weight:900;">RAGEOMATICS</div>
+      <p class="small">© <span data-year></span> آر إي جيوماتكس. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js" defer></script>
+  <script defer>
+    (async function(){
+      const el = document.getElementById('posts');
+      let posts = [];
+      try {
+        const res = await fetch('../data/posts.json', { cache: 'no-store' });
+        posts = await res.json();
+      } catch(e){
+        el.innerHTML = '<div class="card">تعذر تحميل المقالات.</div>';
+        return;
+      }
+
+      el.innerHTML = posts.map(p => `
+        <article class="card span-6">
+          <h2 style="margin:0 0 6px; font-size:20px;">${p.title_ar}</h2>
+          <div class="muted">${p.date} • ${(p.tags||[]).join('، ')}</div>
+          <p class="muted" style="margin-top:10px;">${p.excerpt_ar}</p>
+          <a class="btn" href="${p.url_ar}" style="margin-top:10px;">اقرأ المقال</a>
+        </article>
+      `).join('') || '<div class="card">لا توجد مقالات بعد.</div>';
+    })();
+  </script>
+</body>
+</html>
