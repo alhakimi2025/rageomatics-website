@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ring-road-west",
+    "title_ar": "طريق الدائري الغربي",
+    "title_en": "Western Ring Road",
+    "category": "Civil 3D",
+    "year": "2024",
+    "location_ar": "مأرب - اليمن",
+    "location_en": "Marib, Yemen",
+    "image": "../images/st35-2017.jpg",
+    "excerpt_ar": "تصميم مسار وبروفايل ومقاطع عرضية وحساب كميات وفق معايير هندسية.",
+    "excerpt_en": "Alignment/profile/cross-sections and quantity takeoff aligned with engineering standards."
+  },
+  {
+    "id": "building-footprints",
+    "title_ar": "بصمة المباني (AI)",
+    "title_en": "Building Footprints (AI)",
+    "category": "GIS",
+    "year": "2025",
+    "location_ar": "مأرب - اليمن",
+    "location_en": "Marib, Yemen",
+    "image": "../images/Building_footprints_marib.png",
+    "excerpt_ar": "استخراج بصمات المباني وتحديث قواعد بيانات مكانية لدعم التخطيط.",
+    "excerpt_en": "Extracting building footprints and updating geodatabases to support planning."
+  }
+]
