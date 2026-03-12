@@ -1,0 +1,81 @@
+/* RAGEOMATICS shared styles (keep minimal; Tailwind still used on home) */
+:root{
+  --brand-primary:#f59e0b;
+  --brand-secondary:#1f2937;
+  --brand-accent:#10b981;
+}
+
+html { scroll-behavior:smooth; }
+body { margin:0; font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; background:#f9fafb; color:#111827; }
+
+.container { width:min(1100px, calc(100% - 32px)); margin-inline:auto; }
+
+.skip-link{
+  position:absolute; top:-40px; right:16px;
+  background:var(--brand-primary); color:white;
+  padding:10px 14px; border-radius:10px;
+  z-index:9999; transition:top .2s ease;
+}
+.skip-link:focus{ top:16px; }
+
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #eef2f7;
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--brand-secondary);
+  font-weight:900; letter-spacing:.5px;
+}
+.brand img{ height:44px; width:auto; }
+
+.nav a{ text-decoration:none; color:#374151; font-weight:800; }
+.nav a:hover{ color:var(--brand-primary); }
+
+.nav-links{ display:flex; gap:18px; align-items:center; }
+.btn{
+  display:inline-block;
+  background:var(--brand-primary);
+  color:white !important;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+.hero{
+  background:linear-gradient(rgba(17,24,39,.85), rgba(17,24,39,.92));
+  color:white;
+  padding:56px 0;
+}
+.hero h1{ margin:0 0 10px; font-size:clamp(28px, 5vw, 48px); }
+.hero p{ margin:0; color:#e5e7eb; line-height:1.9; }
+
+.card-grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:16px; margin:28px 0 40px; }
+.card{
+  grid-column:span 12;
+  background:white; border:1px solid #eef2f7;
+  border-radius:18px; padding:18px;
+  box-shadow:0 10px 20px rgba(0,0,0,.04);
+}
+@media (min-width: 900px){
+  .card.span-6{ grid-column:span 6; }
+  .card.span-4{ grid-column:span 4; }
+}
+
+.section-title{ font-size:28px; margin:0 0 14px; color:#111827; }
+.muted{ color:#6b7280; line-height:1.9; }
+
+.site-footer{
+  background:var(--brand-secondary);
+  color:white;
+  padding:30px 0;
+  margin-top:40px;
+}
+.site-footer a{ color:white; }
+.small{ font-size:13px; color:#9ca3af; }
