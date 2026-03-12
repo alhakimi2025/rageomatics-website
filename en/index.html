@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAGEOMATICS | Integrated Geomatics &amp; Engineering Solutions</title>
+    <meta name="description" content="RAGEOMATICS: Leading geomatics and engineering firm in Marib, Yemen. Road design with Civil 3D, GIS with ArcGIS Pro, and precision field surveying.">
+
+    <link rel="canonical" href="https://www.rageomatics.me/en/index.html" />
+    <link rel="alternate" hreflang="ar" href="https://www.rageomatics.me/" />
+    <link rel="alternate" hreflang="en" href="https://www.rageomatics.me/en/index.html" />
+
+    <meta property="og:title" content="RAGEOMATICS | Integrated Geomatics &amp; Engineering Solutions" />
+    <meta property="og:description" content="Road design, GIS analysis, hydrological studies and precision surveying in Marib, Yemen." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.rageomatics.me/en/index.html" />
+
+    <script>
+        window.tailwindConfig = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { primary: '#f59e0b', secondary: '#1f2937', accent: '#10b981' }
+                    },
+                    fontFamily: { cairo: ['Cairo', 'sans-serif'] }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = window.tailwindConfig;</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.9)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=2070'); background-size: cover; background-position: center; }
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid transparent; }
+        .service-card:hover { border-color: #f59e0b; transform: translateY(-10px); background: #ffffff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .text-glow { text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: #f59e0b; margin: 15px auto; border-radius: 10px; }
+        section { scroll-margin-top: 80px; }
+
+        /* Swiper Customization */
+        .swiper-button-next, .swiper-button-prev { color: #f59e0b !important; }
+        .swiper-pagination-bullet-active { background-color: #f59e0b !important; }
+
+        /* Marquee Animation */
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+        .animate-marquee { animation: marquee 30s linear infinite; }
+        .group:hover .animate-marquee { animation-play-state: paused; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-brand-primary selection:text-white overflow-x-hidden relative">
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-primary z-[60] w-0 transition-all duration-75"></div>
+
+    <div id="loader" class="fixed inset-0 z-[100] bg-brand-secondary flex items-center justify-center transition-opacity duration-500">
+        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-brand-primary"></div>
+    </div>
+
+    <header class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="flex items-center gap-3">
+                <img src="../images/logo.png" alt="RAGEOMATICS Logo" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA'">
+                <span class="text-xl font-black text-brand-secondary uppercase tracking-tighter">RAGEOMATICS</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#hero" class="font-bold text-gray-700 hover:text-brand-primary transition">Home</a>
+                <a href="#services" class="font-bold text-gray-700 hover:text-brand-primary transition">Services</a>
+                <a href="#portfolio" class="font-bold text-gray-700 hover:text-brand-primary transition">Projects</a>
+                <a href="#join-us" class="font-bold text-gray-700 hover:text-brand-primary transition">Join Us</a>
+                <a href="https://wa.me/967771305123" target="_blank" rel="noopener" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20 text-center">Get a Quote</a>
+                <a href="../index.html" class="font-black text-brand-secondary border-l-2 border-gray-200 pl-4 hover:text-brand-primary transition" aria-label="Arabic Version">AR</a>
+            </nav>
+
+            <button id="mobile-btn" class="lg:hidden p-2 text-brand-secondary" aria-label="Open menu"><i class="fas fa-bars text-2xl"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 p-6 shadow-xl space-y-4">
+            <a href="#hero" class="block font-bold menu-link">Home</a>
+            <a href="#services" class="block font-bold menu-link">Services</a>
+            <a href="#portfolio" class="block font-bold menu-link">Projects</a>
+            <a href="#join-us" class="block font-bold menu-link">Join Us</a>
+            <a href="../index.html" class="block font-bold text-gray-500 menu-link"><i class="fas fa-globe"></i> العربية</a>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-gradient min-h-[85vh] flex items-center text-white relative">
+        <div class="container mx-auto px-6 relative z-10 text-center md:text-left" data-aos="fade-up">
+            <div class="max-w-4xl">
+                <span class="bg-brand-primary text-white px-4 py-1 rounded-md text-xs font-bold mb-6 inline-block uppercase italic">Pioneering Precision in Marib</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">Engineering Precision <br><span class="text-brand-primary text-glow">in Digital Reality.</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light italic text-left">
+                    RAGEOMATICS: pioneering road design with Civil 3D and ArcGIS Pro spatial analysis in Marib. We combine deep field expertise with cutting-edge digital engineering solutions.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="https://wa.me/967771305123" target="_blank" rel="noopener" class="bg-brand-primary px-10 py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition shadow-xl">Start Your Project</a>
+                    <a href="#portfolio" class="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-xl font-black text-lg hover:bg-white/20 transition">View Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-5xl font-black text-brand-primary"><span class="counter" data-target="50">0</span>+</div>
+                    <p class="text-gray-500 font-bold mt-2">Projects Completed</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-black text-brand-primary"><span class="counter" data-target="8">0</span>+</div>
+                    <p class="text-gray-500 font-bold mt-2">Years of Experience</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-black text-brand-primary"><span class="counter" data-target="30">0</span>+</div>
+                    <p class="text-gray-500 font-bold mt-2">Satisfied Clients</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-black text-brand-primary"><span class="counter" data-target="100">0</span>%</div>
+                    <p class="text-gray-500 font-bold mt-2">On-Time Delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-secondary section-title">Our Services</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-4 font-light">Comprehensive geomatics and engineering solutions delivered with precision and professionalism.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="road-design" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-road text-3xl text-brand-primary"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">Road Design (Civil 3D)</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Alignment, profiles, cross-sections and quantity takeoff with 100% accuracy per international standards.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="hydrology" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-water text-3xl text-blue-500"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">Hydrological Analysis &amp; Flood Risk</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Flood-path and catchment studies using digital elevation models to ensure project safety and sustainability.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="gis" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-map-marked-alt text-3xl text-green-500"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">GIS Solutions (ArcGIS Pro)</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Smart geodatabases, spatial analysis, and interactive digital maps for decision support.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="surveying" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-drafting-compass text-3xl text-purple-500"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">Precision Field Surveying</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Total-station and GNSS surveys for topographic mapping and engineering layout using Leica equipment.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="disputes" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-balance-scale text-3xl text-red-500"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">Land Boundary Disputes</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Precise surveying and deed overlay to legally define land boundaries and resolve disputes neutrally.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+
+                <div class="service-card bg-white p-8 rounded-3xl shadow-sm cursor-pointer service-open" data-service-id="high-res-images" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-satellite text-3xl text-yellow-500"></i></div>
+                    <h3 class="text-xl font-black text-brand-secondary mb-3">High-Resolution Satellite Imagery</h3>
+                    <p class="text-gray-500 font-light leading-relaxed">Sourcing and geo-rectifying up-to-date satellite imagery for use as basemaps in GIS and engineering software.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-primary font-bold">Learn more <i class="fas fa-arrow-right text-sm"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 bg-white px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-secondary section-title">Our Projects</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-4 font-light">A selection of real-world geomatics and engineering projects delivered across Yemen.</p>
+            </div>
+
+            <div class="swiper portfolioSwiper" data-aos="fade-up">
+                <div class="swiper-wrapper" id="project-container"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-y border-gray-100 overflow-hidden">
+        <div class="container mx-auto px-6 text-center mb-8">
+            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm">Trusted by leading organisations in Marib &amp; Yemen</p>
+        </div>
+        <div class="relative flex overflow-x-hidden group">
+            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+            <div class="flex animate-marquee whitespace-nowrap gap-16 items-center">
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-building mr-2"></i>Ministry of Public Works</span>
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-handshake mr-2"></i>Social Fund for Development</span>
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-globe mr-2"></i>International Organisations</span>
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-city mr-2"></i>Marib Local Authority</span>
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-building mr-2"></i>Ministry of Public Works</span>
+                <span class="text-2xl font-black text-gray-300 mx-8"><i class="fas fa-handshake mr-2"></i>Social Fund for Development</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="join-us" class="py-24 bg-gray-50 px-6">
+        <div class="container mx-auto max-w-4xl text-left">
+            <div class="bg-brand-secondary text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden" data-aos="fade-up">
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-black mb-2 italic tracking-tighter uppercase">Join RAGEOMATICS Team</h3>
+                    <h4 class="text-xl mb-8 text-gray-300">Apply to our engineering team</h4>
+                    <form action="https://formsubmit.co/rageomaticsme@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6 text-left">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://www.rageomatics.me/en/index.html">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white placeholder-gray-400">
+                            <input type="text" name="specialty" placeholder="Engineering Specialty" required class="w-full p-4 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-brand-primary text-white placeholder-gray-400">
+                        </div>
+                        <input type="file" name="attachment" required class="w-full text-sm text-gray-400 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:bg-brand-primary file:text-white cursor-pointer hover:file:bg-amber-600 transition">
+                        <button type="submit" class="w-full bg-brand-primary text-brand-secondary py-4 rounded-xl font-black text-xl hover:bg-white transition italic uppercase shadow-lg shadow-brand-primary/30">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-secondary text-white py-12 px-6">
+        <div class="container mx-auto text-center">
+            <h4 class="text-3xl font-black italic mb-4 uppercase tracking-widest">RAGEOMATICS</h4>
+            <div class="flex justify-center gap-6 text-2xl mb-8">
+                <a href="https://www.facebook.com/RAGeomatics" target="_blank" rel="noopener" class="hover:text-brand-primary transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/967771305123" target="_blank" rel="noopener" class="hover:text-brand-primary transition" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm italic">© 2026 RAGEOMATICS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-brand-primary text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-secondary hover:scale-110 z-50" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="service-modal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 text-left">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden transform scale-95 transition-all duration-300">
+            <div class="p-8 relative">
+                <button id="modal-close" class="absolute top-6 right-6 text-gray-400 hover:text-brand-secondary text-2xl transition" aria-label="Close"><i class="fas fa-times"></i></button>
+                <div id="modal-content-area" class="space-y-6 text-left mt-2"></div>
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <button id="modal-order-btn" class="w-full bg-brand-primary text-white py-4 rounded-xl font-black text-lg hover:bg-amber-600 transition italic shadow-lg shadow-brand-primary/20">Request This Service Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        const servicesData = {
+            'road-design': { title: 'Road Design (Civil 3D)', desc: 'Design road alignments, profiles and cross-sections and perform quantity takeoff with 100% accuracy per international engineering standards.', wa: 'I would like to request Road Design (Civil 3D) service' },
+            'hydrology': { title: 'Hydrological Analysis & Flood Risk', desc: 'Study flood paths and drainage basins using digital elevation models to ensure project safety and long-term sustainability.', wa: 'I would like to request a Hydrological Analysis & Flood Risk study' },
+            'gis': { title: 'GIS Solutions (ArcGIS Pro)', desc: 'Build smart geodatabases, perform spatial data analysis, and produce interactive digital maps that support decision-making.', wa: 'I would like to request GIS Solutions (ArcGIS Pro) service' },
+            'surveying': { title: 'Precision Field Surveying', desc: 'Total-station and GNSS surveys for topographic mapping and engineering layout using Leica GS18 and GS10 equipment.', wa: 'I would like to request Precision Field Surveying service' },
+            'disputes': { title: 'Land Boundary Disputes', desc: 'Precise surveying and deed/document overlay to legally define land boundaries and help resolve disputes between parties in a neutral and certified manner.', wa: 'I would like to request Land Boundary Dispute resolution service' },
+            'high-res-images': { title: 'High-Resolution Satellite Imagery', desc: 'Sourcing current, high-resolution satellite imagery and geo-rectifying it for use as basemaps in GIS and engineering design software.', wa: 'I would like to request High-Resolution Satellite Imagery service' }
+        };
+
+        const projects = [
+            { title: 'Western Ring Road', cat: 'Civil 3D', img: '../images/st35-2017.jpg' },
+            { title: 'Building Footprints (AI)', cat: 'GIS Digital', img: '../images/Building_footprints_marib.png' },
+            { title: 'Al-Khayr Residential City', cat: '3D Visualization', img: '../images/city-alher1.jpg' },
+            { title: 'Land Boundary Survey', cat: 'Land Surveying', img: '../images/gps15.jpg' },
+            { title: 'Leica GS18 Field Operations', cat: 'Geomatics', img: '../images/Works-Leica GS18.jpg' },
+            { title: 'Surveying Equipment Inspection', cat: 'Geomatics', img: '../images/Inspection of new surveying equipment.jpg' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Remove Loader
+            const loader = document.getElementById('loader');
+            if (loader) setTimeout(() => loader.classList.add('opacity-0', 'pointer-events-none'), 800);
+
+            // 2. Initialize AOS
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
+
+            // 3. Inject Portfolio to Swiper
+            const container = document.getElementById('project-container');
+            projects.forEach(p => {
+                container.innerHTML += `
+                    <div class="swiper-slide p-4">
+                        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:-translate-y-2 transition duration-500">
+                            <img src="${p.img}" class="w-full h-72 object-cover" onerror="this.src='https://placehold.co/600x400/ddd/888?text=Project'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-secondary via-brand-secondary/80 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition duration-500 text-left">
+                                <span class="text-brand-primary font-bold text-xs uppercase mb-2 block">${p.cat}</span>
+                                <h4 class="text-white text-xl font-black italic">${p.title}</h4>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+
+            // 4. Initialize Swiper
+            new Swiper(".portfolioSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                pagination: { el: ".swiper-pagination", clickable: true },
+                breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }
+            });
+
+            // 5. Counters Animation
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        const speed = 200;
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            const inc = target / speed;
+                            if (count < target) { counter.innerText = Math.ceil(count + inc); setTimeout(updateCount, 15); }
+                            else { counter.innerText = target; }
+                        };
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            counters.forEach(c => observer.observe(c));
+
+            // 6. Scroll Progress & Back to Top
+            const progressBar = document.getElementById('scroll-progress');
+            const bttBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                progressBar.style.width = (winScroll / height) * 100 + "%";
+                if (winScroll > 400) bttBtn.classList.remove('opacity-0', 'pointer-events-none');
+                else bttBtn.classList.add('opacity-0', 'pointer-events-none');
+            });
+
+            bttBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // 7. Modal Logic
+            const modal = document.getElementById('service-modal');
+            const modalBody = document.getElementById('modal-content-area');
+            let currentId = '';
+
+            document.addEventListener('click', (e) => {
+                const open = e.target.closest('.service-open');
+                const order = e.target.closest('.service-order');
+                const close = e.target.closest('#modal-close');
+                const modalOrderBtn = e.target.closest('#modal-order-btn');
+
+                if (open) {
+                    const s = servicesData[open.dataset.serviceId];
+                    currentId = open.dataset.serviceId;
+                    modalBody.innerHTML = `<h3 class="text-3xl font-black text-brand-secondary mb-4 italic">${s.title}</h3><p class="text-gray-600 text-lg leading-relaxed">${s.desc}</p>`;
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modal.querySelector('.bg-white').classList.remove('scale-95');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                if (order || modalOrderBtn) {
+                    const id = order ? order.dataset.serviceId : currentId;
+                    window.open(`https://wa.me/967771305123?text=${encodeURIComponent('Hello, ' + servicesData[id].wa)}`, "_blank");
+                }
+
+                if (close || e.target === modal) {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modal.querySelector('.bg-white').classList.add('scale-95');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Mobile menu toggle
+            document.getElementById('mobile-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
