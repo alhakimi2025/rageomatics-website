@@ -1,4 +1,9 @@
-,
+[
+  {
+    "title_ar": "عنوان تجريبي",
+    "title_en": "Sample Post Title",
+    "date": "2026-03-16",
+    "tags": ["GIS", "Decision"],
     "excerpt_ar": "نظرة سريعة على كيف يساعد GIS في تقليل المخاطر وتحسين القرار.",
     "excerpt_en": "A quick look at how GIS reduces risk and improves decision-making.",
     "url_ar": "sample-post.html",
@@ -6,23 +11,32 @@
   },
   {
     "title_ar": "التوأمة الرقمية (Digital Twins): كيف ترسم تقنيات المساحة مستقبل البنية التحتية؟",
+    "title_en": "Digital Twins: How surveying and geomatics are shaping infrastructure",
     "date": "2026-03-20",
     "tags": ["نظم المعلومات", "المدن الذكية"],
-    "excerpt_ar": "تُعد التوأمة الرقمية حجر الزاوية في المشاريع السعودية العملاقة مثل نيوم (NEOM)، حيث تدمج البيانات اللحظية والذكاء الاصطناعي لتحسين البنية التحتية.",
-    "url_ar": "digital-twins.html"
+    "excerpt_ar": "تُعد التوأمة الرقمية حجر الزاوية في المشاريع السعودية العملاقة مثل نيوم (NEOM)...",
+    "excerpt_en": "Digital twins are becoming a cornerstone for mega-projects like NEOM, combining real-time data and AI to optimize infrastructure.",
+    "url_ar": "digital-twins.html",
+    "url_en": "digital-twins.html"
   },
   {
     "title_ar": "الذكاء الاصطناعي الجيومكاني (GeoAI): دليلك الشامل لتحويل البيانات المكانية إلى قرارات",
+    "title_en": "GeoAI: A practical guide to turning spatial data into decisions",
     "date": "2026-03-22",
     "tags": ["الذكاء الاصطناعي", "تحليل البيانات"],
-    "excerpt_ar": "مع توقعات بنمو سوق التحليلات الجيومكانية، تعرف على دور خوارزميات تعلم الآلة في أتمتة استخراج المعالم من الصور الفضائية.",
-    "url_ar": "geo-ai.html"
+    "excerpt_ar": "مع توقعات بنمو سوق التحليلات الجيومكانية، تعرف على دور خوارزميات تعلم الآلة...",
+    "excerpt_en": "With geospatial analytics growing fast, learn how machine learning automates feature extraction from satellite and drone imagery.",
+    "url_ar": "geo-ai.html",
+    "url_en": "geo-ai.html"
   },
   {
     "title_ar": "التقاط الواقع (Reality Capture): لماذا يتفوق المسح بالليزر والدرون على الطرق التقليدية؟",
+    "title_en": "Reality Capture: Why LiDAR and drones outperform traditional methods",
     "date": "2026-03-25",
     "tags": ["الرفع المساحي", "الدرون"],
-    "excerpt_ar": "أصبح التقاط الواقع باستخدام طائرات الدرون وتقنية (LiDAR) هو المعيار الأساسي في المشاريع الهندسية لعام 2026، مما يوفر دقة متناهية.",
-    "url_ar": "reality-capture.html"
+    "excerpt_ar": "أصبح التقاط الواقع باستخدام طائرات الدرون وتقنية (LiDAR) هو المعيار الأساسي...",
+    "excerpt_en": "Reality capture using drones and LiDAR has become the standard in 2026 projects, delivering high accuracy and speed.",
+    "url_ar": "reality-capture.html",
+    "url_en": "reality-capture.html"
   }
 ]
