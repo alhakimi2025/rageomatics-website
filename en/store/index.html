@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Store | RAGEOMATICS</title>
+    <meta name="description" content="Professional ready-to-use templates for Civil 3D, InfraWorks, and ArcGIS Pro from RAGEOMATICS. Download instantly and start your project.">
+
+    <link rel="canonical" href="https://www.rageomatics.me/en/store/" />
+    <link rel="alternate" hreflang="ar" href="https://www.rageomatics.me/store/" />
+    <link rel="alternate" hreflang="en" href="https://www.rageomatics.me/en/store/" />
+
+    <meta property="og:title" content="Digital Store | RAGEOMATICS" />
+    <meta property="og:description" content="Professional ready-to-use templates for Civil 3D, InfraWorks, and ArcGIS Pro." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.rageomatics.me/en/store/" />
+
+    <script>
+        window.tailwindConfig = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { primary: '#f59e0b', secondary: '#1f2937', accent: '#10b981' }
+                    },
+                    fontFamily: { cairo: ['Cairo', 'sans-serif'] }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = window.tailwindConfig;</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .text-glow { text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: #f59e0b; margin: 15px auto; border-radius: 10px; }
+        section { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-brand-primary selection:text-white overflow-x-hidden relative">
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-primary z-[60] w-0 transition-all duration-75"></div>
+
+    <header class="glass-nav sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../en/index.html" class="flex items-center gap-3">
+                <img src="../../images/logo.png" alt="RAGEOMATICS Logo" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/f59e0b/ffffff?text=RA'">
+                <span class="text-xl font-black text-brand-secondary uppercase tracking-tighter">RAGEOMATICS</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="../../en/index.html" class="font-bold text-gray-700 hover:text-brand-primary transition">Home</a>
+                <a href="../../en/index.html#services" class="font-bold text-gray-700 hover:text-brand-primary transition">Services</a>
+                <a href="../../en/projects/index.html" class="font-bold text-gray-700 hover:text-brand-primary transition">Projects</a>
+                <a href="../../en/blog/index.html" class="font-bold text-gray-700 hover:text-brand-primary transition">Blog</a>
+                <a href="index.html" class="font-bold text-brand-primary transition">Store</a>
+                <a href="../../en/about.html" class="font-bold text-gray-700 hover:text-brand-primary transition">About</a>
+                <a href="../../en/contact.html" class="font-bold text-gray-700 hover:text-brand-primary transition">Contact</a>
+                <a href="https://wa.me/967771305123" target="_blank" rel="noopener" class="bg-brand-primary text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/20 text-center">Get a Quote</a>
+                <a href="../../store/index.html" class="font-black text-brand-secondary border-l-2 border-gray-200 pl-4 hover:text-brand-primary transition" aria-label="Arabic Version">AR</a>
+            </nav>
+
+            <button id="mobile-btn" class="lg:hidden p-2 text-brand-secondary" aria-label="Open menu"><i class="fas fa-bars text-2xl"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 p-6 shadow-xl space-y-4">
+            <a href="../../en/index.html" class="block font-bold menu-link">Home</a>
+            <a href="../../en/index.html#services" class="block font-bold menu-link">Services</a>
+            <a href="../../en/projects/index.html" class="block font-bold menu-link">Projects</a>
+            <a href="../../en/blog/index.html" class="block font-bold menu-link">Blog</a>
+            <a href="index.html" class="block font-bold text-brand-primary menu-link">Store</a>
+            <a href="../../en/about.html" class="block font-bold menu-link">About</a>
+            <a href="../../en/contact.html" class="block font-bold menu-link">Contact</a>
+            <a href="../../store/index.html" class="block font-bold text-gray-500 menu-link"><i class="fas fa-globe"></i> العربية</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="bg-brand-secondary text-white py-20 px-6">
+        <div class="container mx-auto text-center" data-aos="fade-up">
+            <span class="bg-brand-primary text-white px-4 py-1 rounded-md text-xs font-bold mb-6 inline-block uppercase italic">Digital Products</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4">Digital <span class="text-brand-primary text-glow">Store</span></h1>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto font-light">Professional ready-to-use templates for Civil 3D, InfraWorks, and ArcGIS Pro — download instantly and start your project with confidence.</p>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-24 px-6">
+        <div class="container mx-auto">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Product 1: Civil 3D -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
+                        <i class="fas fa-road text-7xl text-white/80"></i>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <span class="text-xs font-bold text-brand-primary uppercase bg-amber-50 px-3 py-1 rounded-full">Civil 3D</span>
+                        <h2 class="text-xl font-black text-brand-secondary mt-4 mb-3">Road Design Template – Civil 3D</h2>
+                        <p class="text-gray-500 font-light leading-relaxed">A professional Civil 3D project template pre-configured with alignment, profile, cross-section, and quantity takeoff settings. Save hours of setup.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Pre-configured corridor templates</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Profile label styles</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Cross-section sheets</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Quantity takeoff tables</li>
+                        </ul>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl font-black text-brand-primary">$5</span>
+                            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-download"></i> Instant download</span>
+                        </div>
+                        <a href="civil3d-road-template.html" class="block w-full bg-brand-primary text-white text-center py-3 rounded-xl font-black hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">View Product <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 2: ArcGIS Pro -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt text-7xl text-white/80"></i>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <span class="text-xs font-bold text-green-600 uppercase bg-green-50 px-3 py-1 rounded-full">ArcGIS Pro</span>
+                        <h2 class="text-xl font-black text-brand-secondary mt-4 mb-3">ArcGIS Pro Map Layout Pack</h2>
+                        <p class="text-gray-500 font-light leading-relaxed">A set of professionally designed map layout templates for ArcGIS Pro in A3/A4 sizes, ready for print and digital delivery with full cartographic elements.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> A3 / A4 / Letter layout templates</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> North arrows and scale bars</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Legend templates</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Color-coded symbology layers</li>
+                        </ul>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl font-black text-brand-primary">$3</span>
+                            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-download"></i> Instant download</span>
+                        </div>
+                        <a href="arcgis-map-template.html" class="block w-full bg-brand-primary text-white text-center py-3 rounded-xl font-black hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">View Product <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Product 3: InfraWorks -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 hover:-translate-y-2 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-cubes text-7xl text-white/80"></i>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <span class="text-xs font-bold text-blue-600 uppercase bg-blue-50 px-3 py-1 rounded-full">InfraWorks</span>
+                        <h2 class="text-xl font-black text-brand-secondary mt-4 mb-3">InfraWorks Project Starter</h2>
+                        <p class="text-gray-500 font-light leading-relaxed">A pre-configured InfraWorks model with terrain, road component styles, and structural elements ready for professional 3D visualization.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Terrain model setup</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Road component styles</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Bridge and structure templates</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-accent text-xs"></i> Camera path configurations</li>
+                        </ul>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-3xl font-black text-brand-primary">$4</span>
+                            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-download"></i> Instant download</span>
+                        </div>
+                        <a href="infraworks-scene-starter.html" class="block w-full bg-brand-primary text-white text-center py-3 rounded-xl font-black hover:bg-amber-600 transition shadow-lg shadow-amber-500/20">View Product <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Banner -->
+    <section class="py-16 bg-brand-secondary text-white px-6">
+        <div class="container mx-auto text-center" data-aos="fade-up">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <i class="fas fa-shield-alt text-3xl text-brand-primary mb-3"></i>
+                    <h3 class="font-black text-lg mb-2">Secure Payment via Gumroad</h3>
+                    <p class="text-gray-400 text-sm font-light">Gumroad's trusted platform ensures your payment security and instant file delivery.</p>
+                </div>
+                <div>
+                    <i class="fas fa-download text-3xl text-brand-primary mb-3"></i>
+                    <h3 class="font-black text-lg mb-2">Instant Download</h3>
+                    <p class="text-gray-400 text-sm font-light">Get your files immediately after payment completes — no waiting.</p>
+                </div>
+                <div>
+                    <i class="fas fa-headset text-3xl text-brand-primary mb-3"></i>
+                    <h3 class="font-black text-lg mb-2">Technical Support Available</h3>
+                    <p class="text-gray-400 text-sm font-light">Contact us via WhatsApp for any technical help using the templates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-secondary text-white py-12 px-6 border-t border-white/10">
+        <div class="container mx-auto text-center">
+            <h4 class="text-3xl font-black italic mb-4 uppercase tracking-widest">RAGEOMATICS</h4>
+            <div class="flex justify-center gap-6 text-2xl mb-8">
+                <a href="https://www.facebook.com/RAGeomatics" target="_blank" rel="noopener" class="hover:text-brand-primary transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/967771305123" target="_blank" rel="noopener" class="hover:text-brand-primary transition" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm italic">© 2026 RAGEOMATICS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-brand-primary text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-secondary hover:scale-110 z-50" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
+
+            const progressBar = document.getElementById('scroll-progress');
+            const bttBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                progressBar.style.width = (winScroll / height) * 100 + "%";
+                if (winScroll > 400) bttBtn.classList.remove('opacity-0', 'pointer-events-none');
+                else bttBtn.classList.add('opacity-0', 'pointer-events-none');
+            });
+
+            bttBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            document.getElementById('mobile-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
