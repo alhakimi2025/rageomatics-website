@@ -1,15 +1,10 @@
-[
-  {
-    "id": "why-gis-matters",
-    "title_ar": "لماذا GIS مهم للمشاريع الهندسية؟",
-    "title_en": "Why GIS Matters for Engineering Projects",
-    "date": "2026-03-12",
-    "tags": ["GIS", "ArcGIS Pro"],
+,
     "excerpt_ar": "نظرة سريعة على كيف يساعد GIS في تقليل المخاطر وتحسين القرار.",
     "excerpt_en": "A quick look at how GIS reduces risk and improves decision-making.",
     "url_ar": "sample-post.html",
     "url_en": "sample-post.html"
-    ,{
+  },
+  {
     "title_ar": "التوأمة الرقمية (Digital Twins): كيف ترسم تقنيات المساحة مستقبل البنية التحتية؟",
     "date": "2026-03-20",
     "tags": ["نظم المعلومات", "المدن الذكية"],
@@ -30,3 +25,4 @@
     "excerpt_ar": "أصبح التقاط الواقع باستخدام طائرات الدرون وتقنية (LiDAR) هو المعيار الأساسي في المشاريع الهندسية لعام 2026، مما يوفر دقة متناهية.",
     "url_ar": "reality-capture.html"
   }
+]
